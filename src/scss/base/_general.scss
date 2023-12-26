@@ -1,0 +1,55 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: unset !important;
+  width: 100%;
+}
+
+body {
+  background-color: $white;
+}
+
+.global-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+
+  .container-fluid {
+    max-width: $max-content;
+
+    @include media-breakpoint-up(xl) {
+      padding: 0 10.14vw;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      padding: 0 9.375vw;
+    }
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+.row {
+  --bs-gutter-x: 2rem;
+}
+
+a {
+  color: inherit;
+  transition: all 0.2s;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+.bg-gray {
+  background: $gray-100;
+}

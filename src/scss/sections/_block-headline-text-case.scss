@@ -1,0 +1,56 @@
+.block-headline-text-case {
+  padding: 60px 0;
+
+  h4 {
+    @include font-size($h3-font-size-sm, $h4-font-size);
+    line-height: 0.98;
+    font-weight: 500;
+    margin: 0 0 52px 0;
+  }
+
+  p {
+    margin: 0 0 25px;
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 140px 0 200px;
+
+    h4 {
+      br {
+        display: none;
+      }
+    }
+
+    .text {
+      padding: 10px 0 0 52px;
+      p {
+        margin: 0 0 26px;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    padding: 115px 0;
+
+    h4 {
+      margin-top: 11px;
+      br {
+        display: block;
+      }
+    }
+
+    .text {
+      width: 506px;
+      padding: 17px 10px 0 0;
+      float: right;
+
+      p {
+        margin: 0 0 34px;
+        line-height: 1.4;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+textarea.form-control {
+  resize: none;
+  padding: 1.05rem 1.15rem;
+
+  @include media-breakpoint-up(xl) {
+    padding: 0.8rem 1rem;
+  }
+}
+
+.form-label {
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.form-check {
+  min-height: 0;
+  line-height: 1.125rem;
+
+  .form-check-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.48;
+  }
+
+  @include media-breakpoint-up(xl) {
+    .form-check-label {
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+  }
+}

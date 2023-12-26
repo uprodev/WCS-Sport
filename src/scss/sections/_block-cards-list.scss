@@ -1,0 +1,61 @@
+.block-cards-list {
+  padding: 0 0 64px;
+
+  .row {
+    --bs-gutter-x: 1.5rem;
+  }
+
+  h3 {
+    @include font-size(3.25rem, $h3-font-size);
+    line-height: 0.97;
+    margin: 0 0 25px;
+  }
+
+  .pagination {
+    margin: 15px 0 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    .pagination {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-between(xl, xxl) {
+    .container-fluid {
+      &--wide {
+        padding: 0 3.3vw;
+      }
+    }
+
+    h3 {
+      font-size: 48px;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 0 0 140px;
+
+    &:last-child {
+      padding: 0 0 60px;
+    }
+
+    h3 {
+      line-height: 0.9;
+    }
+
+    .row {
+      --bs-gutter-y: 0rem;
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    .row {
+      --bs-gutter-y: 4.2rem;
+    }
+
+    &:last-child {
+      padding: 0 0 100px;
+    }
+  }
+}

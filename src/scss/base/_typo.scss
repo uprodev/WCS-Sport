@@ -1,0 +1,106 @@
+input,
+select,
+textarea,
+button {
+  font-family: $font-family-base;
+}
+
+html {
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+body {
+  color: $secondary;
+  font-family: $font-family-base;
+  font-size: clamp($font-size-base-sm, get-vw($font-size-base), $font-size-base);
+  line-height: $line-height-base-sm;
+  font-weight: $font-weight-normal;
+
+  @include media-breakpoint-up(lg) {
+    line-height: $line-height-base;
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: 21px;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    font-size: 26px;
+  }
+}
+
+.fs-21 {
+  @include media-breakpoint-up(xl) {
+    font-size: 18px;
+  }
+  @include media-breakpoint-up(xxl) {
+    font-size: 21px;
+  }
+}
+
+h1 {
+  font-size: clamp($h1-font-size-sm, get-vw($h1-font-size), $h1-font-size);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 0.85;
+  text-transform: uppercase;
+
+  @include media-breakpoint-up(lg) {
+    line-height: 0.85;
+  }
+}
+
+h2 {
+  font-size: clamp($h2-font-size-sm, get-vw($h2-font-size), $h2-font-size);
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: -0.01em;
+
+  @include media-breakpoint-up(lg) {
+    line-height: 0.9;
+  }
+}
+
+h3 {
+  font-size: clamp($h3-font-size-sm, get-vw($h3-font-size), $h3-font-size);
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+
+  @include media-breakpoint-up(lg) {
+    line-height: 1.05;
+  }
+}
+
+h4 {
+  font-size: clamp($h4-font-size-sm, get-vw($h4-font-size), $h4-font-size);
+  letter-spacing: 0.01em;
+  font-weight: 500;
+  line-height: 1.03;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+
+  @include media-breakpoint-up(lg) {
+    line-height: 1.05;
+  }
+}
+
+small {
+  font-size: 0.778em;
+
+  @include media-breakpoint-up(xl) {
+    font-size: 0.6923em;
+  }
+}
+
+.lead {
+  @include font-size(1.5rem, 2.125rem);
+  line-height: 1.11;
+  letter-spacing: 0.01em;
+
+  @include media-breakpoint-up(lg) {
+    line-height: 1.3;
+  }
+}

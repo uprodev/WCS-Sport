@@ -1,0 +1,19 @@
+.block-case-video {
+  height: 650px;
+
+  video {
+    @include img-fit;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: 750px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    height: 900px;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    height: 100vh;
+  }
+}

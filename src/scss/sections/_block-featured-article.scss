@@ -1,0 +1,157 @@
+.block-featured-article {
+  padding: 32px 0;
+
+  .container-fluid {
+    padding-left: 0;
+
+    @include media-breakpoint-down(md) {
+      padding-right: 0;
+    }
+  }
+
+  .image {
+    .img-fade {
+      @include img-abs-container(90%);
+    }
+  }
+
+  .text {
+    padding: 28px 27px 31px;
+    font-size: 0.875rem;
+    line-height: 1.3;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+
+    .category {
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin: 24px 0 53px;
+      @include font-size(2.875rem, $h3-font-size);
+      line-height: 0.97;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    p {
+      margin: 0 0 58px;
+    }
+
+    .btn-wrap {
+      .btn {
+        width: auto;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .image {
+      height: 100%;
+      .img-fade {
+        height: 100%;
+        padding: 0;
+      }
+    }
+
+    .text {
+      padding: 28px 0 31px;
+
+      .btn-wrap {
+        margin-top: auto;
+      }
+    }
+  }
+
+  @include media-breakpoint-between(xl, xxl) {
+    padding: 0;
+
+    .row {
+      --bs-gutter-x: 6.5vw;
+    }
+
+    .image {
+      height: auto;
+      padding: 0 25px 0 0;
+
+      .img-fade {
+        height: 40.6vw;
+        max-height: 585px;
+      }
+    }
+
+    .text {
+      max-width: 505px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 20.5% 0 5%;
+      font-size: 1rem;
+      letter-spacing: 0;
+
+      .category {
+        font-size: 0.75rem;
+        letter-spacing: 0.01em;
+      }
+
+      h3 {
+        font-size: 48px;
+        line-height: 0.9;
+        margin: 27px 0 42px;
+      }
+
+      p {
+        font-size: 14px;
+        margin: 0 0 86px;
+      }
+
+      .btn-wrap {
+        margin: 0;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    padding: 0;
+
+    .row {
+      --bs-gutter-x: 7rem;
+    }
+
+    .image {
+      height: auto;
+      padding: 0 20px 0 0;
+
+      .img-fade {
+        height: 44.8vw;
+        max-height: 860px;
+      }
+    }
+
+    .text {
+      max-width: 505px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 17.5% 0 12.5%;
+      font-size: 1rem;
+      letter-spacing: 0;
+
+      .category {
+        font-size: 0.75rem;
+        letter-spacing: 0.01em;
+      }
+
+      h3 {
+        line-height: 0.9;
+        margin: 37px 0 113px;
+      }
+
+      p {
+        margin: 0 0 30px;
+      }
+    }
+  }
+}

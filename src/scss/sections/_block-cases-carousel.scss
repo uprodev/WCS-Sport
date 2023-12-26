@@ -1,0 +1,36 @@
+.block-cases-carousel {
+  padding: 0 0 30px;
+
+  .swiper {
+    padding: 0 1.5rem 0 0;
+  }
+
+  @include media-breakpoint-down(md) {
+    .swiper-wrapper {
+      flex-direction: column;
+    }
+
+    .swiper-slide {
+      margin: 0 0 32px;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .swiper {
+      margin: 0;
+      padding: 0 20.2% 0 0;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 0 0 66px;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    padding: 0 0 58px;
+
+    .swiper {
+      padding: 0 10.4% 0 0;
+    }
+  }
+}

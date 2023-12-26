@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+a,
+button {
+  -webkit-appearance: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  height: 58px;
+  overflow: hidden;
+  text-transform: uppercase;
+
+  &[disabled],
+  &.disabled {
+    pointer-events: none;
+  }
+
+  &.btn-sm {
+    border-radius: $btn-border-radius-sm;
+    text-transform: none;
+    height: 56px;
+    font-size: $btn-font-size-sm;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+  }
+
+  svg {
+    display: block;
+    margin-left: 0.5em;
+    transition: all 0.2s ease;
+    flex: 0 0 auto;
+  }
+
+  &:hover {
+    svg {
+      transform: rotate(315deg);
+    }
+  }
+
+  &.btn-primary {
+    --bs-btn-hover-color: #{$primary};
+    --bs-btn-hover-bg: #{$secondary};
+    --bs-btn-hover-border-color: #{$secondary};
+    --bs-btn-active-color: #{$primary};
+    --bs-btn-active-bg: #{$secondary};
+    --bs-btn-active-border-color: #{$secondary};
+
+    &:hover {
+      svg {
+        path {
+          fill: $primary;
+        }
+      }
+    }
+  }
+
+  &.btn-secondary {
+    --bs-btn-color: #{$gray-100};
+    --bs-btn-hover-color: #{$secondary};
+    --bs-btn-hover-bg: #{$primary};
+    --bs-btn-hover-border-color: #{$primary};
+    --bs-btn-active-color: #{$secondary};
+    --bs-btn-active-bg: #{$primary};
+    --bs-btn-active-border-color: #{$primary};
+
+    &:hover {
+      svg {
+        path {
+          fill: $secondary;
+        }
+      }
+    }
+  }
+
+  &.btn-outline-secondary {
+    --bs-btn-hover-color: #{$primary};
+    --bs-btn-active-color: #{$primary};
+
+    &:hover {
+      svg {
+        path {
+          fill: $primary;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &.btn-rounded {
+      border-radius: 100%;
+      padding: 0;
+      width: 70px;
+      height: 70px;
+      justify-content: center;
+
+      .btn-text {
+        display: none;
+      }
+
+      svg {
+        margin: 0;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
+
+  @include media-breakpoint-between(xl, xxl) {
+    height: 34px;
+    font-size: 14px;
+    padding: 0 0.8rem;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    height: 74px;
+  }
+}

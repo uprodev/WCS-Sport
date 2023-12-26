@@ -1,0 +1,99 @@
+.block-home-5 {
+  color: $primary;
+  height: auto;
+
+  .block-inner {
+    padding: 0 24px 48px;
+    height: auto;
+  }
+
+  .slogan {
+    text-align: center;
+    padding: 60px 0;
+    margin: 0 0 60px;
+  }
+
+  .block-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 116%;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+  }
+
+  .block-title {
+    font-size: 32px;
+    line-height: 115%;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin: 0 0 45px;
+  }
+
+  .btn {
+    width: auto;
+  }
+
+  .arrow {
+    padding: 257px 0 0;
+    text-align: right;
+  }
+
+  @include media-breakpoint-up(md) {
+    .block-inner {
+      padding-bottom: 60px;
+    }
+
+    .slogan {
+      font-size: 28px;
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+
+      br {
+        display: none;
+      }
+    }
+
+    .block-subtitle {
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 0.98;
+    }
+
+    .block-title {
+      font-size: 60px;
+      line-height: 0.89;
+      font-weight: 500;
+      margin: 0 0 100px;
+    }
+
+    .arrow {
+      padding: 0;
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    .block-inner {
+      padding-bottom: 120px;
+    }
+
+    .container-fluid {
+      padding: 0 8vw;
+    }
+
+    .slogan {
+      font-size: 54px;
+      padding: 135px 0 0;
+      margin: 0 0 356px;
+    }
+
+    .block-subtitle {
+      font-size: 42px;
+      margin: 0 0 20px;
+    }
+
+    .block-title {
+      font-size: 110px;
+      margin: 0 0 154px;
+    }
+  }
+}

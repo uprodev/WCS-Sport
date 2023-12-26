@@ -1,0 +1,169 @@
+.block-home {
+  height: 100vh;
+
+  .block-inner {
+    position: relative;
+    z-index: 9;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+.home-animated-text {
+  visibility: hidden;
+}
+
+.block-home-1 {
+  color: $primary;
+  text-align: center;
+
+  .block-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-headline {
+    font-size: 16.4vw;
+    white-space: nowrap;
+    text-align: center;
+
+    .word {
+      display: inline-flex;
+      overflow: hidden;
+      padding: 0 0 0.1em;
+      margin: 0 0 -0.1em;
+    }
+    .char {
+      display: block;
+      opacity: 0;
+
+      &.char-1 {
+        transform: translateY(-120%);
+      }
+
+      &.char-2 {
+        transform: scaleX(-1);
+      }
+
+      &.char-3 {
+        transform: translateY(120%);
+      }
+
+      &.char-4 {
+        transform: rotate(40deg);
+      }
+
+      &.char-5 {
+        transform: translateY(-120%);
+      }
+
+      &.char-6 {
+        transform: scaleY(-1);
+      }
+
+      &.char-7 {
+        transform: translateY(120%);
+      }
+
+      &.char-8 {
+        transform: rotate3d(1, 1, 1, 45deg);
+      }
+
+      &.char-9 {
+        transform: scaleX(0.5);
+      }
+    }
+  }
+
+  .home-text {
+    text-align: center;
+    visibility: hidden;
+    padding: 0 30px;
+
+    .word {
+      display: inline-flex;
+      overflow: hidden;
+      padding: 0 0 0.1em;
+      margin: 0 0 -0.1em;
+    }
+    .char {
+      display: block;
+      opacity: 0;
+      transform: translateX(5px) scaleX(0.5);
+    }
+  }
+
+  .block-home-video {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate3d(-50%, -5%, 0);
+
+    .home-video-title {
+      display: none;
+    }
+
+    .image {
+      width: 135px;
+
+      img {
+        @include img-fit;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .block-home-video {
+      .image {
+        width: 265px;
+        height: 120px;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .block-inner {
+      justify-content: flex-end;
+    }
+
+    .home-text {
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      margin: -26px 0 15px;
+    }
+
+    .block-home-video {
+      position: static;
+      transform: none;
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    .home-headline {
+      line-height: normal;
+    }
+    .home-text {
+      font-size: 32px;
+      margin: -10px 0 9.35vh;
+    }
+
+    .block-home-video {
+      .image {
+        width: 350px;
+        height: 172px;
+      }
+
+      .home-video-title {
+        display: block;
+        font-size: 12px;
+        line-height: 1;
+        margin: 0 0 35px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+    }
+  }
+}

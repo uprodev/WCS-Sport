@@ -1,0 +1,17 @@
+.block-home-2 {
+  color: $primary;
+  text-align: center;
+  height: 595px;
+
+  .block-inner {
+    height: 100%;
+  }
+
+  video {
+    @include img-fit;
+  }
+
+  @include media-breakpoint-up(md) {
+    height: 100vh;
+  }
+}

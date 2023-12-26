@@ -1,0 +1,43 @@
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
+  visibility: hidden;
+
+  .word {
+    display: inline-flex;
+    overflow: hidden;
+    padding: 0 0 0.1em;
+    margin: 0 0 -0.1em;
+  }
+  .char {
+    display: block;
+    transform: translateY(150%);
+    opacity: 0;
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-in {
+  opacity: 0;
+}
+
+.fade-up-wrapper {
+  & > * {
+    @extend .fade-up;
+  }
+}
+
+.img-fade {
+  transform: scale(1.1);
+  transform-origin: center;
+  opacity: 0;
+}

@@ -1,0 +1,96 @@
+.block-headline-text {
+  padding: 60px 0;
+
+  &.gradient {
+    background: linear-gradient(180deg, rgba($primary, 0) 50%, $primary 83.58%);
+  }
+
+  h1 {
+    margin: 0 0 20px;
+  }
+
+  h3 {
+    font-weight: 500;
+    margin: 0 -10px 52px 0;
+    @include font-size($h3-font-size-sm, 6.875rem);
+  }
+
+  h4 {
+    @include font-size($h3-font-size-sm, $h4-font-size);
+    line-height: 0.98;
+    font-weight: 500;
+    margin: 0 0 52px 0;
+  }
+
+  p {
+    margin: 0 0 25px;
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &:first-child {
+    padding: 160px 0 66px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    h1 {
+      margin: 0;
+    }
+    h3 {
+      font-weight: 400;
+      margin: 0;
+      line-height: 0.9;
+    }
+  }
+
+  @include media-breakpoint-between(xl, xxl) {
+    h1 {
+      font-size: 7.125rem;
+      line-height: 0.85;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 203px 0 112px;
+
+    &:first-child {
+      padding: 206px 0 113px;
+
+      p {
+        margin: 0 0 10px;
+      }
+    }
+
+    &.gradient {
+      padding: 191px 0 54px;
+    }
+  }
+
+  @include media-breakpoint-between(xl, xxl) {
+    &.gradient {
+      h3 {
+        font-size: 48px;
+        line-height: 0.9;
+        max-width: 9em;
+      }
+
+      p {
+        margin-left: -65px;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    &:first-child {
+      padding: 206px 0 107px;
+      p {
+        color: $gray-300;
+      }
+    }
+
+    &.gradient {
+      padding: 253px 0 112px;
+    }
+  }
+}

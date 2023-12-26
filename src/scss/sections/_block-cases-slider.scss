@@ -1,0 +1,193 @@
+.block-cases-slider {
+  .swiper-controls {
+    display: none;
+    position: relative;
+    position: absolute;
+    z-index: 9;
+    left: 24px;
+    bottom: 64px;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        color: $gray-100;
+        opacity: 0.5;
+        transition: all 0.3s;
+
+        &.active {
+          color: $primary;
+          opacity: 1;
+        }
+      }
+    }
+
+    .active-arrow {
+      position: absolute;
+      left: -20px;
+      top: 0;
+      margin-top: -1px;
+    }
+  }
+
+  .swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4vh;
+    z-index: 9;
+
+    @media (min-height: 700px) {
+      bottom: 64px;
+    }
+
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 100%;
+      margin: 0 8px;
+      background-color: $gray-100;
+      transition: all 0.2s;
+
+      &:hover,
+      &.swiper-pagination-bullet-active {
+        background-color: $primary;
+      }
+    }
+  }
+
+  .swiper-slide {
+    height: 100vh;
+    max-height: 747px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .item {
+    padding: 0 24px 40px;
+
+    h2 {
+      @include font-size(2.75rem, 4.25rem);
+      line-height: 1;
+      color: $primary;
+      margin: -3px 0 22px;
+
+      em {
+        font-style: normal;
+        display: block;
+        color: $white;
+        margin: 0 0 -5px;
+      }
+    }
+
+    figure {
+      width: 243px;
+      height: 432px;
+      margin: auto;
+
+      img {
+        @include img-fit;
+        border-radius: 16px;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .swiper-pagination {
+      display: none;
+    }
+
+    .swiper-controls {
+      display: block;
+    }
+
+    .swiper-slide {
+      max-height: none;
+    }
+
+    .item {
+      height: 100%;
+      position: relative;
+      padding: 128px 24px;
+
+      figure {
+        width: 300px;
+        height: 531px;
+        @include abs-center;
+      }
+    }
+  }
+
+  @include media-breakpoint-between(xl, xxl) {
+    .item {
+      h2 {
+        font-size: 2.875rem;
+        line-height: 0.9;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .swiper-controls {
+      left: 8.889vw;
+      bottom: 122px;
+      font-size: 18px;
+      line-height: 25px;
+
+      .active-arrow {
+        left: -30px;
+      }
+    }
+
+    .item {
+      padding: 128px 8.889vw;
+
+      h2 {
+        line-height: 0.9;
+      }
+
+      figure {
+        width: 260px;
+        height: 497px;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    .swiper-controls {
+      left: 9.375vw;
+      bottom: 105px;
+
+      .active-arrow {
+        left: -30px;
+      }
+    }
+
+    .item {
+      padding: 128px 9.375vw;
+
+      h2 {
+        line-height: 0.9;
+      }
+
+      figure {
+        width: 410px;
+        height: 726px;
+      }
+    }
+  }
+}

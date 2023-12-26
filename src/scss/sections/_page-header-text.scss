@@ -1,0 +1,42 @@
+.page-header-text {
+  text-align: center;
+  padding: 158px 0 58px;
+
+  h1 {
+    @include font-size(2.875rem, $h1-font-size);
+    margin: 0 0 20px;
+
+    @include media-breakpoint-down(md) {
+      line-height: 0.97;
+    }
+  }
+
+  p {
+    margin: 0 auto;
+    color: $gray-300;
+    max-width: 36em;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 200px 0 86px;
+
+    h1 {
+      margin: 0 0 45px;
+    }
+  }
+
+  @include media-breakpoint-between(xl, xxl) {
+    h1 {
+      font-size: 7.125rem;
+      line-height: 0.85;
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    padding: 208px 0 41px;
+
+    h1 {
+      margin: 0 0 33px;
+    }
+  }
+}

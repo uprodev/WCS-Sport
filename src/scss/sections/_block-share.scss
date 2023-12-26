@@ -1,0 +1,134 @@
+.block-share {
+  padding: 97px 0 64px;
+
+  .block-inner {
+    padding: 59px 5px 32px;
+    border-radius: 16px;
+    background: $gray-100;
+    text-align: center;
+  }
+
+  h3 {
+    margin: 0 0 19px;
+    @include font-size($h3-font-size-sm, $h4-font-size);
+  }
+
+  p {
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 34px 11px 0;
+    list-style: none;
+
+    li {
+      margin: 24px 0 0;
+
+      .btn {
+        display: flex;
+        height: 70px;
+
+        &:hover {
+          svg {
+            transform: none;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    h3 {
+      br {
+        display: none;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -8px;
+
+      li {
+        padding: 8px;
+        width: 50%;
+        margin: 16px 0 0;
+
+        .btn {
+          height: 54px;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    ul {
+      li {
+        width: 33.333%;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 0 0 130px;
+
+    .block-inner {
+      padding: 90px 60px 76px;
+    }
+
+    h3 {
+      margin: 0 0 18px;
+    }
+
+    p {
+      max-width: 38em;
+      margin: auto;
+    }
+
+    ul {
+      flex-wrap: nowrap;
+      padding: 34px 0 0;
+      margin: 0 auto;
+      max-width: 968px;
+      justify-content: space-between;
+
+      li {
+        width: 100%;
+        margin: 0;
+
+        .btn {
+          height: 54px;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    padding: 0 0 130px;
+
+    .block-inner {
+      padding: 90px 60px 80px;
+    }
+
+    h3 {
+      margin: 0 0 6px;
+    }
+
+    p {
+      max-width: none;
+    }
+
+    ul {
+      padding: 41px 0 0;
+      margin: 0 auto;
+      max-width: 1268px;
+
+      li {
+        .btn {
+          height: 70px;
+        }
+      }
+    }
+  }
+}

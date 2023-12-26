@@ -1,0 +1,49 @@
+@import "header";
+@import "footer";
+
+// home
+@import "block-home-parallax";
+@import "block-home-1";
+@import "block-home-2";
+@import "block-home-3";
+@import "block-home-4";
+@import "block-home-5";
+
+// contact
+@import "page-header";
+@import "block-scroll-list";
+@import "block-join";
+@import "block-contact-form";
+
+//careers
+@import "block-slider-variable-width";
+@import "block-careers-list";
+@import "block-slider-content";
+@import "block-headline-text";
+@import "block-slider-images";
+@import "block-text";
+@import "block-share";
+
+// blog
+@import "block-featured-article";
+@import "block-filter";
+@import "block-cards-list";
+@import "block-banner-article";
+@import "block-blog-article";
+
+// clients
+@import "page-header-text";
+@import "block-cases-slider";
+@import "block-logos";
+@import "block-cta";
+@import "block-cases-carousel";
+@import "block-testimonials";
+@import "block-testimonials-slider";
+
+// case
+@import "page-header-case";
+@import "block-case-intro";
+@import "block-case-result";
+@import "block-outcome";
+@import "block-case-video";
+@import "block-headline-text-case";

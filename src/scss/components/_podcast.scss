@@ -1,0 +1,323 @@
+.podcast {
+  background-color: $primary;
+  padding: 20px;
+  border-radius: 4px;
+  display: flex;
+  position: relative;
+  z-index: 9;
+
+  img {
+    @extend .img-fluid;
+  }
+
+  button {
+    &:focus {
+      box-shadow: none;
+      outline: none;
+    }
+  }
+
+  .podcast-cover {
+    width: 53%;
+    max-width: 160px;
+    flex-shrink: 0;
+  }
+
+  .podcast-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 12px;
+    padding-top: 38px;
+
+    .podcast-link {
+      position: absolute;
+      top: 17px;
+      right: 20px;
+    }
+
+    p {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.19;
+      margin: 0 0 10px !important;
+    }
+
+    .title {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.16;
+      margin: 0 0 20px;
+    }
+
+    .btn-play {
+      width: 29px;
+      height: 29px;
+      background: none;
+      border: none;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .audio-controls-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10px;
+      line-height: 1.3;
+
+      .audio-controls-wrapper {
+        position: relative;
+        display: none;
+      }
+
+      .btn-controls-open {
+        background: none;
+        border: none;
+        padding: 0;
+        flex-shrink: 0;
+        margin-left: 24px;
+      }
+
+      .audio-controls {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: $secondary;
+        color: $primary;
+        border-radius: 4px;
+        padding: 20px;
+        font-size: 14px;
+        justify-content: space-between;
+
+        .btn-controls-close {
+          background: none;
+          border: none;
+          padding: 0;
+          flex-shrink: 0;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        }
+      }
+
+      .audio-speed {
+        span {
+          display: none;
+        }
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+
+          li {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .links {
+        width: 50%;
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: 10px;
+    border-radius: 0;
+
+    .podcast-main {
+      width: calc(100% - 160px);
+      padding-top: 0;
+
+      .audio-controls-box {
+        width: calc(100% - 40px);
+        display: block;
+
+        .audio-controls-wrapper {
+          display: block;
+          width: 100%;
+          margin: 0 0 12px;
+
+          .scroll {
+            width: 100%;
+          }
+
+          .time-passed,
+          .time-total {
+            position: absolute;
+            top: 50%;
+            font-size: 12px;
+            padding: 6px;
+            border-radius: 4px;
+            transform: translateY(-50%);
+            z-index: 9;
+          }
+          .time-passed {
+            left: 5px;
+            background-color: $beige;
+          }
+          .time-total {
+            right: 5px;
+            background-color: $secondary;
+            color: $olive;
+          }
+        }
+
+        .time-left,
+        .btn-controls-open {
+          display: none;
+        }
+
+        .audio-controls {
+          display: flex !important;
+          align-items: flex-end;
+          position: static;
+          background-color: transparent;
+          color: $secondary;
+          padding: 0;
+          border-radius: 0;
+          font-size: 12px;
+
+          .btn-controls-close {
+            display: none;
+          }
+        }
+
+        .audio-speed {
+          position: relative;
+          z-index: 9;
+          white-space: nowrap;
+
+          span {
+            display: block;
+            border: 1px solid $secondary;
+            border-radius: 4px;
+            padding: 2px 8px 0;
+            cursor: pointer;
+          }
+          ul {
+            height: auto;
+            width: auto;
+            position: absolute;
+            border: 1px solid $secondary;
+            border-radius: 4px;
+            padding: 4px 8px;
+            background-color: $primary;
+            display: none;
+            z-index: 9;
+          }
+        }
+
+        .links {
+          width: auto;
+
+          ul {
+            flex-direction: row;
+            justify-content: flex-end;
+            height: auto;
+
+            li {
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 20px;
+
+    .podcast-main {
+      padding-left: 20px;
+      justify-content: initial;
+
+      .podcast-link {
+        top: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 0.9;
+        margin: 0 0 6px !important;
+      }
+
+      .title {
+        font-size: 24px;
+        line-height: 1.06;
+        margin: 0 0 10px;
+      }
+
+      .btn-play {
+        width: 78px;
+        height: 78px;
+      }
+
+      .audio-controls-box {
+        width: calc(100% - 98px);
+
+        .audio-controls-wrapper {
+          .time-passed,
+          .time-total {
+            font-size: 14px;
+            padding: 6px;
+            width: 59px;
+            text-align: center;
+          }
+          .time-passed {
+            left: 10px;
+          }
+          .time-total {
+            right: 10px;
+          }
+        }
+
+        .audio-controls {
+          font-size: 14px;
+        }
+
+        .audio-speed {
+          span {
+            padding: 4px 11.5px 3px;
+            font-weight: 500;
+          }
+          ul {
+            padding: 4px 8px;
+          }
+        }
+
+        .links {
+          line-height: 1;
+          ul {
+            li {
+              margin-left: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
