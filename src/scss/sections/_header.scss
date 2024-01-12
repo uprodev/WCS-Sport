@@ -47,7 +47,9 @@
     .site-logo {
       svg {
         path {
-          fill: $primary;
+          &:not(.logo-vector) {
+            fill: $white;
+          }
         }
       }
     }

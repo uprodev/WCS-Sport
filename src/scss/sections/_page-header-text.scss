@@ -1,13 +1,13 @@
 .page-header-text {
   text-align: center;
-  padding: 158px 0 58px;
+  padding: 126px 0 26px;
 
   h1 {
     @include font-size(2.875rem, $h1-font-size);
     margin: 0 0 20px;
 
     @include media-breakpoint-down(md) {
-      line-height: 0.97;
+      line-height: 0.9;
     }
   }
 
@@ -15,13 +15,19 @@
     margin: 0 auto;
     color: $gray-300;
     max-width: 36em;
+    font-weight: 300;
   }
 
   @include media-breakpoint-up(xl) {
-    padding: 200px 0 86px;
+    padding: 210px 0 54px;
 
     h1 {
-      margin: 0 0 45px;
+      margin: 0 0 30px;
+    }
+
+    p {
+      font-size: 26px;
+      font-weight: 400;
     }
   }
 
@@ -33,7 +39,7 @@
   }
 
   @include media-breakpoint-up(xxl) {
-    padding: 208px 0 41px;
+    padding: 210px 0 41px;
 
     h1 {
       margin: 0 0 33px;

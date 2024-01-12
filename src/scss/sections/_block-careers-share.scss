@@ -1,0 +1,129 @@
+.block-careers-share {
+  margin: 50px 0 0;
+
+  .wrapper {
+    padding: 420px 30px 76px;
+  }
+
+  .careers-share-image {
+    display: none;
+  }
+
+  .careers-share-text {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-size: clamp(2.25rem, get-vw($h1-font-size), $h1-font-size);
+      color: $primary;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      margin: 0 0 4px;
+
+      @include media-breakpoint-down(lg) {
+        order: -1;
+      }
+    }
+
+    p {
+      font-weight: 350;
+      line-height: 1.35;
+      margin: 0 0 52px;
+    }
+
+    .socials {
+      display: flex;
+
+      a {
+        display: block;
+        margin: 0 25px 0 0;
+
+        img {
+          display: block;
+          width: auto;
+          height: 100%;
+        }
+
+        &:nth-child(1) {
+          height: 25px;
+        }
+        &:nth-child(2) {
+          height: 22px;
+        }
+        &:nth-child(3) {
+          height: 19px;
+        }
+        &:nth-child(4) {
+          height: 19px;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin: 122px 0 0;
+
+    .wrapper {
+      padding: 107px 0 88px;
+      display: flex;
+      align-items: center;
+    }
+
+    .careers-share-image {
+      display: block;
+      width: 38.2%;
+      flex: 0 0 auto;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .careers-share-text {
+      width: 100%;
+      padding-left: 32px;
+
+      h2 {
+        margin: 33px 0 50px;
+      }
+
+      p {
+        max-width: 15em;
+        font-weight: 400;
+        margin: 0;
+      }
+
+      .socials {
+        align-items: flex-start;
+
+        a {
+          margin: 0 42px 0 0;
+
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3),
+          &:nth-child(4) {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-between(xl, xxl) {
+    .careers-share-text {
+      h2 {
+        font-size: 114px;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .careers-share-text {
+      padding: 52px 0 0 114px;
+    }
+  }
+}

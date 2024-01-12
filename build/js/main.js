@@ -31,6 +31,17 @@ jQuery(document).ready(function ($) {
 
   if (document.querySelector(".block-home")) {
     // home parallax
+    ScrollTrigger.create({
+      trigger: ".block-home-2",
+      start: "bottom top",
+      onEnter: function () {
+        $(".block-home-parallax").addClass("is-hidden");
+      },
+      onEnterBack: function () {
+        $(".block-home-parallax").removeClass("is-hidden");
+      },
+    });
+
     gsap.to(".parallax-wrapper", {
       y: "-100vh",
       duration: 30,
@@ -275,7 +286,7 @@ jQuery(document).ready(function ($) {
   ScrollTrigger.create({
     trigger: ".block-scroll-list",
     start: "top top",
-    end: "bottom top",
+    end: "bottom bottom",
     pin: ".block-scroll-list .block-image",
   });
 
@@ -327,6 +338,25 @@ jQuery(document).ready(function ($) {
       scaleY: 1,
       opacity: 1,
     });
+  });
+
+  $("#copyUrl").on("click", function (e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(window.location.href);
+    $(this).addClass("copied");
+    setTimeout(() => {
+      $(this).removeClass("copied");
+    }, 1000);
+  });
+
+  // footer
+  function footer() {
+    var fHeight = $(".footer").outerHeight();
+    $(".global-wrapper").css("padding-bottom", fHeight);
+  }
+  footer();
+  $(window).on("resize", function () {
+    footer();
   });
 
   // swiper

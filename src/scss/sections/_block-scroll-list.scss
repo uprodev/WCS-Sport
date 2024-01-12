@@ -47,10 +47,15 @@
           transform-origin: 0 0;
         }
 
+        h1 {
+          font-weight: 300;
+        }
+
         .text {
           padding: 53px 0 0;
           opacity: 0;
           transform: translateX(10%);
+          font-weight: 300;
 
           @include media-breakpoint-down(md) {
             font-size: 0.875rem;
@@ -147,10 +152,15 @@
 
           .text {
             padding: 0 0 11px;
+            font-weight: 400;
 
             p {
               margin: 0;
             }
+          }
+
+          h1 {
+            font-weight: 350;
           }
 
           &:not(:first-child) {
