@@ -39,10 +39,14 @@
   }
 
   @include media-breakpoint-up(xxl) {
-    padding: 210px 0 41px;
+    padding: 203px 0 51px;
 
     h1 {
       margin: 0 0 33px;
+    }
+
+    p {
+      line-height: 1.3;
     }
   }
 }

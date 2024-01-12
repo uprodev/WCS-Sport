@@ -72,6 +72,7 @@
     .careers-share-image {
       display: block;
       width: 38.2%;
+      max-width: 467px;
       flex: 0 0 auto;
 
       img {
@@ -117,6 +118,7 @@
       h2 {
         font-size: 114px;
         white-space: nowrap;
+        letter-spacing: -0.01em;
       }
     }
   }
@@ -124,6 +126,24 @@
   @include media-breakpoint-up(xl) {
     .careers-share-text {
       padding: 52px 0 0 114px;
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    margin: 104px 0 0;
+
+    .wrapper {
+      padding: 70px 0 85px;
+    }
+
+    .careers-share-text {
+      padding: 86px 0 0 80px;
+
+      h2 {
+        margin: 30px 0 40px -0.08em;
+        font-weight: 350;
+        letter-spacing: -0.01em;
+      }
     }
   }
 }
