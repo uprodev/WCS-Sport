@@ -669,4 +669,14 @@ jQuery(document).ready(function ($) {
       wavesurfer.playPause();
     });
   }
+
+  $(".btn-video-play").on("click", function () {
+    if ($(this).hasClass("playing")) {
+      $(this).parent().find("video").get(0).pause();
+      $(this).removeClass("playing");
+    } else {
+      $(this).parent().find("video").get(0).play();
+      $(this).addClass("playing");
+    }
+  });
 });

@@ -1,5 +1,11 @@
 .block-logos {
-  padding: 60px 0 64px;
+  padding: 26px 0 46px;
+
+  .container-fluid {
+    @include media-breakpoint-up(xl) {
+      padding: 0 1.5rem !important;
+    }
+  }
 
   h3 {
     margin: 0 0 16px;
@@ -55,24 +61,12 @@
   @include media-breakpoint-up(md) {
     .logos-list {
       ul {
-        margin: 0 -16px;
-        justify-content: center;
+        flex-wrap: nowrap;
+        margin: 0;
+        justify-content: space-between;
 
         li {
-          padding: 0 16px;
-          margin: 0 0 16px;
-        }
-      }
-    }
-  }
-
-  @include media-breakpoint-up(lg) {
-    .logos-list {
-      ul {
-        margin: 0 -32px;
-
-        li {
-          padding: 0 32px;
+          padding: 0;
           margin: 0 0 32px;
         }
       }
@@ -80,8 +74,6 @@
   }
 
   @include media-breakpoint-up(xl) {
-    padding: 122px 0 22px;
-
     h3 {
       margin: 0 0 17px;
     }
@@ -91,17 +83,9 @@
       font-weight: 400;
       margin: 0 0 93px;
     }
-
-    .logos-list {
-      ul {
-        margin: 0 -100px;
-      }
-    }
   }
 
   @include media-breakpoint-up(xxl) {
-    padding: 122px 0 32px;
-
     h3 {
       margin: 0 0 17px;
     }
@@ -112,11 +96,19 @@
 
     .logos-list {
       ul {
-        margin: 0 40px;
+        justify-content: center;
+        margin: 0 -3.8vw;
 
         li {
-          padding: 0 64px;
-          margin: 0 0 64px;
+          padding: 0 3.8vw;
+
+          &:first-child {
+            padding-left: 0;
+          }
+
+          &:last-child {
+            padding-right: 0;
+          }
         }
       }
     }
