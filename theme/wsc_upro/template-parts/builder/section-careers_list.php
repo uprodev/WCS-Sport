@@ -1,0 +1,205 @@
+<?php 
+if($args['row']):
+	foreach($args['row'] as $key=>$arg) $$key = $arg; ?>
+
+  <section class="block-careers-list">
+    <div class="container-fluid">
+      <div class="block-title">
+        <h3>Ready to step into the arena of endless possibilities?</h3>
+        <h3>FIND YOUR NEXT OPPORTUNITY</h3>
+      </div>
+      <form action="#">
+        <div class="hstack gap-2 gap-xl-5 fade-in">
+          <div class="field">
+            <select class="form-select">
+              <option value="">All Locations</option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+              <option value="4">Option 4</option>
+              <option value="5">Option 5</option>
+            </select>
+          </div>
+          <div class="field">
+            <select class="form-select">
+              <option value="">All Departments</option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+              <option value="4">Option 4</option>
+              <option value="5">Option 5</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      
+      <div class="list">
+        <h3>AUSTRALIA</h3>
+        <ul>
+          <li>
+            <a href="#">
+              <div class="d-flex align-items-center justify-content-between fade-in">
+                <span class="link-text">Customer Success Manager</span>
+                <div class="btn btn-outline-secondary btn-rounded">
+                  <span class="btn-text">View Position</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73503 4.96611L0.5 0.731074L1.23107 0L5.46611 4.23503V1.09661H6.5V6H1.59661L1.59661 4.96611h3.73503Z" fill="#0B0B0B" />
+                  </svg>
+                </div>
+              </div>
+              <div class="line"></div>
+            </a>
+          </li>
+        </ul>
+        
+        <h3>ISRAEL</h3>
+        <ul>
+          <li>
+            <a href="#">
+              <div class="d-flex align-items-center justify-content-between fade-in">
+                <span class="link-text">Backend Team Lead</span>
+                <div class="btn btn-outline-secondary btn-rounded">
+                  <span class="btn-text">View Position</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73503 4.96611L0.5 0.731074L1.23107 0L5.46611 4.23503V1.09661H6.5V6H1.59661L1.59661 4.96611h3.73503Z" fill="#0B0B0B" />
+                  </svg>
+                </div>
+              </div>
+              <div class="line"></div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="d-flex align-items-center justify-content-between fade-in">
+                <span class="link-text">V/ML Algorithm Developer</span>
+                <div class="btn btn-outline-secondary btn-rounded">
+                  <span class="btn-text">View Position</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73503 4.96611L0.5 0.731074L1.23107 0L5.46611 4.23503V1.09661H6.5V6H1.59661L1.59661 4.96611h3.73503Z" fill="#0B0B0B" />
+                  </svg>
+                </div>
+              </div>
+              <div class="line"></div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="d-flex align-items-center justify-content-between fade-in">
+                <span class="link-text">Frontend Developer</span>
+                <div class="btn btn-outline-secondary btn-rounded">
+                  <span class="btn-text">View Position</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73503 4.96611L0.5 0.731074L1.23107 0L5.46611 4.23503V1.09661H6.5V6H1.59661L1.59661 4.96611h3.73503Z" fill="#0B0B0B" />
+                  </svg>
+                </div>
+              </div>
+              <div class="line"></div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="d-flex align-items-center justify-content-between fade-in">
+                <span class="link-text">GenAI/NLP Algorithm Developer</span>
+                <div class="btn btn-outline-secondary btn-rounded">
+                  <span class="btn-text">View Position</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73503 4.96611L0.5 0.731074L1.23107 0L5.46611 4.23503V1.09661H6.5V6H1.59661L1.59661 4.96611h3.73503Z" fill="#0B0B0B" />
+                  </svg>
+                </div>
+              </div>
+              <div class="line"></div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="d-flex align-items-center justify-content-between fade-in">
+                <span class="link-text">IOS Developer</span>
+                <div class="btn btn-outline-secondary btn-rounded">
+                  <span class="btn-text">View Position</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73503 4.96611L0.5 0.731074L1.23107 0L5.46611 4.23503V1.09661H6.5V6H1.59661L1.59661 4.96611h3.73503Z" fill="#0B0B0B" />
+                  </svg>
+                </div>
+              </div>
+              <div class="line"></div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="d-flex align-items-center justify-content-between fade-in">
+                <span class="link-text">Junior GenAI/NLP Algorithm Developer</span>
+                <div class="btn btn-outline-secondary btn-rounded">
+                  <span class="btn-text">View Position</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73503 4.96611L0.5 0.731074L1.23107 0L5.46611 4.23503V1.09661H6.5V6H1.59661L1.59661 4.96611h3.73503Z" fill="#0B0B0B" />
+                  </svg>
+                </div>
+              </div>
+              <div class="line"></div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="d-flex align-items-center justify-content-between fade-in">
+                <span class="link-text">Technical Account Manager</span>
+                <div class="btn btn-outline-secondary btn-rounded">
+                  <span class="btn-text">View Position</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73503 4.96611L0.5 0.731074L1.23107 0L5.46611 4.23503V1.09661H6.5V6H1.59661L1.59661 4.96611h3.73503Z" fill="#0B0B0B" />
+                  </svg>
+                </div>
+              </div>
+              <div class="line"></div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="d-flex align-items-center justify-content-between fade-in">
+                <span class="link-text">Visual Designer</span>
+                <div class="btn btn-outline-secondary btn-rounded">
+                  <span class="btn-text">View Position</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73503 4.96611L0.5 0.731074L1.23107 0L5.46611 4.23503V1.09661H6.5V6H1.59661L1.59661 4.96611h3.73503Z" fill="#0B0B0B" />
+                  </svg>
+                </div>
+              </div>
+              <div class="line"></div>
+            </a>
+          </li>
+        </ul>
+        <h3>New York</h3>
+        <ul>
+          <li>
+            <a href="#">
+              <div class="d-flex align-items-center justify-content-between fade-in">
+                <span class="link-text">Customer Success Manager</span>
+                <div class="btn btn-outline-secondary btn-rounded">
+                  <span class="btn-text">View Position</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73503 4.96611L0.5 0.731074L1.23107 0L5.46611 4.23503V1.09661H6.5V6H1.59661L1.59661 4.96611h3.73503Z" fill="#0B0B0B" />
+                  </svg>
+                </div>
+              </div>
+              <div class="line"></div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="d-flex align-items-center justify-content-between fade-in">
+                <span class="link-text">Product Marketing Manager</span>
+                <div class="btn btn-outline-secondary btn-rounded">
+                  <span class="btn-text">View Position</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.73503 4.96611L0.5 0.731074L1.23107 0L5.46611 4.23503V1.09661H6.5V6H1.59661L1.59661 4.96611h3.73503Z" fill="#0B0B0B" />
+                  </svg>
+                </div>
+              </div>
+              <div class="line"></div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <?php endif; ?>

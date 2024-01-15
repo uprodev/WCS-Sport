@@ -1,0 +1,9 @@
+/*   
+Theme Name: WSC Sports
+*/
+
+@media (min-width: 1024px){
+	.navigation-main ul li.current-menu-item a {
+		opacity: 1;
+	}
+}
