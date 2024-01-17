@@ -340,7 +340,7 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  $("#copyUrl").on("click", function (e) {
+  $("[data-id=copyUrl]").on("click", function (e) {
     e.preventDefault();
     navigator.clipboard.writeText(window.location.href);
     $(this).addClass("copied");
