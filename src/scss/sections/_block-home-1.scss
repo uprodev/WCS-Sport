@@ -124,6 +124,10 @@
   }
 
   @include media-breakpoint-up(lg) {
+    .home-headline {
+      font-weight: 300;
+      font-size: 16.146vw;
+    }
     .block-inner {
       justify-content: flex-end;
     }

@@ -1,5 +1,5 @@
 .block-featured-article {
-  padding: 32px 0;
+  padding: 25px 0 32px;
 
   .container-fluid {
     padding-left: 0;
@@ -96,17 +96,20 @@
       .category {
         font-size: 0.75rem;
         letter-spacing: 0.01em;
+        font-weight: 500;
       }
 
       h3 {
         font-size: 48px;
         line-height: 0.9;
         margin: 27px 0 42px;
+        font-weight: 400;
       }
 
       p {
         font-size: 14px;
         margin: 0 0 86px;
+        font-weight: 500;
       }
 
       .btn-wrap {

@@ -194,12 +194,7 @@ jQuery(document).ready(function ($) {
         start: "top 50%",
       },
       duration: 1,
-      // ease: "none",
-      // ease: "power1.in",
-      // ease: "power1.out",
       ease: "power1.inOut",
-      // ease: "elastic.out",
-      // ease: "bounce.out",
 
       rotation: 0,
       rotationX: 0,
@@ -548,6 +543,36 @@ jQuery(document).ready(function ($) {
           });
         }
       }
+    });
+
+    ScrollTrigger.matchMedia({
+      "(max-width:767px)": function () {
+        document.querySelectorAll(".block-cases-carousel .swiper-slide").forEach((slide) => {
+          gsap.to(slide.querySelector(".card-case"), {
+            scrollTrigger: {
+              trigger: slide,
+              start: "top center",
+              end: "bottom center",
+              toggleActions: "play reverse play reverse",
+            },
+            duration: 0.5,
+            ease: "none",
+            backgroundColor: "#e5ff00",
+          });
+
+          gsap.to(slide.querySelector(".img-fade"), {
+            scrollTrigger: {
+              trigger: slide,
+              start: "top center",
+              end: "bottom center",
+              toggleActions: "play reverse play reverse",
+            },
+            duration: 0.5,
+            ease: "none",
+            paddingTop: "53%",
+          });
+        });
+      },
     });
   }
 

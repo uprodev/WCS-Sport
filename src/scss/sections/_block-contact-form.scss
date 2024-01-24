@@ -33,6 +33,14 @@
       margin: 0 0 52px;
       @include font-size($h3-font-size-sm, $h4-font-size);
     }
+
+    @include media-breakpoint-down(md) {
+      font-weight: 300;
+
+      h3 {
+        font-weight: 300;
+      }
+    }
   }
 
   form {
@@ -43,6 +51,15 @@
       border-width: 0 0 1px;
       border-radius: 0;
       padding-left: 0;
+      @include media-breakpoint-down(md) {
+        font-weight: 300;
+      }
+    }
+
+    textarea.form-control {
+      @include media-breakpoint-down(md) {
+        font-weight: 300;
+      }
     }
 
     .form-select {
@@ -51,6 +68,12 @@
 
     .field {
       margin: 0 0 25px;
+
+      .form-label {
+        @include media-breakpoint-down(md) {
+          font-weight: 300;
+        }
+      }
 
       &.field-text {
         margin-top: 21px;
@@ -67,7 +90,11 @@
 
     .form-check {
       margin-top: 10px;
-      padding-left: 1.35rem;
+
+      .form-check-label {
+        font-size: 1rem;
+        padding: 0 15px 0 0;
+      }
     }
 
     .form-buttons {
@@ -75,10 +102,15 @@
 
       .btn {
         width: 100%;
+        padding-top: 3px;
 
         &[type="reset"] {
           flex-shrink: 0;
           width: auto;
+        }
+
+        @include media-breakpoint-down(md) {
+          font-weight: 300;
         }
       }
     }
@@ -189,7 +221,7 @@
         margin: 62px 0 0;
         .btn {
           height: 42px;
-          padding: 0 14px;
+          padding: 3px 14px 0;
         }
       }
     }

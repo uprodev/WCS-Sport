@@ -11,6 +11,10 @@
       & + h3 {
         display: none;
       }
+
+      @include media-breakpoint-down(md) {
+        font-weight: 300;
+      }
     }
   }
 
@@ -33,6 +37,10 @@
     h3 {
       font-weight: 500;
       margin: 0 0 20px;
+
+      @include media-breakpoint-down(md) {
+        font-weight: 300;
+      }
     }
 
     ul {
@@ -74,6 +82,10 @@
               width: 16px;
               height: 16px;
             }
+          }
+
+          @include media-breakpoint-down(md) {
+            font-weight: 300;
           }
         }
       }
@@ -177,9 +189,10 @@
 
         .form-select {
           font-size: 1rem;
+          line-height: 2;
           text-transform: none;
           font-weight: 500;
-          padding: 1.78rem 4rem 1.78rem 2rem;
+          padding: 1.28rem 4rem 1.28rem 2rem;
           background-position: right 1.8rem center;
         }
       }

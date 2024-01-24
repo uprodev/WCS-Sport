@@ -20,10 +20,32 @@
       margin: 0;
       padding: 0 20.2% 0 0;
     }
+
+    .swiper-slide {
+      &.swiper-slide-active {
+        .card-case {
+          background-color: $primary;
+
+          .card-image {
+            .img-fade {
+              height: 210px;
+            }
+          }
+        }
+      }
+    }
   }
 
   @include media-breakpoint-up(xl) {
     padding: 0 0 66px;
+
+    .swiper-slide {
+      &:nth-child(2) {
+        .card-case .card-main .card-title {
+          word-spacing: 700px;
+        }
+      }
+    }
   }
 
   @include media-breakpoint-up(xxl) {
@@ -31,6 +53,18 @@
 
     .swiper {
       padding: 0 10.4% 0 0;
+    }
+
+    .swiper-slide {
+      &.swiper-slide-active {
+        .card-case {
+          .card-image {
+            .img-fade {
+              height: 271px;
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -3,6 +3,10 @@
   @include font-size(1.125rem, 2rem);
   line-height: 1.32;
 
+  @include media-breakpoint-down(md) {
+    font-weight: 300;
+  }
+
   p,
   li {
     @extend .fade-up;
@@ -19,6 +23,10 @@
 
     &:not(:first-child) {
       margin-top: 55px;
+    }
+
+    @include media-breakpoint-down(md) {
+      font-weight: 300;
     }
   }
 

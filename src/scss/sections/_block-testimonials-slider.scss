@@ -2,7 +2,7 @@
   padding: 20px 0 32px;
 
   .item {
-    padding: 0 0 80px;
+    padding: 0 0 84px;
 
     .blockquote {
       margin: 0;
@@ -10,10 +10,10 @@
       &:before {
         content: "“";
         display: block;
-        font-size: 200px;
+        font-size: 150px;
         letter-spacing: 0.01em;
         line-height: 1;
-        margin: 0 0 -96px -0.057em;
+        margin: 0 0 -45px -0.057em;
       }
 
       p {
@@ -54,7 +54,7 @@
       width: 6px;
       height: 6px;
       border-radius: 100%;
-      margin: 0 6px;
+      margin: 0 5px;
       background-color: $secondary;
       transition: all 0.2s;
       opacity: 0.3;
@@ -99,10 +99,10 @@
 
         &:before {
           position: absolute;
-          left: -75px;
+          left: -70px;
           top: -8px;
           margin: 0;
-          font-size: 180px;
+          font-size: 128px;
         }
 
         p {

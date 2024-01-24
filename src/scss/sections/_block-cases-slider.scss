@@ -85,7 +85,8 @@
       line-height: 1;
       color: $primary;
       margin: -3px 0 22px;
-      font-weight: 350;
+      letter-spacing: -0.01em;
+      font-weight: 300;
 
       em {
         font-style: normal;
@@ -117,7 +118,7 @@
     }
 
     .swiper-slide {
-      max-height: none;
+      max-height: 770px;
     }
 
     .item {
@@ -154,6 +155,11 @@
       }
     }
 
+    .swiper-slide {
+      height: 770px;
+      max-height: none;
+    }
+
     .item {
       padding: 128px 8.889vw;
 
@@ -170,16 +176,22 @@
 
   @include media-breakpoint-up(xxl) {
     .swiper-controls {
-      left: 9.375vw;
-      bottom: 105px;
+      left: 6.6vw;
+      bottom: 153px;
+      font-size: 21px;
+      line-height: 27px;
 
       .active-arrow {
         left: -30px;
       }
     }
 
+    .swiper-slide {
+      height: 1080px;
+    }
+
     .item {
-      padding: 128px 9.375vw;
+      padding: 161px 6.6vw 100px;
 
       h2 {
         line-height: 0.9;

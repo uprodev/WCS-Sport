@@ -6,12 +6,20 @@
     line-height: 0.98;
     font-weight: 500;
     margin: 0 0 52px 0;
+
+    @include media-breakpoint-down(md) {
+      font-weight: 300;
+    }
   }
 
   p {
     margin: 0 0 25px;
     &:last-child {
       margin: 0;
+    }
+
+    @include media-breakpoint-down(md) {
+      font-weight: 300;
     }
   }
 

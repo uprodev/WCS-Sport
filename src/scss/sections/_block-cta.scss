@@ -2,9 +2,13 @@
   padding: 60px 0 62px;
 
   h3 {
-    margin: 0 0 48px;
+    margin: 0 0 52px;
     @include font-size($h3-font-size-sm, 2.625rem);
     font-weight: 500;
+
+    @include media-breakpoint-down(md) {
+      font-weight: 300;
+    }
   }
 
   p {
@@ -17,7 +21,7 @@
   }
 
   &--type1 {
-    padding-bottom: 35px;
+    padding-bottom: 27px;
   }
 
   &--type2 {
@@ -26,6 +30,15 @@
     p {
       font-size: 1.25rem;
       margin: 0 0 55px;
+    }
+  }
+
+  &--narrow {
+    @include media-breakpoint-down(md) {
+      .btn,
+      p {
+        font-weight: 300;
+      }
     }
   }
 
@@ -103,6 +116,14 @@
       padding: 70px 0 65px;
       p {
         font-size: 26px;
+      }
+    }
+
+    &--type3 {
+      padding: 135px 0 87px;
+
+      h3 {
+        font-weight: 500;
       }
     }
   }

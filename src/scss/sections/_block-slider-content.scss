@@ -18,7 +18,7 @@
 
       .image {
         max-width: 222px;
-        margin: 0 0 79px;
+        margin: 0 0 68px;
 
         img {
           @extend .img-fluid;
@@ -52,13 +52,13 @@
       height: 8px;
       border-radius: 100%;
       margin: 0 8px;
-      background-color: $secondary;
+      background-color: $olive1;
       transition: all 0.2s;
       opacity: 0.3;
 
       &:hover,
       &.swiper-pagination-bullet-active {
-        background-color: $light;
+        background-color: $secondary;
         opacity: 1;
       }
     }

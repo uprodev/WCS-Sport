@@ -23,6 +23,10 @@
         text-transform: uppercase;
         margin: 3px 0 -0.23em 9px;
         display: block;
+
+        @include media-breakpoint-down(md) {
+          font-weight: 300;
+        }
       }
 
       .item {
@@ -48,10 +52,18 @@
         @include font-size(1.5rem, 2.875rem);
         line-height: 1.08;
         margin: 0 0 23px;
+
+        @include media-breakpoint-down(md) {
+          font-weight: 300;
+        }
       }
 
       p {
         margin: 0 15px 26px 0;
+
+        @include media-breakpoint-down(md) {
+          font-weight: 300;
+        }
       }
 
       .icon {

@@ -27,10 +27,18 @@
     letter-spacing: -0.01em;
     text-transform: uppercase;
     margin: 0 0 45px;
+
+    @include media-breakpoint-down(md) {
+      font-weight: 300;
+    }
   }
 
   .btn {
     width: auto;
+
+    @include media-breakpoint-down(md) {
+      font-weight: 300;
+    }
   }
 
   .arrow {

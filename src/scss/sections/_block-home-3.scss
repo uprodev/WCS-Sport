@@ -73,8 +73,8 @@
 
     .number {
       font-size: 43.33vw;
-      transform: translateY(-0.275em);
-      margin: 0 0 -0.206em;
+      transform: translateY(-0.175em);
+      margin: 0 0 -0.1em;
     }
 
     .logos-list {
@@ -82,17 +82,18 @@
 
       ul {
         margin: 0 -32px;
-        flex-wrap: nowrap;
 
         li {
-          padding: 0 32px;
+          padding: 0 32px 32px;
         }
       }
     }
 
     p {
       max-width: 42.5em;
-      margin: 48px auto;
+      margin: 0 0 50px;
+      line-height: 1.3;
+      text-align: center;
     }
 
     .btn {
@@ -101,17 +102,36 @@
   }
 
   @include media-breakpoint-between(xl, xxl) {
+    .block-inner {
+      padding: 0 0 130px;
+    }
+
     .btn {
-      height: 34px;
+      height: 61px;
       font-size: 14px;
-      padding: 0 0.8rem;
+      padding: 0 1.1rem;
+      margin: 45px 0 0;
     }
   }
 
   @include media-breakpoint-up(xl) {
+    .number {
+      margin: 0 0 -0.192em;
+    }
+
     p {
-      font-size: 21px;
-      line-height: 1.3;
+      font-size: 36px;
+      margin: 0 0 105px;
+    }
+
+    .logos-list {
+      ul {
+        margin: 0 -50px;
+
+        li {
+          padding: 0 35px 78px;
+        }
+      }
     }
   }
 
@@ -125,27 +145,30 @@
     }
 
     .number {
-      font-size: 1024px;
+      font-size: 800px;
+      transform: translateY(-0.15em);
     }
 
     .logos-list {
       ul {
-        margin: 0 -64px;
+        margin: 0 auto;
+        width: 1600px;
 
         li {
-          padding: 0 64px;
+          padding: 0 57px 78px;
         }
       }
     }
 
     p {
-      font-size: 42px;
-      max-width: 40em;
-      margin: 66px auto 73px;
+      font-size: 50px;
+      max-width: 30em;
+      margin: 28px auto 140px;
+      font-weight: 350;
     }
 
     .btn {
-      margin: 98px 0 0;
+      margin: 19px 0 0;
     }
   }
 }

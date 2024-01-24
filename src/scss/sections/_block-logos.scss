@@ -8,14 +8,16 @@
   }
 
   h3 {
-    margin: 0 0 16px;
+    margin: 0 0 20px;
     @include font-size($h3-font-size-sm, 2.625rem);
-    font-weight: 500;
+    font-weight: 350;
+    letter-spacing: -0.01em;
+    line-height: 1;
   }
 
   p {
-    margin: 0 0 28px;
-    font-weight: 500;
+    margin: 0 10px 26px;
+    font-weight: 350;
   }
 
   .logos-list {
@@ -38,6 +40,10 @@
         }
       }
     }
+  }
+
+  &--text {
+    padding: 59px 0 63px;
   }
 
   // .logos-slider {
@@ -71,17 +77,38 @@
         }
       }
     }
+
+    &--text {
+      .logos-list {
+        ul {
+          flex-wrap: wrap;
+          margin: 0;
+          justify-content: center;
+
+          li {
+            padding: 0 30px;
+            margin: 0 0 32px;
+          }
+        }
+      }
+    }
   }
 
   @include media-breakpoint-up(xl) {
     h3 {
-      margin: 0 0 17px;
+      font-weight: 500;
+      margin: 0 0 20px;
     }
 
     p {
+      font-size: 18px;
       letter-spacing: 0.01em;
       font-weight: 400;
-      margin: 0 0 93px;
+      margin: 0 0 89px;
+    }
+
+    &--text {
+      padding: 123px 0 24px;
     }
   }
 

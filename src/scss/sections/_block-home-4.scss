@@ -66,6 +66,10 @@
         text-transform: uppercase;
         transform: rotate(90deg) translateY(-24px);
         transform-origin: left top;
+
+        @include media-breakpoint-down(md) {
+          font-weight: 350;
+        }
       }
 
       .card-footer {
@@ -73,6 +77,10 @@
 
         p {
           margin: 0 0 25px;
+
+          @include media-breakpoint-down(md) {
+            font-weight: 300;
+          }
         }
 
         strong {
