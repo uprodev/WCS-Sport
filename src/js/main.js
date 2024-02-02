@@ -248,6 +248,19 @@ jQuery(document).ready(function ($) {
     });
   });
 
+  var animatedEls = document.querySelectorAll(".fade-up-overflow > *");
+  animatedEls.forEach((el) => {
+    gsap.to(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: "top 95%",
+      },
+      duration: 0.4,
+      ease: "none",
+      y: "0",
+    });
+  });
+
   // header theme
   if (document.querySelector(".bg-secondary")) {
     document.querySelectorAll(".bg-secondary").forEach((bg) => {
@@ -582,6 +595,9 @@ jQuery(document).ready(function ($) {
       slidesPerView: 1,
       spaceBetween: 200,
       autoHeight: true,
+      autoplay: {
+        delay: 15000,
+      },
       pagination: {
         el: ".testimonials-slider .swiper-pagination",
         clickable: true,
@@ -589,6 +605,9 @@ jQuery(document).ready(function ($) {
       on: {
         init: function () {
           ScrollTrigger.refresh();
+        },
+        click: function (swiper) {
+          swiper.slideNext();
         },
       },
     });
@@ -632,7 +651,7 @@ jQuery(document).ready(function ($) {
   if (document.getElementById("audio")) {
     const wavesurfer = WaveSurfer.create({
       container: "#audio",
-      url: "../media/audio.mp3",
+      url: "http://ru.novikova.upro.space/wsc/media/audio.mp3",
       height: 60,
       width: "100%",
       splitChannels: false,

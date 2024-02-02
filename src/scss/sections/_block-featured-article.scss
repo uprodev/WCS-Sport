@@ -24,6 +24,10 @@
 
     .category {
       text-transform: uppercase;
+
+      @include media-breakpoint-down(md) {
+        font-weight: 300;
+      }
     }
 
     h3 {
@@ -39,6 +43,10 @@
 
     p {
       margin: 0 0 58px;
+
+      @include media-breakpoint-down(md) {
+        font-weight: 300;
+      }
     }
 
     .btn-wrap {

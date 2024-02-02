@@ -8,6 +8,10 @@
   }
 
   .card-header {
+    @include media-breakpoint-down(md) {
+      font-weight: 300;
+    }
+
     .category {
       text-transform: uppercase;
     }
@@ -18,6 +22,9 @@
       text-transform: uppercase;
       margin: 22px 0 0;
       font-weight: 400;
+      @include media-breakpoint-down(md) {
+        font-weight: 300;
+      }
     }
   }
 
@@ -42,6 +49,10 @@
 
   .card-body {
     padding-top: 0.8rem;
+
+    @include media-breakpoint-down(md) {
+      font-weight: 300;
+    }
 
     p {
       margin: 0;

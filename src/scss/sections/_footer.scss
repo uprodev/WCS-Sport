@@ -59,7 +59,7 @@
 
     .footer-headline {
       font-size: 15.55vw;
-      transform: translateY(-6%);
+      transform: translateY(-9.3%);
     }
 
     .footer-nav,
@@ -112,6 +112,7 @@
   @include media-breakpoint-up(xxl) {
     .footer-headline {
       font-size: 16.65vw;
+      transform: translateY(-9%);
     }
     .footer-icon {
       padding: 0 0 128px;
