@@ -262,6 +262,27 @@ jQuery(document).ready(function ($) {
   });
 
   // header theme
+  if (document.querySelector(".block-banner-article")) {
+    ScrollTrigger.create({
+      trigger: ".block-banner-article",
+      start: "top 5px",
+      end: "bottom top",
+      onEnter: function () {
+        document.querySelector(".header").classList.add("theme-light-half");
+      },
+      onLeave: function () {
+        console.log(className);
+        document.querySelector(".header").classList.remove("theme-light-half");
+      },
+      onEnterBack: function () {
+        document.querySelector(".header").classList.add("theme-light-half");
+      },
+      onLeaveBack: function () {
+        console.log(className);
+        document.querySelector(".header").classList.remove("theme-light-half");
+      },
+    });
+  }
   if (document.querySelector(".bg-secondary")) {
     document.querySelectorAll(".bg-secondary").forEach((bg) => {
       var className = "theme-light";
@@ -470,26 +491,43 @@ jQuery(document).ready(function ($) {
     });
   }
 
-  // if (document.querySelector(".logos-slider")) {
-  //   var logosSwiper = new Swiper(".logos-slider .swiper", {
-  //     loop: true,
-  //     speed: 3000,
-  //     spaceBetween: 100,
-  //     slidesPerView: "auto",
-  //     freeMode: true,
-  //     allowTouchMove: false,
-  //     autoplay: {
-  //       delay: 0,
-  //       disableOnInteraction: false,
-  //     },
-  //     breakpoints: {
-  //       1024: {
-  //         speed: 5000,
-  //         spaceBetween: 176,
-  //       },
-  //     },
-  //   });
-  // }
+  if (document.querySelector(".logos-list")) {
+    $(".logos-list ul li").each(function () {
+      $(this).addClass("swiper").find(".logo-inner").addClass("swiper-wrapper").find("span").addClass("swiper-slide");
+    });
+    document.querySelectorAll(".logos-list ul li").forEach((li) => {
+      var logosSwiper = new Swiper(li, {
+        loop: true,
+        direction: "vertical",
+        speed: 1000,
+        spaceBetween: 0,
+        slidesPerView: 1,
+        allowTouchMove: false,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+      });
+    });
+    //   var logosSwiper = new Swiper(".logos-slider .swiper", {
+    //     loop: true,
+    //     speed: 3000,
+    //     spaceBetween: 100,
+    //     slidesPerView: "auto",
+    //     freeMode: true,
+    //     allowTouchMove: false,
+    //     autoplay: {
+    //       delay: 0,
+    //       disableOnInteraction: false,
+    //     },
+    //     breakpoints: {
+    //       1024: {
+    //         speed: 5000,
+    //         spaceBetween: 176,
+    //       },
+    //     },
+    //   });
+  }
 
   if (document.querySelector(".block-cases-carousel")) {
     var swiperCasesInit = false;

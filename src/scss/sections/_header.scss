@@ -41,6 +41,16 @@
         }
       }
     }
+
+    &.theme-light-half {
+      .site-logo {
+        svg {
+          path {
+            fill: $secondary;
+          }
+        }
+      }
+    }
   }
 
   &.theme-light-home {
