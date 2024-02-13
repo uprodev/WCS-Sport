@@ -1,6 +1,10 @@
 .block-testimonials {
   padding: 27px 0 0;
 
+  &:last-child {
+    margin-bottom: 100px;
+  }
+
   h3 {
     margin: 0 0 18px;
     @include font-size($h3-font-size-sm, $h4-font-size);
@@ -36,6 +40,13 @@
         video {
           border-radius: 8px;
         }
+      }
+
+      .video-controls {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        z-index: 2;
       }
 
       .btn-video-play {
@@ -146,6 +157,10 @@
 
   @include media-breakpoint-up(xl) {
     padding: 122px 0 0;
+
+    &:last-child {
+      margin-bottom: 185px;
+    }
 
     h3 {
       margin: 0 0 18px;

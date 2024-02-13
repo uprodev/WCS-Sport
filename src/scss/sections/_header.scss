@@ -3,7 +3,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  padding: 32px 0 0 6px;
+  padding: 32px 0 14px 6px;
   z-index: 999;
 
   .container-fluid {
@@ -17,18 +17,20 @@
     display: block;
     width: 134px;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(34px);
 
     svg {
       @extend .img-fluid;
+
+      path {
+        transition: all 0.5s;
+      }
     }
   }
 
   &.nav-opened {
     .site-logo {
       svg path {
-        fill: $secondary;
+        fill: $secondary !important;
       }
     }
   }
@@ -37,7 +39,9 @@
     .site-logo {
       svg {
         path {
-          fill: $white;
+          &:not(.logo-vector) {
+            fill: $white;
+          }
         }
       }
     }
@@ -47,6 +51,10 @@
         svg {
           path {
             fill: $secondary;
+
+            &.logo-vector {
+              fill: $secondary;
+            }
           }
         }
       }
@@ -65,6 +73,15 @@
     }
   }
 
+  @include media-breakpoint-down(lg) {
+    background-color: rgba(48, 48, 48, 0.08);
+
+    &.theme-light,
+    &.theme-light-home {
+      background: linear-gradient(0deg, rgba(48, 48, 48, 0.12) 0%, rgba(48, 48, 48, 0.08) 50%, rgba(116, 116, 116, 0.16) 100%);
+    }
+  }
+
   @include media-breakpoint-up(lg) {
     .container-fluid {
       align-items: unset;
@@ -75,6 +92,20 @@
       padding: 0 24px;
       display: flex;
       align-items: center;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(34px);
+      transition: background 0.5s;
+    }
+
+    &.theme-light {
+      .navigation-main {
+        background: rgba(39, 39, 39, 0.35);
+
+        ul li a {
+          color: $primary;
+          opacity: 1;
+        }
+      }
     }
 
     &.theme-light-home {

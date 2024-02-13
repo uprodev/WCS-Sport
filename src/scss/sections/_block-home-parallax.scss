@@ -4,12 +4,13 @@
   top: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 10;
 
-  &:after {
-    content: "";
-    @include abs;
-    background-color: rgba($black, 0.6);
-  }
+  // &:after {
+  //   content: "";
+  //   @include abs;
+  //   background-color: rgba($black, 0.6);
+  // }
 
   &.is-hidden {
     display: none;
@@ -31,49 +32,49 @@
       width: 43px;
       height: 43px;
       left: 10%;
-      top: 10.66vh;
+      top: 20.66vh;
     }
 
     &.parallax-item-2 {
       width: 41px;
       height: 73px;
       right: 13.6%;
-      top: 15vh;
+      top: 25vh;
     }
 
     &.parallax-item-3 {
       width: 35px;
       height: 35px;
       left: -11px;
-      top: 27.5vh;
+      top: 37.5vh;
     }
 
     &.parallax-item-4 {
       width: 57px;
       height: 101px;
       left: 39%;
-      top: 23.5vh;
+      top: 33.5vh;
     }
 
     &.parallax-item-5 {
       width: 56px;
       height: 56px;
       right: 21.3%;
-      top: 48.5vh;
+      top: 58.5vh;
     }
 
     &.parallax-item-6 {
       width: 41px;
       height: 73px;
       left: 17.4%;
-      top: 63.3vh;
+      top: 73.3vh;
     }
 
     &.parallax-item-7 {
       width: 56px;
       height: 56px;
       right: 12.3%;
-      top: 80.5vh;
+      top: 90.5vh;
     }
   }
 
@@ -83,28 +84,28 @@
         width: 6.5vw;
         height: 8vw;
         left: 20.2%;
-        top: 5vw;
+        top: 15vw;
       }
 
       &.parallax-item-2 {
         width: 6vw;
         height: 11.6vw;
         right: -2vw;
-        top: 10vh;
+        top: 20vh;
       }
 
       &.parallax-item-3 {
         width: 6vw;
         height: 11.5vw;
         left: -3.5vw;
-        top: 25.5vh;
+        top: 35.5vh;
       }
 
       &.parallax-item-4 {
         width: 6.6vw;
         height: 11.5vw;
         left: auto;
-        top: 20.5vh;
+        top: 30.5vh;
         right: 13.4vw;
       }
 
@@ -112,7 +113,7 @@
         width: 6.5vw;
         height: 6.5vw;
         right: auto;
-        top: 52.5vh;
+        top: 62.5vh;
         left: 11vw;
       }
 
@@ -128,7 +129,7 @@
         width: 6.5vw;
         height: 6.5vw;
         right: 24.3vw;
-        top: 0;
+        top: 10vh;
       }
     }
   }

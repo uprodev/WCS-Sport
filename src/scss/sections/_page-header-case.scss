@@ -88,6 +88,10 @@
         }
       }
     }
+
+    .video-controls {
+      margin: 0 0 -12px;
+    }
   }
 
   @include media-breakpoint-between(xl, xxl) {

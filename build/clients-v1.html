@@ -132,7 +132,7 @@
         </div>
       </section>
       <section class="block-cases-slider bg-secondary">
-        <div class="swiper">
+        <div class="swiper swiper-outer">
           <div class="swiper-wrapper">
             <div class="swiper-slide" style="background-image: url(images/slide1-bg.jpg)">
               <div class="item">
@@ -140,7 +140,6 @@
                   <em>ATP</em>BARCELONA<br />
                   TOUR
                 </h2>
-                <figure><img src="images/slide1.png" alt="" /></figure>
               </div>
             </div>
             <div class="swiper-slide" style="background-image: url(images/slide2-bg.jpg)">
@@ -150,7 +149,6 @@
                   <br />
                   CAVALIERS
                 </h2>
-                <figure><img src="images/slide2.png" alt="" /></figure>
               </div>
             </div>
             <div class="swiper-slide" style="background-image: url(images/slide3-bg.jpg)">
@@ -160,35 +158,51 @@
                   <br />
                   PITTSBURGH
                 </h2>
-                <figure><img src="images/slide3.png" alt="" /></figure>
               </div>
             </div>
             <div class="swiper-slide" style="background-image: url(images/slide1-bg.jpg)">
               <div class="item">
                 <h2><em>ATP</em>ESPN</h2>
-                <figure><img src="images/slide1.png" alt="" /></figure>
               </div>
             </div>
             <div class="swiper-slide" style="background-image: url(images/slide2-bg.jpg)">
               <div class="item">
                 <h2><em>NBA</em>LA LIGA</h2>
-                <figure><img src="images/slide2.png" alt="" /></figure>
               </div>
             </div>
           </div>
           <div class="swiper-pagination"></div>
           <div class="swiper-controls">
             <ul>
-              <li class="active" data-slide="0">BARCELONA TOUR</li>
-              <li data-slide="1">CLEVELAND CAVALIERS</li>
-              <li data-slide="2">LA RAMS</li>
-              <li data-slide="3">ESPN</li>
-              <li data-slide="4">LA LIGA</li>
+              <li><a href="#">BARCELONA TOUR</a></li>
+              <li><a href="#">CLEVELAND CAVALIERS</a></li>
+              <li><a href="#">LA RAMS</a></li>
+              <li><a href="#">ESPN</a></li>
+              <li><a href="#">LA LIGA</a></li>
             </ul>
             <div class="active-arrow">
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none">
                 <path d="M15 14V5.6875L0 0L7.71429 14H15Z" fill="#E5FF00" />
               </svg>
+            </div>
+          </div>
+        </div>
+        <div class="swiper swiper-inner">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <figure><img src="images/slide1.png" alt="" /></figure>
+            </div>
+            <div class="swiper-slide">
+              <figure><img src="images/slide2.png" alt="" /></figure>
+            </div>
+            <div class="swiper-slide">
+              <figure><img src="images/slide1.png" alt="" /></figure>
+            </div>
+            <div class="swiper-slide">
+              <figure><img src="images/slide3.png" alt="" /></figure>
+            </div>
+            <div class="swiper-slide">
+              <figure><img src="images/slide2.png" alt="" /></figure>
             </div>
           </div>
         </div>
@@ -331,9 +345,13 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="video-wrapper">
-                  <button class="btn-video-play playing"></button>
                   <div class="video img-fade">
-                    <video src="media/video.mp4" controls muted autoplay playsinline loop></video>
+                    <video src="media/video.mp4" muted autoplay playsinline></video>
+                  </div>
+                  <div class="video-controls">
+                    <button class="video-replay"></button>
+                    <button class="video-play"></button>
+                    <button class="video-sound"></button>
                   </div>
                 </div>
               </div>
@@ -353,7 +371,7 @@
       
         <div class="testimonials-slider bg-primary">
           <div class="container-fluid">
-            <div class="swiper fade-up">
+            <div class="swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <div class="item">
