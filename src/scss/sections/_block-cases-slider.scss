@@ -24,13 +24,9 @@
         opacity: 0.5;
         transition: all 0.3s;
 
-        &:hover {
+        &.active {
           color: $primary;
           opacity: 1;
-        }
-
-        a {
-          text-decoration: none;
         }
       }
     }

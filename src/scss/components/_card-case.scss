@@ -1,6 +1,6 @@
 .card-case {
   border-radius: 4px;
-  background-color: $gray-100;
+  overflow: hidden;
 
   .card-image {
     overflow: hidden;
@@ -21,6 +21,8 @@
     flex-direction: column;
     justify-content: flex-end;
     padding: 32px 24px;
+    background-color: $gray-100;
+    border-radius: 0 0 4px 4px;
 
     .card-logo {
       text-align: right;
@@ -63,7 +65,7 @@
 
   @include media-breakpoint-up(md) {
     border-radius: 8px 8px 0 0;
-    transition: background-color 0.5s;
+    height: 662px;
 
     .card-image {
       border-radius: 8px 8px 0 0;
@@ -80,6 +82,8 @@
     }
 
     .card-main {
+      transition: background-color 0.5s;
+
       .card-logo {
         width: auto;
         height: auto;
@@ -92,17 +96,21 @@
     }
 
     &:hover {
-      background-color: $primary;
-
       .card-image {
         .img-fade {
           height: 210px;
         }
       }
+
+      .card-main {
+        background-color: $primary;
+      }
     }
   }
 
   @include media-breakpoint-up(xl) {
+    height: 710px;
+
     .card-main {
       height: 500px;
       padding: 32px;
@@ -123,6 +131,8 @@
   }
 
   @include media-breakpoint-up(xxl) {
+    height: 873px;
+
     .card-main {
       height: 602px;
     }

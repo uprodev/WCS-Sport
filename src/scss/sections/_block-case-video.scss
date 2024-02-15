@@ -1,19 +1,23 @@
 .block-case-video {
-  height: 650px;
+  aspect-ratio: 9/16;
 
   video {
     @include img-fit;
   }
 
-  @include media-breakpoint-up(lg) {
-    height: 750px;
+  @include media-breakpoint-up(md) {
+    aspect-ratio: 16/9;
   }
 
-  @include media-breakpoint-up(xl) {
-    height: 900px;
-  }
+  // @include media-breakpoint-up(lg) {
+  //   height: 750px;
+  // }
 
-  @include media-breakpoint-up(xxl) {
-    height: 100vh;
-  }
+  // @include media-breakpoint-up(xl) {
+  //   height: 900px;
+  // }
+
+  // @include media-breakpoint-up(xxl) {
+  //   height: 100vh;
+  // }
 }

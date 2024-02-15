@@ -54,10 +54,20 @@
     .btn-play {
       width: 29px;
       height: 29px;
-      background: none;
+      background: #0b0b0b url(../images/play.svg) left 55% top 50%/40% no-repeat;
       border: none;
+      border-radius: 100%;
       padding: 0;
       flex-shrink: 0;
+
+      &.is-playing {
+        background-image: url(../images/pause.svg);
+        background-position: center;
+      }
+
+      img {
+        display: none;
+      }
     }
 
     .audio-controls-box {
@@ -274,6 +284,7 @@
       .btn-play {
         width: 78px;
         height: 78px;
+        background-size: auto 30px;
       }
 
       .audio-controls-box {

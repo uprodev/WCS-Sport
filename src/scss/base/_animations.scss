@@ -1,11 +1,4 @@
-h1,
-h2,
-h3,
-h4,
-.h1,
-.h2,
-.h3,
-.h4 {
+.splitting {
   &:not(.not-animated) {
     visibility: hidden;
 
@@ -19,6 +12,21 @@ h4,
       display: block;
       transform: translateY(150%);
       opacity: 0;
+    }
+  }
+}
+
+.lines-wrapper {
+  .line {
+    overflow: hidden;
+  }
+
+  & > * {
+    &:not(.animated) {
+      .word {
+        opacity: 0;
+        transform: translateY(100%);
+      }
     }
   }
 }
