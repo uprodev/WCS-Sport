@@ -35,7 +35,7 @@
           margin: 0;
         }
 
-        .line {
+        .underline {
           content: "";
           position: absolute;
           left: 0;
@@ -47,14 +47,13 @@
           transform-origin: 0 0;
         }
 
-        h1 {
+        .headline {
+          @extend .h1;
           font-weight: 300;
         }
 
         .text {
           padding: 53px 0 0;
-          opacity: 0;
-          transform: translateX(10%);
           font-weight: 300;
 
           @include media-breakpoint-down(md) {
@@ -89,7 +88,7 @@
         padding: 30px 0;
         margin: 0 0 30px;
 
-        .h1 {
+        .headline {
           margin: 0;
         }
 
@@ -102,7 +101,7 @@
 
   @include media-breakpoint-between(xl, xxl) {
     .scroller {
-      padding: 251px 0 255px 35px;
+      padding: 251px 0 300px 35px;
 
       h3 {
         font-size: 48px;
@@ -114,8 +113,9 @@
           padding: 48px 0 52px;
           margin: 0 0 43px;
 
-          .h1 {
+          .headline {
             font-size: 114px;
+            margin: 0;
           }
 
           .text {
@@ -139,7 +139,7 @@
 
   @include media-breakpoint-up(xxl) {
     .scroller {
-      padding: 251px 0 255px;
+      padding: 251px 0 300px;
 
       h3 {
         margin: 0 0 59px;
@@ -159,8 +159,9 @@
             }
           }
 
-          h1 {
+          .headline {
             font-weight: 350;
+            margin: 0;
           }
 
           &:not(:first-child) {

@@ -9,6 +9,7 @@
     @include font-size(3.25rem, $h3-font-size);
     line-height: 0.97;
     margin: 0 0 25px;
+    font-weight: 300;
   }
 
   .pagination {

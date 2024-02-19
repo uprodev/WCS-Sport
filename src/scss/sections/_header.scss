@@ -45,20 +45,6 @@
         }
       }
     }
-
-    &.theme-light-half {
-      .site-logo {
-        svg {
-          path {
-            fill: $secondary;
-
-            &.logo-vector {
-              fill: $secondary;
-            }
-          }
-        }
-      }
-    }
   }
 
   &.theme-light-home {
@@ -79,6 +65,34 @@
     &.theme-light,
     &.theme-light-home {
       background: linear-gradient(0deg, rgba(48, 48, 48, 0.12) 0%, rgba(48, 48, 48, 0.08) 50%, rgba(116, 116, 116, 0.16) 100%);
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    &.theme-light {
+      .site-logo {
+        svg {
+          path {
+            &:not(.logo-vector) {
+              fill: $white;
+            }
+          }
+        }
+      }
+
+      &.theme-light-half {
+        .site-logo {
+          svg {
+            path {
+              fill: $secondary;
+
+              &.logo-vector {
+                fill: $secondary;
+              }
+            }
+          }
+        }
+      }
     }
   }
 

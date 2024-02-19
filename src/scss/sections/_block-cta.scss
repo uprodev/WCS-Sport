@@ -25,11 +25,11 @@
   }
 
   &--type2 {
-    padding: 40px 0;
+    padding: 37px 0 40px;
     line-height: 1.4;
     p {
       font-size: 1.25rem;
-      margin: 0 0 55px;
+      margin: 2px 0 47px;
     }
   }
 
@@ -80,9 +80,20 @@
     }
 
     &--type2 {
-      padding: 65px 0 83px;
+      padding: 65px 0 54px;
       p {
         font-size: 21px;
+      }
+    }
+  }
+
+  @include media-breakpoint-between(xl, xxl) {
+    &--type2 {
+      .container-fluid {
+        padding: 0 8.5vw 0 9.5vw;
+      }
+      p {
+        margin: 0 35px 28px 0;
       }
     }
   }
@@ -113,9 +124,13 @@
     }
 
     &--type2 {
-      padding: 70px 0 65px;
+      padding: 70px 0 35px;
+      .container-fluid {
+        padding: 0 8.4vw;
+      }
       p {
         font-size: 26px;
+        margin: 0 35px 30px 0;
       }
     }
 

@@ -1,9 +1,11 @@
 .block-blog-article {
+  padding: 0 0 30px;
   .article-intro {
     font-size: 2rem;
     line-height: 1.04;
     padding: 29px 0 19px;
     letter-spacing: 0.01em;
+    font-weight: 300;
 
     p {
       margin: 0;
@@ -66,11 +68,12 @@
   }
 
   .article-main {
+    font-weight: 300;
     h4 {
       @include font-size(2.25rem, $h4-font-size);
       line-height: 0.98;
       margin: 57px 0 51px;
-      font-weight: 400;
+      font-weight: 300;
 
       &:first-child {
         margin-top: 32px;

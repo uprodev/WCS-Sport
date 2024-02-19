@@ -10,7 +10,7 @@
   }
 
   .image {
-    .img-fade {
+    .img-inner {
       @include img-abs-container(90%);
     }
   }
@@ -30,15 +30,13 @@
       }
     }
 
-    h3 {
+    .h3 {
+      display: block;
       margin: 24px 0 53px;
       @include font-size(2.875rem, $h3-font-size);
       line-height: 0.97;
       font-weight: 300;
-
-      a {
-        text-decoration: none;
-      }
+      text-decoration: none;
     }
 
     p {
@@ -60,7 +58,7 @@
   @include media-breakpoint-up(md) {
     .image {
       height: 100%;
-      .img-fade {
+      .img-inner {
         height: 100%;
         padding: 0;
       }
@@ -86,7 +84,7 @@
       height: auto;
       padding: 0 25px 0 0;
 
-      .img-fade {
+      .img-inner {
         height: 40.6vw;
         max-height: 585px;
       }
@@ -107,7 +105,7 @@
         font-weight: 500;
       }
 
-      h3 {
+      .h3 {
         font-size: 48px;
         line-height: 0.9;
         margin: 27px 0 42px;
@@ -137,7 +135,7 @@
       height: auto;
       padding: 0 20px 0 0;
 
-      .img-fade {
+      .img-inner {
         height: 44.8vw;
         max-height: 860px;
       }
@@ -157,9 +155,9 @@
         letter-spacing: 0.01em;
       }
 
-      h3 {
-        line-height: 0.9;
-        margin: 37px 0 113px;
+      .h3 {
+        line-height: 0.87;
+        margin: 37px 0 121px;
       }
 
       p {

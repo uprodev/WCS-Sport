@@ -64,6 +64,11 @@
     }
 
     &--blog {
+      .col-lg-6 {
+        &:first-child {
+          padding-right: 0;
+        }
+      }
       p {
         br {
           display: none;

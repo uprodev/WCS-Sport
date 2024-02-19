@@ -1,5 +1,8 @@
 .block-logos {
   padding: 26px 0 46px;
+  background-color: $white;
+  position: relative;
+  z-index: 9;
 
   .container-fluid {
     @include media-breakpoint-up(xl) {

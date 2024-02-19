@@ -14,7 +14,7 @@
   </head>
   <body>
 
-<div class="global-wrapper">
+<div class="global-wrapper global-wrapper-home">
     <div class="header">
       <div class="container-fluid d-flex justify-content-between">
         <a href="#" class="site-logo">
@@ -50,44 +50,65 @@
               <li><a href="#">Blog</a></li>
               <li><a href="#">Contact Us</a></li>
             </ul>
-            <a href="#" class="btn btn-primary btn-sm">Request Demo</a>
+    
+            <a href="#" class="btn btn-primary btn-sm">
+              <span class="btn-label-wrap">
+                <span class="btn-label" data-text="Request Demo">Request Demo</span>
+              </span>
+            </a>
           </div>
         </nav>
     
         <button class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
       </div>
     </div>
+    <div class="block-home-preloader">
+      <lottie-player id="preloader1" class="preloader" src="json/preloader1.json" style="width: 100%; height: 100%"></lottie-player>
+      <lottie-player id="preloader2" class="preloader" loop src="json/preloader2.json" style="width: 100%; height: auto"></lottie-player>
+    </div>
     
     <main class="content">
         <div class="bg-secondary">
-            <div class="block-home-parallax">
-              <div class="parallax-wrapper">
-                <div id="parallax1" class="parallax-item parallax-item-1"><img src="images/img11.jpg" alt="" /></div>
-                <div id="parallax2" class="parallax-item parallax-item-2"><img src="images/img13.jpg" alt="" /></div>
-                <div id="parallax3" class="parallax-item parallax-item-3"><img src="images/img41.jpg" alt="" /></div>
-                <div id="parallax4" class="parallax-item parallax-item-4"><img src="images/img42.jpg" alt="" /></div>
-                <div id="parallax5" class="parallax-item parallax-item-5"><img src="images/img29.jpg" alt="" /></div>
-                <div id="parallax6" class="parallax-item parallax-item-6"><img src="images/img36.jpg" alt="" /></div>
-                <div id="parallax7" class="parallax-item parallax-item-7"><img src="images/img08.jpg" alt="" /></div>
-              </div>
-              <!-- <div class="parallax-wrapper">
-                <div id="parallax1" class="parallax-item parallax-item-1"><img src="images/img11.jpg" alt="" /></div>
-                <div id="parallax2" class="parallax-item parallax-item-2"><img src="images/img13.jpg" alt="" /></div>
-                <div id="parallax3" class="parallax-item parallax-item-3"><img src="images/img41.jpg" alt="" /></div>
-                <div id="parallax4" class="parallax-item parallax-item-4"><img src="images/img42.jpg" alt="" /></div>
-                <div id="parallax5" class="parallax-item parallax-item-5"><img src="images/img29.jpg" alt="" /></div>
-                <div id="parallax6" class="parallax-item parallax-item-6"><img src="images/img36.jpg" alt="" /></div>
-                <div id="parallax7" class="parallax-item parallax-item-7"><img src="images/img08.jpg" alt="" /></div>
-              </div> -->
-            </div>
-            <section class="block-home block-home-1 bg-secondary">
-              <div class="block-inner">
-                <div class="home-animated-text home-headline">WSC SPORTS</div>
-                <div class="home-animated-text home-text">The AI-Powered platform that automates sports content creation, management and distribution</div>
             
-                <div class="block-home-video">
-                  <div class="home-video-title">scroll to explore</div>
-                  <div class="image"><img src="images/img45.jpg" alt="" /></div>
+            <section class="block-home block-home-1">
+              <div class="home-parallax">
+                <div class="layer layer-1">
+                  <div id="parallax1" class="parallax-item parallax-item-1"><img src="images/img11.jpg" alt="" /></div>
+                  <div id="parallax2" class="parallax-item parallax-item-2"><img src="images/img13.jpg" alt="" /></div>
+                  <div id="parallax3" class="parallax-item parallax-item-3"><img src="images/img41.jpg" alt="" /></div>
+                  <div id="parallax4" class="parallax-item parallax-item-4"><img src="images/img42.jpg" alt="" /></div>
+                  <div id="parallax5" class="parallax-item parallax-item-5"><img src="images/img29.jpg" alt="" /></div>
+                  <div id="parallax6" class="parallax-item parallax-item-6"><img src="images/img36.jpg" alt="" /></div>
+                  <div id="parallax7" class="parallax-item parallax-item-7"><img src="images/img08.jpg" alt="" /></div>
+                </div>
+                <div class="layer layer-2">
+                  <div id="parallax1" class="parallax-item parallax-item-1"><img src="images/img11.jpg" alt="" /></div>
+                  <div id="parallax2" class="parallax-item parallax-item-2"><img src="images/img13.jpg" alt="" /></div>
+                  <div id="parallax3" class="parallax-item parallax-item-3"><img src="images/img41.jpg" alt="" /></div>
+                  <div id="parallax4" class="parallax-item parallax-item-4"><img src="images/img42.jpg" alt="" /></div>
+                  <div id="parallax5" class="parallax-item parallax-item-5"><img src="images/img29.jpg" alt="" /></div>
+                  <div id="parallax6" class="parallax-item parallax-item-6"><img src="images/img36.jpg" alt="" /></div>
+                  <div id="parallax7" class="parallax-item parallax-item-7"><img src="images/img08.jpg" alt="" /></div>
+                </div>
+                <div class="layer layer-3">
+                  <div id="parallax1" class="parallax-item parallax-item-1"><img src="images/img11.jpg" alt="" /></div>
+                  <div id="parallax2" class="parallax-item parallax-item-2"><img src="images/img13.jpg" alt="" /></div>
+                  <div id="parallax3" class="parallax-item parallax-item-3"><img src="images/img41.jpg" alt="" /></div>
+                  <div id="parallax4" class="parallax-item parallax-item-4"><img src="images/img42.jpg" alt="" /></div>
+                  <div id="parallax5" class="parallax-item parallax-item-5"><img src="images/img29.jpg" alt="" /></div>
+                  <div id="parallax6" class="parallax-item parallax-item-6"><img src="images/img36.jpg" alt="" /></div>
+                  <div id="parallax7" class="parallax-item parallax-item-7"><img src="images/img08.jpg" alt="" /></div>
+                </div>
+                <div class="layer layer-4">
+                  <div class="video">
+                    <video src="media/video-home.mp4" loop autoplay playsinline muted></video>
+                  </div>
+                </div>
+              </div>
+              <div class="block-inner">
+                <div id="headline1" class="headline-main">WSC SPORTS</div>
+                <div class="text">
+                  <p>The AI-Powered platform that automates sports content creation, management and distribution</p>
                 </div>
               </div>
             </section>
@@ -287,6 +308,7 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
+<script src="js/landing.js"></script>
 
 </body>
 </html>

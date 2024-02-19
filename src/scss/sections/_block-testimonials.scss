@@ -36,6 +36,7 @@
 
       .video {
         @include img-abs-container(100%);
+        transform: translateY(-30%);
 
         video {
           border-radius: 8px;

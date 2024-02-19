@@ -16,10 +16,16 @@ button {
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
   height: 58px;
-  overflow: hidden;
   text-transform: uppercase;
+  text-decoration: none;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  padding: 0;
+  padding-left: $btn-padding-x;
+  padding-right: $btn-padding-x;
+  background: none;
+  border: none;
 
   &[disabled],
   &.disabled {
@@ -35,64 +41,87 @@ button {
     font-weight: 500;
   }
 
-  svg {
-    display: block;
-    margin-left: 0.5em;
-    transition: all 0.2s ease;
-    flex: 0 0 auto;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: $btn-border-radius;
+    transform-origin: center;
+    transition: all 0.3s;
   }
 
-  &:hover {
-    svg {
-      transform: rotate(315deg);
+  .btn-label-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    line-height: 1;
+  }
+
+  .btn-label {
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    line-height: 1.2;
+    transition: all 0.2s;
+
+    &:after {
+      content: attr(data-text);
+      position: absolute;
+      right: 0;
+      left: 0;
+      display: block;
+      transition: all 0.5s;
+      height: 100%;
+    }
+  }
+
+  .btn-arrow {
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    margin-left: 8px;
+    overflow: hidden;
+    position: relative;
+    flex: 0 0 auto;
+
+    .btn-arrow-inner {
+      display: block;
+      width: 100%;
+      height: 100%;
+      transition: all 0.2s;
+
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
   &.btn-primary {
-    --bs-btn-hover-color: #{$primary};
-    --bs-btn-hover-bg: #{$secondary};
-    --bs-btn-hover-border-color: #{$secondary};
-    --bs-btn-active-color: #{$primary};
-    --bs-btn-active-bg: #{$secondary};
-    --bs-btn-active-border-color: #{$secondary};
-
-    &:hover {
-      svg {
-        path {
-          fill: $primary;
-        }
-      }
-    }
-  }
-
-  &.btn-secondary {
-    --bs-btn-color: #{$gray-100};
-    --bs-btn-hover-color: #{$secondary};
-    --bs-btn-hover-bg: #{$primary};
-    --bs-btn-hover-border-color: #{$primary};
-    --bs-btn-active-color: #{$secondary};
-    --bs-btn-active-bg: #{$primary};
-    --bs-btn-active-border-color: #{$primary};
-
-    &:hover {
-      svg {
-        path {
-          fill: $secondary;
-        }
-      }
+    &:before {
+      background-color: $primary;
     }
   }
 
   &.btn-outline-secondary {
-    --bs-btn-hover-color: #{$primary};
-    --bs-btn-active-color: #{$primary};
+    &:before {
+      border: 1px solid $secondary;
+    }
+  }
 
-    &:hover {
-      svg {
-        path {
-          fill: $primary;
-        }
-      }
+  &:hover {
+    &:before {
+      transform: scale(1.1);
+    }
+    .btn-label,
+    .btn-arrow-inner {
+      transform: translateY(-100%);
     }
   }
 

@@ -1,9 +1,10 @@
 .block-contact-form {
-  padding: 58px 0 32px;
+  padding: 58px 0 77px;
 
   h2 {
-    margin: 0 0 46px;
-    font-size: clamp($h2-font-size-sm, get-vw($h4-font-size), $h4-font-size);
+    margin: 0 0 50px;
+    font-size: clamp(2.5rem, get-vw($h4-font-size), $h4-font-size);
+    font-weight: 350;
   }
 
   dl {
@@ -44,7 +45,7 @@
   }
 
   form {
-    padding: 55px 0 0;
+    padding: 56px 0 0;
 
     .form-select,
     input.form-control {
@@ -67,7 +68,7 @@
     }
 
     .field {
-      margin: 0 0 25px;
+      margin: 0 0 26px;
 
       .form-label {
         @include media-breakpoint-down(md) {
@@ -92,7 +93,7 @@
       margin-top: 10px;
 
       .form-check-label {
-        font-size: 1rem;
+        font-size: 0.875rem;
         padding: 0 15px 0 0;
       }
     }
@@ -169,10 +170,12 @@
   }
 
   @include media-breakpoint-up(xl) {
-    form {
-      .form-check {
-        padding-left: 1.25rem;
-      }
+    &:not(.block-contact-form--type1) {
+      padding-top: 205px;
+    }
+
+    h2 {
+      font-weight: 400;
     }
   }
 
@@ -199,13 +202,14 @@
       margin: 0 -6.8vw 0 0;
 
       .form-label {
-        margin-bottom: 1rem;
+        margin-bottom: 1.13rem;
       }
       .field {
         margin: 0 0 38px;
 
         &.field-text {
-          margin-top: 5px;
+          margin-top: 2px;
+          margin-bottom: 35px;
           .form-label {
             margin-bottom: 0.85rem;
           }
@@ -216,9 +220,12 @@
       }
       .form-check {
         margin-top: -4px;
+        .form-check-label {
+          font-size: 1rem;
+        }
       }
       .form-buttons {
-        margin: 62px 0 0;
+        margin: 65px 0 0;
         .btn {
           height: 42px;
           padding: 3px 14px 0;
@@ -250,6 +257,11 @@
 
   @include media-breakpoint-up(xxl) {
     padding: 93px 0 128px;
+
+    &:not(.block-contact-form--type1) {
+      padding-top: 186px;
+      padding-bottom: 240px;
+    }
 
     dl {
       padding: 5px 0 0;
@@ -288,6 +300,10 @@
 
       .form-check {
         margin-top: -3px;
+
+        .form-check-label {
+          font-size: 1rem;
+        }
       }
 
       .form-buttons {

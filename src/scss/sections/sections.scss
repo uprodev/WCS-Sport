@@ -2,6 +2,7 @@
 @import "footer";
 
 // home
+@import "block-home-preloader";
 @import "block-home-parallax";
 @import "block-home-1";
 @import "block-home-2";
@@ -14,6 +15,7 @@
 @import "block-scroll-list";
 @import "block-join";
 @import "block-contact-form";
+@import "block-thank";
 
 //careers
 @import "block-slider-variable-width";
