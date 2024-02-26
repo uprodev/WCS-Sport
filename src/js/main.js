@@ -147,7 +147,7 @@ jQuery(document).ready(function ($) {
       },
     });
   }
-  if (document.querySelector(".bg-secondary")) {
+  if (!document.querySelector(".global-wrapper-home") && document.querySelector(".bg-secondary")) {
     document.querySelectorAll(".bg-secondary").forEach((bg) => {
       var className = "theme-light";
       if (document.querySelector(".block-home")) {
@@ -168,6 +168,29 @@ jQuery(document).ready(function ($) {
         },
         onLeaveBack: function () {
           document.querySelector(".header").classList.remove(className);
+        },
+      });
+    });
+  }
+
+  if (document.querySelector(".global-wrapper-home")) {
+    document.querySelector(".header").classList.add("theme-light-home");
+    document.querySelectorAll(".bg-white").forEach((bg) => {
+      ScrollTrigger.create({
+        trigger: bg,
+        start: "top 5px",
+        end: "bottom 20px",
+        onEnter: function () {
+          document.querySelector(".header").classList.remove("theme-light-home");
+        },
+        onLeave: function () {
+          document.querySelector(".header").classList.add("theme-light-home");
+        },
+        onEnterBack: function () {
+          document.querySelector(".header").classList.remove("theme-light-home");
+        },
+        onLeaveBack: function () {
+          document.querySelector(".header").classList.add("theme-light-home");
         },
       });
     });

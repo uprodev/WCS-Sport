@@ -104,6 +104,7 @@ button {
   }
 
   &.btn-primary {
+    color: $secondary;
     &:before {
       background-color: $primary;
     }

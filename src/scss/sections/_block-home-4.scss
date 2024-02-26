@@ -1,5 +1,6 @@
 .block-home-4 {
   height: auto;
+  overflow: hidden;
 
   .block-inner {
     padding: 60px 24px 48px;
@@ -180,32 +181,6 @@
         video {
           @include img-fit;
           mix-blend-mode: lighten;
-        }
-      }
-
-      .btn {
-        --bs-btn-color: #e5ff00;
-        --bs-btn-bg: #0b0b0b;
-        --bs-btn-hover-color: #0b0b0b;
-        --bs-btn-hover-bg: #e5ff00;
-        --bs-btn-hover-border-color: #e5ff00;
-        --bs-btn-active-color: #0b0b0b;
-        --bs-btn-active-bg: #e5ff00;
-        --bs-btn-active-border-color: #e5ff00;
-
-        svg {
-          path {
-            fill: $primary;
-          }
-        }
-
-        &:hover,
-        &:active {
-          svg {
-            path {
-              fill: #0b0b0b;
-            }
-          }
         }
       }
     }
