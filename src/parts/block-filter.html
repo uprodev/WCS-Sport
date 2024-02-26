@@ -30,12 +30,22 @@
         </ul>
       </div>
       <div class="sort">
-        <select>
-          <option value="latest">LATEST</option>
-          <option value="1">OPT 1</option>
-          <option value="2">OPT 2</option>
-          <option value="3">OPT 3</option>
-        </select>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">SORT BY</button>
+          <div class="dropdown-menu">
+            <ul>
+              <li>
+                <input type="radio" name="sort" value="newest" id="sort1" />
+                <label for="sort1">NEWEST</label>
+              </li>
+              <li>
+                <input type="radio" name="sort" value="oldest" id="sort2" />
+                <label for="sort2">OLDEST</label>
+              </li>
+            </ul>
+            <button class="dropdown-toggle-inner" type="button" data-bs-toggle="dropdown" aria-expanded="false">cancel</button>
+          </div>
+        </div>
       </div>
     </form>
   </div>

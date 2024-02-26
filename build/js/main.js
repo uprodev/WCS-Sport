@@ -735,4 +735,12 @@ jQuery(document).ready(function ($) {
       $(".page-header-case").find(".video-play").removeClass("is-paused");
     }, 1000);
   }
+
+  $(".block-filter .dropdown .dropdown-toggle, .block-filter .dropdown .dropdown-toggle-inner").on("click", function (e) {
+    e.stopPropagation();
+    $(".block-filter .dropdown").toggleClass("active");
+  });
+  $(document).on("click", function () {
+    $(".block-filter .dropdown").removeClass("active");
+  });
 });
