@@ -1,5 +1,11 @@
-lenis.scrollTo(0, { duration: 0 });
-lenis.stop();
+// preloader
+
+lenis.scrollTo(0, {
+  duration: 0.1,
+  onComplete: () => {
+    lenis.stop();
+  },
+});
 
 let p1 = document.getElementById("preloader1");
 let p2 = document.getElementById("preloader2");
@@ -18,10 +24,12 @@ p1.addEventListener("complete", () => {
 
 lenis.on("scroll", function ({ direction, scroll }) {
   var homeFirst = document.querySelector(".block-home-1");
-  console.log(scroll, homeFirst.getBoundingClientRect().top);
   if (direction === 1 && !document.querySelector(".block-home-preloader").classList.contains("is-hidden") && homeFirst.getBoundingClientRect().top < window.screen.availHeight) {
     lenis.scrollTo(homeFirst, {
       duration: 0,
+      onComplete: () => {
+        lenis.stop();
+      },
     });
     gsap.to(".block-home-preloader", {
       y: "-100%",
@@ -37,25 +45,30 @@ lenis.on("scroll", function ({ direction, scroll }) {
   }
 });
 
+// split texts
 const headline1 = SplitType.create("#headline1");
+const numbers = SplitType.create(".block-home-3 .number");
 var duration1 = 1;
 var duration2 = 2;
 var headline1Length = headline1.chars.length;
 headline1.chars.forEach((el, i) => {
-  console.log(i < Math.round(headline1Length / 2));
   if (i < Math.round(headline1Length / 2)) {
-    duration1 += 0.2;
+    duration1 += 0.25;
     duration2 -= 0.2;
   } else {
-    duration1 -= 0.2;
+    duration1 -= 0.25;
     duration2 += 0.2;
   }
   el.setAttribute("data-duration1", duration1);
   el.setAttribute("data-duration2", duration2);
 });
 
+document.querySelectorAll(".text-line").forEach((text) => {
+  const txt = SplitType.create(text);
+});
+
 function animateBlock1() {
-  gsap.to(".block-home-1 .home-parallax .layer.layer-4 .video", {
+  gsap.to(".block-home-1 .home-parallax .layer-4 .video", {
     width: "9vw",
     height: "16vw",
     ease: "power4.in",
@@ -74,7 +87,6 @@ function animateBlock1() {
       y: 0,
       duration: char.dataset.duration2,
       ease: "back.out",
-      // ease: CustomEase.create("custom", "M0,0 C0,0 0.086,0.187 0.124,0.261 0.154,0.32 0.199,0.385 0.225,0.45 0.246,0.51 0.372,0.669 0.4,0.716 0.423,0.757 0.581,0.916 0.608,0.943 0.632,0.967 0.774,1.032 0.8,1.044 0.825,1.055 0.876,1.065 0.912,1.064 1.007,1.061 1,1 1,1 "),
       delay: 4,
       onComplete: function () {},
     });
@@ -91,13 +103,15 @@ function animateBlock1() {
     ease: "none",
     delay: 5,
     onComplete: function () {
+      lenis.start();
       headline1.chars.forEach((char) => {
         gsap.set(char, { y: 0 });
       });
       ScrollTrigger.create({
-        trigger: ".block-home-1 .headline-main",
-        start: "center 40%",
-        end: "center 60%",
+        trigger: ".block-home-1",
+        start: "top -2%",
+        end: "bottom 99%",
+        // markers: true,
         onEnter: () => {
           headline1.chars.forEach((char) => {
             gsap.to(char, {
@@ -113,7 +127,6 @@ function animateBlock1() {
           });
         },
         onEnterBack: () => {
-          console.log("back");
           headline1.chars.forEach((char) => {
             gsap.to(char, {
               y: 0,
@@ -131,9 +144,19 @@ function animateBlock1() {
     },
   });
 }
-// animateBlock1();
 
-const animationHome1 = gsap.timeline({ paused: true });
+numbers.chars.forEach((char) => {
+  gsap.to(char, {
+    scrollTrigger: {
+      trigger: ".block-home-3",
+      start: "top center ",
+    },
+    y: 0,
+    duration: 0.3,
+    ease: "none",
+    stagger: 0.15,
+  });
+});
 
 document.querySelectorAll(".parallax-item").forEach((el) => {
   var transition = Math.random() * (0.5 - 0.1) + 0.1;
@@ -143,17 +166,12 @@ document.querySelectorAll(".parallax-item").forEach((el) => {
     scrollTrigger: {
       trigger: ".global-wrapper",
       start: "top top",
-      // end: "bottom -100%",
       scrub: true,
     },
-    // y: (el.getBoundingClientRect().top - window.innerHeight) / 2,
-    // y: window.scrollY * 0.2,
-    // y: lenis.scroll * -0.5,
     duration: 0.5,
     ease: "none",
     onUpdate: function () {
       var delta = lenis.scroll * speed * -1;
-      console.log(document.querySelector(".block-home-preloader").classList.contains("is-hidden"));
       if (document.querySelector(".block-home-preloader").classList.contains("is-hidden")) {
         el.style.transform = `translateY(${delta}px)`;
       }
@@ -161,18 +179,344 @@ document.querySelectorAll(".parallax-item").forEach((el) => {
   });
 });
 
+let videoW = "14.3vw";
+let videoH = "8.6vw";
+
+if (window.screen.width < 1024) {
+  videoW = "200px";
+  videoH = "130px";
+}
+
+const animationHome2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".block-home-2",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+  },
+});
+animationHome2
+  .to(".block-home-2 .video-inner", {
+    y: 0,
+    duration: 0.2,
+    ease: "none",
+  })
+  .to(".text-line-1 .char", {
+    y: 0,
+    duration: 0.2,
+    stagger: 0.1,
+    ease: "none",
+  })
+  .to(
+    ".text-line-2 .char",
+    {
+      y: 0,
+      duration: 0.2,
+      stagger: 0.1,
+      ease: "none",
+    },
+    "-=0.4"
+  )
+  .to(".block-home-2 .video-inner", {
+    rotate: 90,
+    duration: 0.6,
+    ease: "none",
+  })
+  .to(
+    ".block-home-2 .video-inner video",
+    {
+      rotate: -90,
+      duration: 0.6,
+      ease: "none",
+    },
+    "-=0.6"
+  )
+  .to(
+    ".text-line-2 .char",
+    {
+      y: "-120%",
+      duration: 0.2,
+      stagger: 0.1,
+      ease: "none",
+    },
+    "-=0.6"
+  )
+  .to(
+    ".text-line-3 .char",
+    {
+      y: 0,
+      duration: 0.2,
+      stagger: 0.1,
+      ease: "none",
+    },
+    "-=0.2"
+  )
+  .to(".block-home-2 .video", {
+    width: videoH,
+    duration: 0.2,
+    ease: "none",
+  })
+  .to(".block-home-2 .video", {
+    height: videoW,
+    duration: 0.6,
+    ease: "none",
+  })
+  .to(
+    ".text-line-3 .char",
+    {
+      y: "-120%",
+      duration: 0.2,
+      stagger: 0.1,
+      ease: "none",
+    },
+    "-=0.6"
+  )
+  .to(
+    ".text-line-4 .char",
+    {
+      y: 0,
+      duration: 0.2,
+      stagger: 0.1,
+      ease: "none",
+    },
+    "-=0.2"
+  )
+  .to(".block-home-2 .video-inner", {
+    rotate: 180,
+    duration: 0.6,
+    ease: "none",
+  })
+  .to(
+    ".block-home-2 .video-inner video",
+    {
+      rotate: -180,
+      duration: 0.6,
+      ease: "none",
+    },
+    "-=0.6"
+  )
+  .to(
+    ".text-line-4 .char",
+    {
+      y: "-120%",
+      duration: 0.2,
+      stagger: 0.1,
+      ease: "none",
+    },
+    "-=0.6"
+  )
+  .to(
+    ".text-line-5 .char",
+    {
+      y: 0,
+      duration: 0.2,
+      stagger: 0.1,
+      ease: "none",
+    },
+    "-=0.2"
+  )
+  .to(".text-line-1 .char, .text-line-5 .char", {
+    y: "-120%",
+    duration: 0.2,
+    stagger: 0.1,
+    ease: "none",
+  })
+  .to(".block-home-2 .video", {
+    width: "100vw",
+    height: "100vh",
+    duration: 1,
+    ease: "none",
+  })
+  .to(
+    ".block-home-2 .video-inner video",
+    {
+      left: "0%",
+      top: "0%",
+      width: "100%",
+      height: "100%",
+      duration: 0.5,
+      ease: "none",
+    },
+    "-=0.5"
+  )
+  .to(".text1", {
+    zIndex: 2,
+    duration: 1,
+    ease: "none",
+  })
+  .to(
+    ".text2",
+    {
+      height: 0,
+      duration: 1,
+      ease: "none",
+    },
+    "-=1"
+  )
+  .to(
+    ".text3",
+    {
+      height: "1.2em",
+      duration: 1,
+      ease: "none",
+    },
+    "-=1"
+  )
+  .to(".text-line-6 .char", {
+    y: 0,
+    duration: 0.2,
+    stagger: 0.1,
+    ease: "none",
+  })
+  .to(
+    ".text-line-7 .char",
+    {
+      y: 0,
+      duration: 0.2,
+      stagger: 0.1,
+      ease: "none",
+    },
+    "-=0.2"
+  )
+  .to(
+    ".text-line-6 .char",
+    {
+      y: "-120%",
+      duration: 0.2,
+      stagger: 0.1,
+      ease: "none",
+    },
+    "+=0.5"
+  )
+  .to(
+    ".text-line-7 .char",
+    {
+      y: "-120%",
+      duration: 0.2,
+      stagger: 0.1,
+      ease: "none",
+    },
+    "-=0.6"
+  )
+  .to(".block-home-2 .video-block", {
+    backgroundColor: "#3e3e3e",
+    width: 240,
+    height: 450,
+    borderRadius: "5px",
+    padding: "22px",
+    duration: 1,
+    ease: "none",
+  })
+  .to(
+    ".block-home-2 .video-block .video-text",
+    {
+      height: 100,
+      duration: 1,
+      ease: "none",
+    },
+    "-=1"
+  )
+  .to(
+    ".block-home-2 .video-block .video-wrapper",
+    {
+      width: 196,
+      height: 305,
+      duration: 1,
+      ease: "none",
+    },
+    "-=1"
+  )
+  .to(
+    ".block-home-2 .video",
+    {
+      width: "100%",
+      height: "100%",
+      duration: 1,
+      ease: "none",
+    },
+    "-=1"
+  )
+  .to(
+    ".block-home-2 .boxes",
+    {
+      opacity: 0.5,
+      duration: 0.2,
+      ease: "none",
+    },
+    "-=1"
+  )
+  .from(
+    ".block-home-2 .box",
+    {
+      left: "40%",
+      top: "40%",
+      duration: 0.6,
+      ease: "none",
+    },
+    "-=0.5"
+  )
+  .to(
+    ".block-home-2 .box1",
+    {
+      y: "-50%",
+      opacity: 0,
+      duration: 0.5,
+      ease: "none",
+    },
+    "+=1"
+  )
+  .to(
+    ".block-home-2 .box2,.block-home-2 .box3,.block-home-2 .box4,.block-home-2 .box5,.block-home-2 .box6",
+    {
+      x: "-100%",
+      opacity: 0,
+      duration: 0.5,
+      ease: "none",
+    },
+    "-=0.5"
+  )
+  .to(
+    ".block-home-2 .box7,.block-home-2 .box8",
+    {
+      y: "50%",
+      opacity: 0,
+      duration: 0.5,
+      ease: "none",
+    },
+    "-=0.5"
+  )
+  .to(
+    ".block-home-2 .box9,.block-home-2 .box10,.block-home-2 .box11",
+    {
+      x: "100%",
+      opacity: 0,
+      duration: 0.5,
+      ease: "none",
+    },
+    "-=0.5"
+  )
+  .to(
+    ".block-home-2 .video-block",
+    {
+      top: "0%",
+      duration: 0.5,
+      ease: "none",
+    },
+    "-=0.5"
+  );
+
 // home video
-var homeVideo = document.querySelector(".block-home-2 video");
+var homeVideo2 = document.querySelector(".block-home-2 video");
 
 ScrollTrigger.create({
   trigger: ".block-home-2",
   start: "top center",
   onEnter: function () {
-    homeVideo.play();
+    homeVideo2.play();
   },
-  onEnterBack: function () {
-    homeVideo.play();
-  },
+  // onEnterBack: function () {
+  //   homeVideo2.play();
+  // },
 });
 
 // home horizontal section

@@ -21,12 +21,6 @@ jQuery(document).ready(function($) {
 	$(document).on('change', '#filter_posts input', function(e){
 		e.preventDefault();
 
-		/*let data = {
-			'action': 'filter_posts',
-			'cat': $('input[name=category]:checked').val(),
-			'order': $('input[name=sort]:checked').val(),
-		}*/
-
 		$.ajax({
 			url: "/wp-admin/admin-ajax.php",
 			data: $("#filter_posts").serialize(),
