@@ -16,7 +16,7 @@ if($args['row']):
             <?php endif ?>
             
             <?php if ($is_video): ?>
-              <video src="<?= $video['url'] ?>" muted autoplay playsinline></video>
+              <video src="<?= $video['url'] ?>" muted playsinline></video>
             <?php endif ?>
             
           </div>
@@ -28,7 +28,10 @@ if($args['row']):
           <div class="container-fluid">
 
             <?php if ($text): ?>
-              <h1<?php if($is_video) echo ' class="not-animated"' ?>><?= $text ?></h1>
+              <div class="lines-wrapper">
+                <h1<?php if($is_video) echo ' class="not-animated"' ?>><?= $text ?></h1>
+              </div>
+              <a href="#" class="btn-watch"><?= mb_strtoupper(__('Watch now', 'WSC')) ?></a>
             <?php endif ?>
 
             <?php if ($is_video): ?>
@@ -39,7 +42,6 @@ if($args['row']):
               </div>
             <?php endif ?>
 
-            <!-- <a href="#" class="btn-watch"><?= mb_strtoupper(__('Watch now', 'WSC')) ?></a> -->
           </div>
         </div>
       <?php endif ?>

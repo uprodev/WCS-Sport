@@ -5,7 +5,7 @@ if($args['row']):
   <section class="block-headline-text-case bg-light">
     <div class="container-fluid">
       <div class="row justify-content-between">
-        <div class="col-lg-4">
+        <div class="col-lg-4 lines-wrapper">
 
           <?php if ($title): ?>
             <h4><?= $title ?></h4>
@@ -15,7 +15,7 @@ if($args['row']):
         <div class="col-lg-6">
 
           <?php if ($text): ?>
-            <div class="text fade-up-wrapper"><?= $text ?></div>
+            <div class="text lines-wrapper"><?= $text ?></div>
           <?php endif ?>
           
         </div>

@@ -4,13 +4,13 @@ if($args['row']):
 
   <section class="block-filter">
     <div class="container-fluid">
-      <form action="#">
+      <form action="#" id="filter_posts">
 
         <?php if ($categories): ?>
           <div class="filter-list">
             <ul>
               <li>
-                <input type="radio" name="category" id="category-all" checked />
+                <input type="radio" name="category" value="<?= implode(',', wp_list_pluck($categories, 'term_id')) ?>" id="category-all" checked />
                 <label for="category-all"><?= mb_strtoupper(__('All', 'WSC')) ?></label>
               </li>
 
@@ -26,11 +26,24 @@ if($args['row']):
         <?php endif ?>
         
         <div class="sort">
-          <select>
-            <option value="DESC" selected><?= mb_strtoupper(__('Latest', 'WSC')) ?></option>
-            <option value="ASC"><?= mb_strtoupper(__('Oldest', 'WSC')) ?></option>
-          </select>
+          <div class="dropdown">
+            <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><?= mb_strtoupper(__('Sort By', 'WSC')) ?></button>
+            <div class="dropdown-menu">
+              <ul>
+                <li>
+                  <input type="radio" name="sort" value="DESC" id="sort1" />
+                  <label for="sort1"><?= mb_strtoupper(__('Newest', 'WSC')) ?></label>
+                </li>
+                <li>
+                  <input type="radio" name="sort" value="ASC" id="sort2" />
+                  <label for="sort2"><?= mb_strtoupper(__('Oldest', 'WSC')) ?></label>
+                </li>
+              </ul>
+              <button class="dropdown-toggle-inner" type="button" data-bs-toggle="dropdown" aria-expanded="false"><?= mb_strtoupper(__('cancel', 'WSC')) ?></button>
+            </div>
+          </div>
         </div>
+        <input type="hidden" name="action" value="filter_posts">
       </form>
     </div>
   </section>
@@ -41,6 +54,7 @@ if($args['row']):
     'posts_per_page' => -1,
     'paged' => get_query_var('paged')
   );
+  if($categories) $args['cat'] = wp_list_pluck($categories, 'term_id');
   $wp_query = new WP_Query($args);
   if($wp_query->have_posts()): 
     ?>
@@ -51,7 +65,7 @@ if($args['row']):
 
           <?php while ($wp_query->have_posts()): $wp_query->the_post(); ?>
 
-           <div class="col-md-6 col-lg-4 fade-up">
+           <div class="col-md-6 col-lg-4">
 
             <?php get_template_part('parts/content', 'post') ?>
 
@@ -60,27 +74,6 @@ if($args['row']):
         <?php endwhile; ?>
 
       </div>
-      
-      <!-- <div class="pagination">
-        <a href="#" class="page-prev btn btn-secondary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.76497 4.96611L6 0.731074L5.26893 0L1.03389 4.23503V1.09661H4.76837e-07V6H4.90339L4.90339 4.96611H1.76497Z" fill="#E3E3E7" />
-          </svg>
-          prev
-        </a>
-        <select class="form-select">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-        <a href="#" class="page-next btn btn-secondary">
-          next
-          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.23503 4.96611L0 0.731074L0.731074 0L4.96611 4.23503V1.09661H6V6H1.09661L1.09661 4.96611H4.23503Z" fill="#E3E3E7" />
-          </svg>
-        </a>
-      </div> -->
     </div>
   </section>
 

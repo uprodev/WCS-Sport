@@ -8,13 +8,15 @@ if($args['row']):
 
         <?php if ($title): ?>
           <div class="col-lg-6">
-            <h1><?= $title ?></h1>
+            <div class="lines-wrapper">
+              <h1><?= $title ?></h1>
+            </div>
           </div>
         <?php endif ?>
         
         <?php if ($text): ?>
           <div class="col-lg-4 px-xl-2">
-            <div class="fade-up-wrapper">
+            <div class="lines-wrapper">
               <?= $text ?>
             </div>
           </div>

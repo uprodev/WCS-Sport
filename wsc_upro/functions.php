@@ -4,13 +4,14 @@
 
 add_action('wp_enqueue_scripts', 'load_style_script');
 function load_style_script(){
-	wp_enqueue_style('my-style', get_stylesheet_directory_uri() . '/css/style.css');
-	wp_enqueue_style('my-style-main', get_stylesheet_directory_uri() . '/style.css');
+	wp_enqueue_style('my-style', get_stylesheet_directory_uri() . '/css/style.css', array(), time());
+	wp_enqueue_style('my-style-main', get_stylesheet_directory_uri() . '/style.css', array(), time());
 
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('my-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), false, true);
-	wp_enqueue_script('my-main', get_stylesheet_directory_uri() . '/js/main.js', array(), false, true);
-	wp_enqueue_script('my-add', get_stylesheet_directory_uri() . '/js/add.js', array(), false, true);
+	wp_enqueue_script('my-main', get_stylesheet_directory_uri() . '/js/main.js', array(), time(), true);
+    if(is_front_page()) wp_enqueue_script('my-landing', get_stylesheet_directory_uri() . '/js/landing.js', array(), time(), true);
+	wp_enqueue_script('my-add', get_stylesheet_directory_uri() . '/js/add.js', array(), time(), true);
 }
 
 
@@ -83,13 +84,7 @@ function my_acf_admin_head() {
                     $('.acf-tooltip li a').hover(function() {
                         var imageTP = $(this).attr('data-layout');
                         var imageFormt = '.png';
-                        if(imageTP != 'global_section' && imageTP != 'social_section' && imageTP != 'appointment_overview_section'){
-                            if(imageTP == 'banner_section' || imageTP == 'content_with_image' || imageTP == 'contact_section'){
-                                imageFormt = '.gif';
-                            }
-                            $(this).append('<div class="imagePreview"><img src="<?php echo $siteURL; ?>'+ imageTP + imageFormt+'"></div>');
-
-                        }
+                        $(this).append('<div class="imagePreview"><img src="<?php echo $siteURL; ?>'+ imageTP + imageFormt+'"></div>');
                     }, function() {
                         $('.imagePreview').remove();
                     });
@@ -99,6 +94,13 @@ function my_acf_admin_head() {
     </script>
     <?php
 }
+
+
+/*add_filter( 'upload_mimes', 'cc_mime_types' );
+function cc_mime_types( $mimes ){
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}*/
 
 
 require 'inc/gutenberg.php';

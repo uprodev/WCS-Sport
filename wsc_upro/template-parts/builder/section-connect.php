@@ -15,7 +15,9 @@ if($args['row']):
         <div class="scroller">
 
           <?php if ($title): ?>
+            <div class="lines-wrapper">
             <h3><?= $title ?></h3>
+        </div>
           <?php endif ?>
 
           <ul>
@@ -24,10 +26,10 @@ if($args['row']):
               <li>
 
                 <?php if ($item['city']): ?>
-                  <div class="h1"><?= $item['city'] ?></div>
+                  <div class="headline lines-wrapper"><span><?= $item['city'] ?></span></div>
                 <?php endif ?>
                 
-                <div class="text">
+                <div class="text lines-wrapper">
 
                   <?php if ($item['phone']): ?>
                     <p><a href="tel:<?= preg_replace('/[^0-9]/', '', $item['phone']) ?>"><?= $item['phone'] ?></a></p>
@@ -38,7 +40,7 @@ if($args['row']):
                   <?php endif ?>
                   
                 </div>
-                <div class="line"></div>
+                <div class="underline"></div>
               </li>
             <?php endforeach ?>
 

@@ -12,16 +12,14 @@ if($args['row']):
               <div class="item">
                 <div class="row">
                   <div class="col-md-6">
-                    <div class="text">
+                    <div class="text lines-wrapper">
 
                       <?php if ($item['title']): ?>
                         <h4><?= $item['title'] ?></h4>
                       <?php endif ?>
                       
                       <?php if ($item['text']): ?>
-                        <div class="fade-up">
-                          <?= $item['text'] ?>
-                        </div>
+                        <?= $item['text'] ?>
                       <?php endif ?>
                       
                       <?php if ($item['icon']): ?>

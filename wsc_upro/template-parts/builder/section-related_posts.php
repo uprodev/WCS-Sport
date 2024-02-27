@@ -12,7 +12,7 @@ if($args['row']):
     <?php if ($title): ?>
       <div class="container-fluid container-fluid--wide">
         <div class="row">
-          <div class="col-lg-6 col-xl-4 col-xxl-6">
+          <div class="col-lg-6 col-xl-4 col-xxl-6 lines-wrapper">
             <h3><?= $title ?></h3>
           </div>
         </div>
@@ -31,7 +31,7 @@ if($args['row']):
             global $post;
             setup_postdata($post); ?>
 
-            <div class="col-md-6 col-lg-4 fade-up">
+            <div class="col-md-6 col-lg-4">
 
               <?php get_template_part('parts/content', 'post') ?>
               

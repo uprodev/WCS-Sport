@@ -29,7 +29,11 @@
             )); ?>
 
             <?php if ($field = get_field('link_h', 'option')): ?>
-              <a href="<?= $field['url'] ?>" class="btn btn-primary btn-sm"<?php if($field['target']) echo ' target="_blank"' ?>><?= $field['title'] ?></a>
+              <a href="<?= $field['url'] ?>" class="btn btn-primary btn-sm"<?php if($field['target']) echo ' target="_blank"' ?>>
+                <span class="btn-label-wrap">
+                  <span class="btn-label" data-text="<?= $field['title'] ?>"><?= $field['title'] ?></span>
+                </span>
+              </a>
             <?php endif ?>
             
           </div>

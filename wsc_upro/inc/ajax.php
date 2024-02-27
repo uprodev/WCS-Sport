@@ -22,11 +22,8 @@ function filter_posts(){
 		'suppress_filters' => false,
 	);
 
-	if(isset($_POST)){
-		foreach ($_POST as $key => $value) {
-			$args[$key] = $value;
-		}
-	}
+	if(isset($_POST['category'])) $args['cat'] = explode(',', $_POST['category']);
+	if(isset($_POST['sort'])) $args['order'] = $_POST['sort'];
 
 	$query = new WP_Query( $args );
 

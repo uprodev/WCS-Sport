@@ -8,20 +8,22 @@ if($args['row']):
         <div class="col-md-6 col-lg-4">
 
           <?php if ($title): ?>
+              <div class="lines-wrapper">
             <h2><?= $title ?></h2>
+              </div>
           <?php endif ?>
 
           <?php if ($emails): ?>
-            <dl>
+            <dl class="lines-wrapper">
 
               <?php foreach ($emails as $item): ?>
 
                 <?php if ($item['title']): ?>
-                  <dt class="fade-up"><?= $item['title'] ?></dt>
+                  <dt><?= $item['title'] ?></dt>
                 <?php endif ?>
 
                 <?php if ($item['email']): ?>
-                  <dd class="fade-up"><a href="mailto:<?= $item['email'] ?>" class="link-underline-primary link-underline-opacity-0 link-underline-opacity-100-hover"><?= $item['email'] ?></a></dd>
+                  <dd><a href="mailto:<?= $item['email'] ?>" class="link-underline-primary link-underline-opacity-0 link-underline-opacity-100-hover"><?= $item['email'] ?></a></dd>
                 <?php endif ?>
 
               <?php endforeach ?>
