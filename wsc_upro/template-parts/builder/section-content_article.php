@@ -5,7 +5,7 @@ if($args['row']):
   <section class="block-blog-article">
     <div class="container-fluid">
 
-      <?php if (get_the_excerpt()): ?>
+      <?php if (has_excerpt()): ?>
         <div class="article-intro lines-wrapper">
           <?php the_excerpt() ?>
         </div>
@@ -26,10 +26,21 @@ if($args['row']):
               <p><?= get_the_date() ?></p>
             </div>
             <a data-id="copyUrl" href="#" class="btn btn-outline-secondary">
-              <?php _e('Share this article', 'WSC') ?>
-              <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.23503 1.03389L0 5.26893L0.731074 6L4.96611 1.76497V4.90339H6V4.76837e-07H1.09661L1.09661 1.03389H4.23503Z" fill="#0B0B0B" />
-              </svg>
+              <span class="btn-label-wrap">
+                <span class="btn-label" data-text="<?php _e('Share this article', 'WSC') ?>"><?php _e('Share this article', 'WSC') ?></span>
+              </span>
+              <span class="btn-arrow">
+                <span class="btn-arrow-inner">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.23503 4.96611L0 0.731074L0.731074 0L4.96611 4.23503V1.09661H6V6H1.09661L1.09661 4.96611H4.23503Z" fill="#0B0B0B" />
+                  </svg>
+                </span>
+                <span class="btn-arrow-inner">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.23503 4.96611L0 0.731074L0.731074 0L4.96611 4.23503V1.09661H6V6H1.09661L1.09661 4.96611H4.23503Z" fill="#0B0B0B" />
+                  </svg>
+                </span>
+              </span>
             </a>
           </div>
         </div>

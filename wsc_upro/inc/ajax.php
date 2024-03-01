@@ -3,6 +3,7 @@
 $actions = [
 	'filter_posts',
 	'filter_jobs',
+	'more_posts',
 
 ];
 foreach ($actions as $action) {
@@ -15,7 +16,7 @@ function filter_posts(){
 
 	$args = array(
 		'post_type' => 'post',
-		'posts_per_page' => -1,
+		'posts_per_page' => 6,
 		'post_status' => 'publish',
 		'orderby' => 'date',
 		'order' => 'DESC',
@@ -25,26 +26,67 @@ function filter_posts(){
 	if(isset($_POST['category'])) $args['cat'] = explode(',', $_POST['category']);
 	if(isset($_POST['sort'])) $args['order'] = $_POST['sort'];
 
-	$query = new WP_Query( $args );
+	$wp_query = new WP_Query( $args );
 
-	if( $query->have_posts() ) :
-		while( $query->have_posts() ): $query->the_post(); ?>
-			
-			<div class="col-md-6 col-lg-4 fade-up">
+	if( $wp_query->have_posts() ) : ?>
 
-				<?php get_template_part('parts/content', 'post') ?>
+		<div class="row posts">
 
+			<?php while( $wp_query->have_posts() ): $wp_query->the_post(); ?>
+
+				<div class="col-md-6 col-lg-4">
+
+					<?php get_template_part('parts/content', 'post') ?>
+
+				</div>
+
+			<?php endwhile; ?>
+
+		</div>
+
+		<?php if ( $wp_query->max_num_pages > 1 ) { ?>
+			<script> var this_page = 1; </script>
+
+			<div class="row more_posts">
+				<a href="#" class="btn btn-primary btn-sm" data-param-posts='<?php echo serialize($wp_query->query_vars); ?>' data-max-pages='<?php echo $wp_query->max_num_pages; ?>'>
+					<span class="btn-label-wrap">
+						<span class="btn-label" data-text="<?php _e('More Posts', 'WSC') ?>"><?php _e('More Posts', 'WSC') ?></span>
+					</span>
+				</a>
 			</div>
+		<?php } ?>
 
-			<?php 
-		endwhile;
-		wp_reset_postdata();
+		<?php wp_reset_postdata();
 	else :
 		_e('Sorry, nothing found', 'WSC');
 	endif;
 
 	die();
 }
+
+
+function more_posts() {
+	$args = unserialize( stripslashes( $_POST['query'] ) );
+	$args['paged'] = $_POST['page'] + 1;
+	$args['post_status'] = 'publish';
+
+	$query = new WP_Query( $args );
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) { 
+			$query->the_post(); ?>
+
+			<div class="col-md-6 col-lg-4">
+
+				<?php get_template_part('parts/content', 'post') ?>
+
+			</div>
+
+			<?php 
+		}
+		die();
+	}
+}
+
 
 function filter_jobs(){
 
@@ -59,12 +101,12 @@ function filter_jobs(){
 
 		foreach ($_POST as $key => $value) {
 			$$key = $value ? 
-				array(
-					'taxonomy' => $key,
-					'field'    => 'id',
-					'terms'    => $value
-				) :
-				'';
+			array(
+				'taxonomy' => $key,
+				'field'    => 'id',
+				'terms'    => $value
+			) :
+			'';
 		}
 
 		$args['tax_query'] = array(

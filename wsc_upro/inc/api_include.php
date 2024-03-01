@@ -1,5 +1,5 @@
 <?php 
-$fields = ['email', 'url_comeet_hosted_page', 'uid'];
+$fields = ['email', 'url_comeet_hosted_page', 'uid', 'company_name', 'time_updated'];
 foreach ($fields as $field) {
   update_field($field, $job->$field ?? '', $post_id);
 }

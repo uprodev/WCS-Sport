@@ -33,9 +33,9 @@ if($args['row']):
               </a>
             <?php endif ?>
             
-            <?php if ($video): ?>
+            <?php if ($video || $url_video): ?>
               <div class="video-arrow">
-                <video src="<?= $video['url'] ?>" playsinline muted loop autoplay></video>
+                <video src="<?= $video ? $video['url'] : $url_video ?>" playsinline muted loop autoplay></video>
               </div>
             <?php endif ?>
             

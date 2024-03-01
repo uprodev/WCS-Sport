@@ -2,17 +2,17 @@
 if($args['row']):
 	foreach($args['row'] as $key=>$arg) $$key = $arg; ?>
 
-  <?php if ($post): ?>
+  <?php if ($post_): ?>
     <section class="block-featured-article">
       <div class="container-fluid">
         <div class="row">
 
-          <?php if (has_post_thumbnail($post->ID)): ?>
+          <?php if (has_post_thumbnail($post_->ID)): ?>
             <div class="col-md-7 col-xl-8">
               <div class="image overflow-hidden">
                 <div class="img-inner">
-                  <a href="<?php the_permalink() ?>">
-                    <?php the_post_thumbnail('full') ?>
+                  <a href="<?php the_permalink($post_->ID) ?>">
+                    <?= get_the_post_thumbnail($post_->ID, 'full') ?>
                   </a>
                 </div>
               </div>
@@ -23,7 +23,7 @@ if($args['row']):
             <div class="text">
               <div class="lines-wrapper">
 
-                <?php $terms = get_the_terms($post->ID, 'category') ?>
+                <?php $terms = get_the_terms($post_->ID, 'category') ?>
 
                 <?php if ($terms): ?>
                   <?php foreach ($terms as $term): ?>
@@ -31,13 +31,11 @@ if($args['row']):
                   <?php endforeach ?>
                 <?php endif ?>
                 
-                <h3>
-                  <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
-                </h3>
-                <p><?= get_the_date() ?></p>
+                <a href="<?php the_permalink($post_->ID) ?>" class="h3"><?= get_the_title($post_->ID) ?></a>
+                <p><?= get_the_date('', $post_->ID) ?></p>
               </div>
               <div class="btn-wrap">
-                <a href="<?php the_permalink() ?>" class="btn btn-primary">
+                <a href="<?php the_permalink($post_->ID) ?>" class="btn btn-primary">
                   <span class="btn-label-wrap">
                     <span class="btn-label" data-text="<?= mb_strtoupper(__('Read more', 'WSC')) ?>">
                       <?= mb_strtoupper(__('Read more', 'WSC')) ?></span>
@@ -61,6 +59,7 @@ if($args['row']):
           </div>
         </div>
       </section>
+    <?php wp_reset_postdata(); ?>
     <?php endif ?>
 
     <?php endif; ?>

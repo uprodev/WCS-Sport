@@ -9,7 +9,7 @@
       <?php endforeach ?>
     <?php endif ?>
     
-    <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
+    <a href="<?php the_permalink() ?>" class="title"><?php the_title() ?></a>
   </div>
 
   <?php if (has_post_thumbnail()): ?>

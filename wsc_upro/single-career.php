@@ -154,4 +154,47 @@ else :
 endif;
 ?>
 
+<script type="application/ld+json">
+    {
+      "@context" : "https://schema.org/",
+      "@type" : "JobPosting",
+      "title" : "<?php the_title() ?>",
+      "description" : "<?php html_entity_decode(the_field('description')) ?>",
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "<?php the_field('company_name') ?>",
+        "value": "<?php the_field('uid') ?>"
+      },
+      "datePosted" : "<?php the_field('time_updated') ?>",
+      "validThrough" : "",
+      "employmentType" : "[<?= implode(', ', wp_list_pluck(wp_get_object_terms(get_the_ID(), employment_type), 'name')) ?>]",
+      "hiringOrganization" : {
+        "@type" : "Organization",
+        "name" : "Google",
+        "sameAs" : "https://www.google.com",
+        "logo" : "https://www.example.com/images/logo.png"
+      },
+      "jobLocation": {
+      "@type": "Place",
+        "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1600 Amphitheatre Pkwy",
+        "addressLocality": "Mountain View",
+        "addressRegion": "CA",
+        "postalCode": "94043",
+        "addressCountry": "US"
+        }
+      },
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": {
+          "@type": "QuantitativeValue",
+          "value": 40.00,
+          "unitText": "HOUR"
+        }
+      }
+    }
+    </script>
+
 <?php get_footer(); ?>
