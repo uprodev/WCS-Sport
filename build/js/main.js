@@ -62,7 +62,7 @@ jQuery(document).ready(function ($) {
   animateHeadlines(splits);
 
   if (document.querySelector(".lines-wrapper")) {
-    var splits1 = document.querySelectorAll(".lines-wrapper > *");
+    var splits1 = document.querySelectorAll(".lines-wrapper h1, .lines-wrapper h2, .lines-wrapper h3, .lines-wrapper h4, .lines-wrapper .h1, .lines-wrapper .h2, .lines-wrapper .h3, .lines-wrapper .h4, .lines-wrapper p, .lines-wrapper ul li, .lines-wrapper ol li");
 
     function splitLines() {
       splits1.forEach((txt) => {

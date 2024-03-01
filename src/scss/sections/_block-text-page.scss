@@ -1,0 +1,133 @@
+.block-text-page {
+  padding: 150px 0 100px;
+  font-size: 18px;
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+
+  h1 {
+    margin: 0 0 60px;
+    font-weight: 350;
+    letter-spacing: -0.01em;
+  }
+
+  h4 {
+    font-weight: 350;
+    margin: 40px 0 30px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    margin: 0 0 30px;
+
+    a {
+      text-decoration: none;
+      border-bottom: 1px solid;
+      margin: -1px 0;
+    }
+
+    &.animated {
+      a {
+        margin: 0;
+      }
+    }
+  }
+
+  ul {
+    margin: 30px 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      position: relative;
+      padding: 0 0 0 30px;
+      margin: 0 0 20px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.5em;
+        width: 10px;
+        height: 10px;
+        border: 2px solid #0b0b0b;
+        border-radius: 100%;
+        opacity: 0;
+        transition: all 0.15s;
+      }
+
+      &.animated {
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  ol {
+    margin: 30px 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: counter;
+
+    li {
+      position: relative;
+      padding: 0 0 0 30px;
+      margin: 0 0 20px;
+
+      &:before {
+        counter-increment: counter;
+        content: counter(counter) ".";
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: all 0.15s;
+      }
+
+      &.animated {
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    padding: 276px 0 150px;
+    font-size: 26px;
+    line-height: 1.4;
+
+    h1 {
+      margin: 0 0 256px;
+    }
+
+    h4 {
+      margin: 118px 0 57px;
+    }
+
+    ul {
+      margin: 68px 0;
+
+      li {
+        margin: 0 0 47px;
+      }
+    }
+
+    ol {
+      margin: 48px 0;
+
+      li {
+        padding: 0 0 0 55px;
+        margin: 0 0 47px;
+      }
+    }
+  }
+}
