@@ -1,5 +1,5 @@
 <div class="card card-blog">
-  <div class="card-header">
+  <div class="card-header lines-wrapper">
 
     <?php $terms = get_the_terms(get_the_ID(), 'category') ?>
 
@@ -9,9 +9,7 @@
       <?php endforeach ?>
     <?php endif ?>
     
-    <div class="title">
-      <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
-    </div>
+    <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
   </div>
 
   <?php if (has_post_thumbnail()): ?>
@@ -29,7 +27,7 @@
     </div>
   <?php endif ?>
   
-  <div class="card-body">
+  <div class="card-body lines-wrapper">
     <p><?= get_the_date() ?></p>
   </div>
 </div>

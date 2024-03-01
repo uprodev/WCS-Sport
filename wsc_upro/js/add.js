@@ -18,18 +18,12 @@ jQuery(document).ready(function($) {
 	});
 
 
-	$(document).on('change', 'input[name=category], .sort select', function(e){
+	$(document).on('change', '#filter_posts input', function(e){
 		e.preventDefault();
-
-		let data = {
-			'action': 'filter_posts',
-			'cat': $('input[name=category]:checked').val(),
-			'order': $('.sort select').val(),
-		}
 
 		$.ajax({
 			url: "/wp-admin/admin-ajax.php",
-			data: data,
+			data: $("#filter_posts").serialize(),
 			type: 'POST',
 			success: function (data) {
 				if (data) {

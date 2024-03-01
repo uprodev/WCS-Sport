@@ -2,21 +2,60 @@
 if($args['row']):
 	foreach($args['row'] as $key=>$arg) $$key = $arg; ?>
 
-  <section class="block-cta block-cta--type2 bg-primary">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-8">
+  <section class="block-home block-home-3 bg-white">
+    <div class="block-inner bg-light">
+      <div class="container-fluid">
 
-          <?php if ($text): ?>
-            <div class="lines-wrapper me-3 me-md-0">
-              <?= $text ?>
+        <?php if ($number): ?>
+          <div class="number home-animated-text"><?= $number ?></div>
+        <?php endif ?>
+
+        <?php if ($text): ?>
+          <?= $text ?>
+        <?php endif ?>
+
+        <?php if($gallery_mobile): ?>
+
+          <div class="d-md-none fade-up-wrapper">
+            <div class="logos-list">
+              <ul>
+
+                <?php foreach($gallery_mobile as $image): ?>
+
+                  <li>
+                    <?= wp_get_attachment_image($image['ID'], 'full') ?>
+                  </li>
+
+                <?php endforeach; ?>
+
+              </ul>
             </div>
-          <?php endif ?>
-          
-        </div>
-        <div class="col-md-4 text-md-end">
+          </div>
 
-          <?php if ($link): ?>
+        <?php endif; ?>
+
+        <?php if($gallery): ?>
+
+          <div class="d-none d-md-block fade-up-wrapper">
+            <div class="logos-list">
+              <ul>>
+
+                <?php foreach($gallery as $image): ?>
+
+                  <li>
+                    <?= wp_get_attachment_image($image['ID'], 'full') ?>
+                  </li>
+
+                <?php endforeach; ?>
+
+              </ul>
+            </div>
+          </div>
+
+        <?php endif; ?>
+
+        <?php if ($link): ?>
+          <div class="text-center">
             <a href="<?= $link['url'] ?>" class="btn btn-outline-secondary"<?php if($link['target']) echo ' target="_blank"' ?>>
               <span class="btn-label-wrap">
                 <span class="btn-label" data-text="<?= $link['title'] ?>"><?= $link['title'] ?></span>
@@ -34,9 +73,9 @@ if($args['row']):
                 </span>
               </span>
             </a>
-          <?php endif ?>
+          </div>
+        <?php endif ?>
 
-        </div>
       </div>
     </div>
   </section>

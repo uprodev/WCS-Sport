@@ -18,7 +18,9 @@ if($args['row']):
               <div class="item">
 
                 <?php if ($field = get_field('title')): ?>
-                  <h2><?= $field ?></h2>
+                  <div class="slide-title">
+                    <a href="#"><?= $field ?></a>
+                  </div>
                 <?php endif ?>
                 
               </div>
@@ -40,9 +42,7 @@ if($args['row']):
               setup_postdata($post); 
               ?>
 
-              <li>
-                <a href="<?php the_permalink($post->ID) ?>"><?= mb_strtolower(get_the_title()) ?> </a>
-              </li>
+              <li data-slide="<?= $index ?>"><?= mb_strtolower(get_the_title()) ?></li>
 
               <?php 
             endforeach;
@@ -57,28 +57,30 @@ if($args['row']):
           </div>
         </div>
       </div>
-      <div class="swiper swiper-inner">
-        <div class="swiper-wrapper">
-
-          <?php 
-          foreach($cases as $post): 
-            global $post;
-            setup_postdata($post); 
-            ?>
-
-            <?php if ($field = get_field('image')): ?>
-              <div class="swiper-slide">
-                <figure>
-                  <?= wp_get_attachment_image($field['ID'], 'full') ?>
-                </figure>
-              </div>
-            <?php endif ?>
+      <div class="swiper-inner-wrapper">
+        <div class="swiper swiper-inner">
+          <div class="swiper-wrapper">
 
             <?php 
-          endforeach;
-          wp_reset_postdata(); 
-          ?>
+            foreach($cases as $post): 
+              global $post;
+              setup_postdata($post); 
+              ?>
 
+              <?php if ($field = get_field('image')): ?>
+                <div class="swiper-slide">
+                  <figure>
+                    <?= wp_get_attachment_image($field['ID'], 'full') ?>
+                  </figure>
+                </div>
+              <?php endif ?>
+
+              <?php 
+            endforeach;
+            wp_reset_postdata(); 
+            ?>
+
+          </div>
         </div>
       </div>
     </section>

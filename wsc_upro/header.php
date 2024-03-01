@@ -9,7 +9,7 @@
 
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
-  <div class="global-wrapper">
+  <div class="global-wrapper<?php if(is_front_page()) echo ' global-wrapper-home' ?>">
     <div class="header">
       <div class="container-fluid d-flex justify-content-between">
 
@@ -29,7 +29,11 @@
             )); ?>
 
             <?php if ($field = get_field('link_h', 'option')): ?>
-              <a href="<?= $field['url'] ?>" class="btn btn-primary btn-sm"<?php if($field['target']) echo ' target="_blank"' ?>><?= $field['title'] ?></a>
+              <a href="<?= $field['url'] ?>" class="btn btn-primary btn-sm"<?php if($field['target']) echo ' target="_blank"' ?>>
+                <span class="btn-label-wrap">
+                  <span class="btn-label" data-text="<?= $field['title'] ?>"><?= $field['title'] ?></span>
+                </span>
+              </a>
             <?php endif ?>
             
           </div>
@@ -38,5 +42,16 @@
         <button class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
       </div>
     </div>
+
+    <?php if (is_front_page()): ?>
+      <div class="block-home-preloader">
+        <lottie-player id="preloader1" class="preloader" src="<?= get_stylesheet_directory_uri() ?>/json/preloader1.json" style="width: 100%; height: 100%"></lottie-player>
+        <lottie-player id="preloader2" class="preloader" loop src="<?= get_stylesheet_directory_uri() ?>/json/preloader2.json" style="width: 100%; height: auto"></lottie-player>
+      </div>
+    <?php endif ?>
     
     <main class="content">
+
+      <?php if (is_front_page()): ?>
+        <div class="bg-secondary">
+          <?php endif ?>

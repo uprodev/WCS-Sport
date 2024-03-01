@@ -1,3 +1,7 @@
+<?php if (is_front_page()): ?>
+</div>
+<?php endif ?>
+
 </main>
 <footer class="footer bg-primary">
   <div class="container-fluid">

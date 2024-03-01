@@ -2,26 +2,26 @@
 if($args['row']):
 	foreach($args['row'] as $key=>$arg) $$key = $arg; ?>
 
-  <section class="block-cta block-cta--type<?= $type ?>">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-8">
+  <section class="block-home block-home-5 bg-secondary">
+    <div class="block-inner bg-secondary fade-up-wrapper">
+      <div class="container-fluid">
 
-          <?php if ($title): ?>
-            <h3><?= $title ?></h3>
-          <?php endif ?>
-          
-          <?php if ($text): ?>
-            <div class="fade-up-overflow me-3 me-md-0">
-              <?= $text ?>
-            </div>
-          <?php endif ?>
-          
-        </div>
-        <div class="col-md-4 text-md-end">
+        <?php if ($slogan): ?>
+          <div class="slogan"><?= $slogan ?></div>
+        <?php endif ?>
+        
+        <?php if ($subtitle): ?>
+          <div class="block-subtitle"><?= $subtitle ?></div>
+        <?php endif ?>
+
+        <?php if ($title): ?>
+          <div class="block-title"><?= $title ?></div>
+        <?php endif ?>
+
+        <div class="d-md-flex justify-content-between align-items-end">
 
           <?php if ($link): ?>
-            <a href="<?= $link['url'] ?>" class="btn btn-primary"<?php if($link['target']) echo ' target="_blank"' ?>>                
+            <a href="<?= $link['url'] ?>" class="btn btn-primary"<?php if($link['target']) echo ' target="_blank"' ?>>
               <span class="btn-label-wrap">
                 <span class="btn-label" data-text="<?= $link['title'] ?>"><?= $link['title'] ?></span>
               </span>
@@ -39,7 +39,13 @@ if($args['row']):
               </span>
             </a>
           <?php endif ?>
-
+          
+          <?php if ($image): ?>
+            <div class="arrow">
+              <?= wp_get_attachment_image($image['ID'], 'full') ?>
+            </div>
+          <?php endif ?>
+          
         </div>
       </div>
     </div>

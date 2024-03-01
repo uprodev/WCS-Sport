@@ -3,19 +3,19 @@ if($args['row']):
 	foreach($args['row'] as $key=>$arg) $$key = $arg; ?>
 
   <?php if ($title || $text): ?>
-    <section class="page-header-text page-header-text--clients">
+    <section class="page-header-text <?= $is_contact ? 'page-header-text--contact' : 'page-header-text--clients' ?>">
       <div class="container-fluid">
+        <div class="lines-wrapper">
 
-        <?php if ($title): ?>
-          <h1 class="not-animated"><?= $title ?></h1>
-        <?php endif ?>
-        
-        <?php if ($text): ?>
-          <div class="fade-up-overflow">
+          <?php if ($title): ?>
+            <h1><?= $title ?></h1>
+          <?php endif ?>
+          
+          <?php if ($text): ?>
             <?= $text ?>
-          </div>
-        <?php endif ?>
-        
+          <?php endif ?>
+          
+        </div>
       </div>
     </section>
   <?php endif ?>

@@ -9,7 +9,7 @@ if($args['row']):
 
           <?php if (has_post_thumbnail()): ?>
             <div class="image bg-secondary overflow-hidden">
-              <div class="img-fade">
+              <div class="img-inner">
                 <?php the_post_thumbnail('full') ?>
               </div>
             </div>
@@ -17,18 +17,20 @@ if($args['row']):
           
         </div>
         <div class="col-md-5 col-xl-4">
-          <div class="text fade-up-wrapper">
+          <div class="text">
+            <div class="lines-wrapper">
 
-            <?php $terms = get_the_terms(get_the_ID(), 'category') ?>
+              <?php $terms = get_the_terms(get_the_ID(), 'category') ?>
 
-            <?php if ($terms): ?>
-              <?php foreach ($terms as $term): ?>
-                <div class="category"><?= mb_strtoupper($term->name) ?></div>
-              <?php endforeach ?>
-            <?php endif ?>
-            
-            <h3><?php the_title() ?></h3>
-            <p><?= get_the_date() ?></p>
+              <?php if ($terms): ?>
+                <?php foreach ($terms as $term): ?>
+                  <div class="category"><?= mb_strtoupper($term->name) ?></div>
+                <?php endforeach ?>
+              <?php endif ?>
+              
+              <h3><?php the_title() ?></h3>
+              <p><?= get_the_date() ?></p>
+            </div>
             <div class="btn-wrap">
               <a href="#" class="btn btn-outline-secondary" data-id="copyUrl">
                 <?php _e('Share this article', 'WSC') ?>
