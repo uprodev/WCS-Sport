@@ -34,11 +34,11 @@ if($args['row']):
             <div class="video-text"><?= $video_text ?></div>
           <?php endif ?>
           
-          <?php if ($video): ?>
+          <?php if ($video || $url_video): ?>
             <div class="video-wrapper">
               <div class="video">
                 <div class="video-inner">
-                  <video src="<?= $video['url'] ?>" playsinline muted></video>
+                  <video src="<?= $video ? $video['url'] : $url_video ?>" playsinline muted></video>
                 </div>
               </div>
             </div>
@@ -46,20 +46,29 @@ if($args['row']):
           
         </div>
 
-        <?php if ($image): ?>
+        <?php if($gallery): ?>
 
           <div class="boxes">
 
-            <?php 
-            for ($i = 1; $i <= 11; $i++) { ?>
-              <div class="box box<?= $i ?>">
-                <?= wp_get_attachment_image($image['ID'], 'full') ?>
+            <?php foreach($gallery as $index => $image): ?>
+
+              <div class="box box<?= $index + 1 ?>">
+                
+                <?php if ($image['type'] == 'image'): ?>
+                  <?= wp_get_attachment_image($image['ID'], 'full') ?>
+                <?php endif ?>
+                
+                <?php if ($image['type'] == 'video'): ?>
+                  <video src="<?= $image['url'] ?>" playsinline loop muted autoplay></video>
+                <?php endif ?>
+                
               </div>
-            <?php } ?>
+
+            <?php endforeach; ?>
 
           </div>
 
-        <?php endif ?>
+        <?php endif; ?>
 
       </div>
     </div>

@@ -23,7 +23,15 @@ if($args['row']):
                 <?php foreach($gallery_mobile as $image): ?>
 
                   <li>
-                    <?= wp_get_attachment_image($image['ID'], 'full') ?>
+                    
+                    <?php if ($image['type'] == 'image'): ?>
+                      <?= wp_get_attachment_image($image['ID'], 'full') ?>
+                    <?php endif ?>
+                    
+                    <?php if ($image['type'] == 'video'): ?>
+                      <video src="<?= $image['url'] ?>" playsinline loop muted autoplay></video>
+                    <?php endif ?>
+                    
                   </li>
 
                 <?php endforeach; ?>
@@ -43,7 +51,15 @@ if($args['row']):
                 <?php foreach($gallery as $image): ?>
 
                   <li>
-                    <?= wp_get_attachment_image($image['ID'], 'full') ?>
+                    
+                    <?php if ($image['type'] == 'image'): ?>
+                      <?= wp_get_attachment_image($image['ID'], 'full') ?>
+                    <?php endif ?>
+                    
+                    <?php if ($image['type'] == 'video'): ?>
+                      <video src="<?= $image['url'] ?>" playsinline loop muted autoplay></video>
+                    <?php endif ?>
+                    
                   </li>
 
                 <?php endforeach; ?>

@@ -14,7 +14,15 @@ if($args['row']):
             <?php foreach($gallery as $index => $image): ?>
 
               <div id="parallax<?= $index + 1 ?>" class="parallax-item parallax-item-<?= $index + 1 ?>">
-                <?= wp_get_attachment_image($image['ID'], 'full') ?>
+
+                <?php if ($image['type'] == 'image'): ?>
+                  <?= wp_get_attachment_image($image['ID'], 'full') ?>
+                <?php endif ?>
+                
+                <?php if ($image['type'] == 'video'): ?>
+                  <video src="<?= $image['url'] ?>" playsinline loop muted autoplay></video>
+                <?php endif ?>
+                
               </div>
 
             <?php endforeach; ?>
@@ -25,10 +33,10 @@ if($args['row']):
 
       <?php endif ?>
 
-      <?php if ($video): ?>
+      <?php if ($video || $url_video): ?>
         <div class="layer layer-4">
           <div class="video">
-            <video src="<?= $video['url'] ?>" loop autoplay playsinline muted></video>
+            <video src="<?= $video ? $video['url'] : $url_video ?>" loop autoplay playsinline muted></video>
           </div>
         </div>
       <?php endif ?>

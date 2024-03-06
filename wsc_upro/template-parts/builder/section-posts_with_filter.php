@@ -51,17 +51,29 @@ if($args['row']):
   <?php 
   $args = array(
     'post_type' => 'post', 
-    'posts_per_page' => -1,
+    'posts_per_page' => 6,
+    'post_status' => 'publish',
+    'ignore_sticky_posts' => true,
+    'suppress_filters' => true,
     'paged' => get_query_var('paged')
   );
-  if($categories) $args['cat'] = wp_list_pluck($categories, 'term_id');
+
+  if($categories){
+    $all_cats = wp_list_pluck($categories, 'term_id');
+    $cats_ids = [];
+    foreach ($categories as $cat) {
+      if(!in_array($cat->parent, $all_cats)) $cats_ids[] = $cat->term_id;
+    }
+    $args['cat'] = $cats_ids;
+  }
+  
   $wp_query = new WP_Query($args);
   if($wp_query->have_posts()): 
     ?>
 
     <section class="block-cards-list">
-      <div class="container-fluid">
-        <div class="row" id="response_posts">
+      <div class="container-fluid" id="response_posts">
+        <div class="row posts">
 
           <?php while ($wp_query->have_posts()): $wp_query->the_post(); ?>
 
@@ -74,6 +86,19 @@ if($args['row']):
         <?php endwhile; ?>
 
       </div>
+
+      <?php if ( $wp_query->max_num_pages > 1 ) { ?>
+        <script> var this_page = 1; </script>
+
+        <div class="row more_posts">
+          <a href="#" class="btn btn-primary btn-sm" data-param-posts='<?php echo serialize($wp_query->query_vars); ?>' data-max-pages='<?php echo $wp_query->max_num_pages; ?>'>
+            <span class="btn-label-wrap">
+              <span class="btn-label" data-text="<?php _e('More Posts', 'WSC') ?>"><?php _e('More Posts', 'WSC') ?></span>
+            </span>
+          </a>
+        </div>
+      <?php } ?>
+
     </div>
   </section>
 

@@ -27,6 +27,7 @@ jQuery(document).ready(function($) {
 			type: 'POST',
 			success: function (data) {
 				if (data) {
+					if($('.more_posts').length > 0) $('.more_posts').remove();
 					$("#response_posts").html(data);
 					var animatedEls = document.querySelectorAll(".fade-up, .fade-in , .fade-up-wrapper > *, .block-text p, .block-text  li");
 					animatedEls.forEach((el) => {
@@ -47,6 +48,52 @@ jQuery(document).ready(function($) {
 			},
 		});
 		return false;
+	});
+
+
+	$(document).on('click', '.more_posts a', function(e){
+		e.preventDefault();
+		let _this = $(this); 
+
+		let data = {
+			'action': 'more_posts',
+			'query': _this.attr('data-param-posts'),
+			'page': this_page,
+		}
+
+		$.ajax({
+			url: '/wp-admin/admin-ajax.php',
+			data: data,
+			type: 'POST',
+			success:function(data){
+				if (data) {
+					console.log(data)
+					$('#response_posts .posts').append(data);
+					var animatedEls = document.querySelectorAll(".fade-up, .fade-in , .fade-up-wrapper > *, .block-text p, .block-text  li");
+					animatedEls.forEach((el) => {
+						gsap.to(el, {
+							scrollTrigger: {
+								trigger: el,
+								start: "top 95%",
+							},
+							duration: 1,
+							ease: "none",
+							y: "0",
+							opacity: 1,
+						});
+					});
+
+					this_page++;                      
+					if (this_page == _this.attr('data-max-pages')) {
+						_this.remove();              
+					}
+				} else {                              
+					_this.remove();                    
+				}
+			},
+			complete: function() {
+			}
+		});
 	});
 
 
