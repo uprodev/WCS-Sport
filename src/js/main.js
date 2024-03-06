@@ -18,6 +18,17 @@ gsap.ticker.add((time) => {
   lenis.raf(time * 1000);
 });
 
+lenis.on("scroll", function () {
+  if (lenis.actualScroll > $(window).height()) {
+    $(".scroll-to-top").addClass("active");
+  } else {
+    $(".scroll-to-top").removeClass("active");
+  }
+});
+$(".scroll-to-top").on("click", function () {
+  lenis.scrollTo(0, { duration: 1 });
+});
+
 jQuery(document).ready(function ($) {
   if (document.querySelector(".block-case-video")) {
     ScrollTrigger.create({
@@ -168,29 +179,6 @@ jQuery(document).ready(function ($) {
         },
         onLeaveBack: function () {
           document.querySelector(".header").classList.remove(className);
-        },
-      });
-    });
-  }
-
-  if (document.querySelector(".global-wrapper-home")) {
-    document.querySelector(".header").classList.add("theme-light-home");
-    document.querySelectorAll(".bg-white").forEach((bg) => {
-      ScrollTrigger.create({
-        trigger: bg,
-        start: "top 5px",
-        end: "bottom 20px",
-        onEnter: function () {
-          document.querySelector(".header").classList.remove("theme-light-home");
-        },
-        onLeave: function () {
-          document.querySelector(".header").classList.add("theme-light-home");
-        },
-        onEnterBack: function () {
-          document.querySelector(".header").classList.remove("theme-light-home");
-        },
-        onLeaveBack: function () {
-          document.querySelector(".header").classList.add("theme-light-home");
         },
       });
     });

@@ -1,0 +1,31 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background: #e3e3e7;
+  border: none;
+  border-radius: 100%;
+  z-index: 99;
+  opacity: 0;
+  transition: all 0.2s;
+
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  &.active {
+    opacity: 1;
+  }
+  @include media-breakpoint-up(lg) {
+    width: 60px;
+    height: 60px;
+  }
+  @include media-breakpoint-up(xl) {
+    width: 73px;
+    height: 73px;
+    right: 60px;
+  }
+}

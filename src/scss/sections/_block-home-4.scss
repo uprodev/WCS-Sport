@@ -38,6 +38,8 @@
 
     .card-image {
       @include img-abs-container(38.1%);
+      padding-top: 0;
+      transition: padding-top 0.2s;
     }
 
     .card-body {
@@ -100,6 +102,12 @@
             display: block;
           }
         }
+      }
+    }
+
+    &:hover {
+      .card-image {
+        padding-top: 38.1%;
       }
     }
   }
@@ -235,10 +243,6 @@
       margin: 0 0 32px;
       border-radius: 0 0 4px 4px;
 
-      .card-image {
-        @include img-abs-container(38.1%);
-      }
-
       .card-body {
         height: 582px;
         padding: 43px 48px;
@@ -320,10 +324,14 @@
       border-radius: 5px;
 
       .card-image {
-        padding-top: 45.3%;
-
         img {
           border-radius: 5px 5px 0 0;
+        }
+      }
+
+      &:hover {
+        .card-image {
+          padding-top: 45.3%;
         }
       }
 

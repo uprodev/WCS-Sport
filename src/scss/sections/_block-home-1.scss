@@ -25,310 +25,38 @@
 }
 
 .block-home-1 {
-  // background-color: $secondary;
-  color: $primary;
-  text-align: center;
-  position: relative;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  z-index: 1;
+
+  &:after {
+    content: "";
+    width: 1px;
+    height: 100%;
+  }
 
   .block-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 9;
-    padding: 28vh 0 0;
-  }
-
-  .headline-main {
-    font-size: 16.4vw;
-    white-space: nowrap;
-    text-align: center;
-    margin: 0 0 -0.14em;
-
-    .char {
-      display: block;
-      transform: translateY(100vh);
-    }
-  }
-
-  .text {
-    text-align: center;
-    overflow: hidden;
-    padding: 0 30px;
-
-    p {
-      margin: 0;
-      transform: translateY(100%);
-      font-weight: 350;
-    }
-  }
-
-  .home-parallax {
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 100%;
-    height: 200%;
-    overflow: hidden;
-
-    .parallax-item {
-      position: absolute;
-      transform: translateY(70vh);
-
-      img,
-      video {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-
-    .layer {
-      &.layer-1 {
-        .parallax-item {
-          width: 5vw;
-          height: 5vw;
-          opacity: 0.3;
-
-          &.parallax-item-1 {
-            top: 15%;
-            left: 10%;
-          }
-          &.parallax-item-2 {
-            top: 40%;
-            left: 20%;
-          }
-          &.parallax-item-3 {
-            top: 80%;
-            left: 5%;
-          }
-          &.parallax-item-4 {
-            top: -5%;
-            left: 45%;
-          }
-          &.parallax-item-5 {
-            top: 75%;
-            left: 55%;
-          }
-          &.parallax-item-6 {
-            top: 30%;
-            right: 20%;
-          }
-          &.parallax-item-7 {
-            top: 90%;
-            right: 10%;
-          }
-        }
-      }
-      &.layer-2 {
-        .parallax-item {
-          width: 4vw;
-          height: 7vw;
-          opacity: 0.5;
-
-          &.parallax-item-1 {
-            top: 8%;
-            left: 30%;
-          }
-          &.parallax-item-2 {
-            top: 30%;
-            left: -1%;
-          }
-          &.parallax-item-3 {
-            top: 60%;
-            left: 26%;
-          }
-          &.parallax-item-4 {
-            top: 25%;
-            left: 45%;
-          }
-          &.parallax-item-5 {
-            top: 95%;
-            left: 40%;
-          }
-          &.parallax-item-6 {
-            top: 4%;
-            right: 10%;
-          }
-          &.parallax-item-7 {
-            top: 50%;
-            right: 0%;
-          }
-        }
-      }
-      &.layer-3 {
-        .parallax-item {
-          &.parallax-item-1 {
-            width: 8vw;
-            height: 8vw;
-            top: 35%;
-            left: 31%;
-            z-index: 10;
-            opacity: 0.5;
-          }
-          &.parallax-item-2 {
-            top: -1%;
-            left: 70%;
-            width: 8vw;
-            height: 10vw;
-            z-index: 10;
-            opacity: 0.5;
-          }
-          &.parallax-item-3 {
-            top: 50%;
-            left: 60%;
-            width: 7vw;
-            height: 10vw;
-            z-index: 10;
-            opacity: 0.5;
-          }
-          &.parallax-item-4 {
-            top: 20%;
-            left: 60%;
-            width: 7vw;
-            height: 10vw;
-            opacity: 0.5;
-          }
-          &.parallax-item-5 {
-            top: 90%;
-            left: 70%;
-            width: 7vw;
-            height: 10vw;
-            opacity: 0.5;
-          }
-          &.parallax-item-6 {
-            top: 30%;
-            right: 2%;
-            width: 7vw;
-            height: 10vw;
-            opacity: 0.5;
-          }
-          &.parallax-item-7 {
-            top: 50%;
-            left: 3%;
-            width: 7vw;
-            height: 10vw;
-            opacity: 0.5;
-          }
-        }
-      }
-      &.layer-4 {
-        position: relative;
-        overflow: hidden;
-        z-index: 11;
-        width: 100vw;
-        height: 100vh;
-
-        .video {
-          @include abs-center;
-          width: 110vw;
-          height: 110vh;
-          z-index: 11;
-
-          video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-        }
-      }
-    }
+    height: 100vh;
+    position: sticky;
+    top: 0;
   }
 
-  @include media-breakpoint-up(lg) {
-    .headline-main {
-      font-weight: 300;
-      font-size: 16.146vw;
-    }
+  .video {
+    width: 100%;
+    height: 100%;
+    position: relative;
 
-    .text {
-      font-size: 26px;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      margin: -26px 0 15px;
-    }
-  }
-
-  @include media-breakpoint-up(xxl) {
-    .headline-main {
-      line-height: normal;
-    }
-    .text {
-      font-size: 32px;
-      margin: -10px 0 9.35vh;
-    }
-  }
-
-  @include media-breakpoint-down(lg) {
-    .home-parallax {
+    video {
       position: absolute;
       left: 0;
       top: 0;
       width: 100%;
-      height: 200%;
-      overflow: hidden;
-
-      .parallax-item {
-        position: absolute;
-        transform: translateY(70vh);
-
-        img,
-        video {
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
-
-      .layer {
-        &.layer-1 {
-          .parallax-item {
-            width: 10vw;
-            height: 10vw;
-          }
-        }
-        &.layer-2 {
-          .parallax-item {
-            width: 8vw;
-            height: 14vw;
-          }
-        }
-        &.layer-3 {
-          .parallax-item {
-            &.parallax-item-1 {
-              width: 16vw;
-              height: 16vw;
-            }
-            &.parallax-item-2 {
-              width: 16vw;
-              height: 20vw;
-            }
-            &.parallax-item-3 {
-              width: 14vw;
-              height: 20vw;
-            }
-            &.parallax-item-4 {
-              width: 14vw;
-              height: 20vw;
-            }
-            &.parallax-item-5 {
-              width: 16vw;
-              height: 16vw;
-            }
-            &.parallax-item-6 {
-              width: 16vw;
-              height: 20vw;
-            }
-            &.parallax-item-7 {
-              width: 16vw;
-              height: 16vw;
-            }
-          }
-        }
-      }
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
