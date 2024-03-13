@@ -65,9 +65,12 @@ jQuery(document).ready(function($) {
 			url: '/wp-admin/admin-ajax.php',
 			data: data,
 			type: 'POST',
+			beforeSend: function() {
+				$('.lds-dual-ring').css('display', 'inline-block');
+			},
 			success:function(data){
 				if (data) {
-					console.log(data)
+					$('.lds-dual-ring').css('display', 'inline-block');
 					$('#response_posts .posts').append(data);
 					var animatedEls = document.querySelectorAll(".fade-up, .fade-in , .fade-up-wrapper > *, .block-text p, .block-text  li");
 					animatedEls.forEach((el) => {
@@ -92,6 +95,7 @@ jQuery(document).ready(function($) {
 				}
 			},
 			complete: function() {
+				$('.lds-dual-ring').css('display', 'none');
 			}
 		});
 	});

@@ -9,8 +9,8 @@ function load_style_script(){
 
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('my-plugins', get_stylesheet_directory_uri() . '/js/plugins.js', array(), false, true);
-	wp_enqueue_script('my-main', get_stylesheet_directory_uri() . '/js/main.js', array(), time(), true);
     if(is_front_page()) wp_enqueue_script('my-landing', get_stylesheet_directory_uri() . '/js/landing.js', array(), time(), true);
+	else wp_enqueue_script('my-main', get_stylesheet_directory_uri() . '/js/main.js', array(), time(), true);
 	wp_enqueue_script('my-add', get_stylesheet_directory_uri() . '/js/add.js', array(), time(), true);
 }
 
@@ -101,6 +101,18 @@ function cc_mime_types( $mimes ){
   $mimes['svg'] = 'image/svg+xml';
   return $mimes;
 }*/
+
+
+add_action('wp', 'cron_comeet');
+add_action('my_hourly_event', 'get_comeet');
+function cron_comeet() {
+    if(!wp_next_scheduled('my_hourly_event')) {
+        wp_schedule_event(time(), 'hourly', 'my_hourly_event');
+    }
+}
+function get_comeet() {
+    require dirname(__FILE__) . '/inc/api.php';
+}
 
 
 require 'inc/gutenberg.php';

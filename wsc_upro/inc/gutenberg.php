@@ -21,6 +21,14 @@ function my_acf_init_block_types() {
             'post_types'        => array('post'),
         ));
         acf_register_block_type(array(
+            'name'              => 'my_podcast',
+            'title'             => __('Podcast (WSC)'),
+            'description'       => __('Add Podcast (WSC)'),
+            'render_template'   => 'parts/blocks/podcast.php',
+            'category'          => 'common',
+            'post_types'        => array('post'),
+        ));
+        acf_register_block_type(array(
             'name'              => 'my_text',
             'title'             => __('Text (WSC)'),
             'description'       => __('Add Text (WSC)'),

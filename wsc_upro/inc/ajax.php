@@ -47,6 +47,7 @@ function filter_posts(){
 		<?php if ( $wp_query->max_num_pages > 1 ) { ?>
 			<script> var this_page = 1; </script>
 
+			<div class="lds-dual-ring"></div>
 			<div class="row more_posts">
 				<a href="#" class="btn btn-primary btn-sm" data-param-posts='<?php echo serialize($wp_query->query_vars); ?>' data-max-pages='<?php echo $wp_query->max_num_pages; ?>'>
 					<span class="btn-label-wrap">
@@ -70,6 +71,8 @@ function more_posts() {
 	$args['paged'] = $_POST['page'] + 1;
 	$args['post_status'] = 'publish';
 
+	
+
 	$query = new WP_Query( $args );
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) { 
@@ -83,8 +86,9 @@ function more_posts() {
 
 			<?php 
 		}
-		die();
+
 	}
+	die();
 }
 
 

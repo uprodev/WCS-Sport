@@ -10,7 +10,7 @@ if($args['row']):
           <div class="filter-list">
             <ul>
               <li>
-                <input type="radio" name="category" value="<?= implode(',', wp_list_pluck($categories, 'term_id')) ?>" id="category-all" checked />
+                <input type="radio" name="category" value="<?php /*echo implode(',', wp_list_pluck($categories, 'term_id'))*/ ?>" id="category-all" checked />
                 <label for="category-all"><?= mb_strtoupper(__('All', 'WSC')) ?></label>
               </li>
 
@@ -53,19 +53,14 @@ if($args['row']):
     'post_type' => 'post', 
     'posts_per_page' => 6,
     'post_status' => 'publish',
-    'ignore_sticky_posts' => true,
-    'suppress_filters' => true,
-    'paged' => get_query_var('paged')
+    //'ignore_sticky_posts' => true,
+  //  'suppress_filters' => true,
+    'paged' => get_query_var('paged') > 0 ? get_query_var('paged')  : 1
   );
 
-  if($categories){
-    $all_cats = wp_list_pluck($categories, 'term_id');
-    $cats_ids = [];
-    foreach ($categories as $cat) {
-      if(!in_array($cat->parent, $all_cats)) $cats_ids[] = $cat->term_id;
-    }
-    $args['cat'] = $cats_ids;
-  }
+  /*if($categories){
+    $args['cat'] = wp_list_pluck($categories, 'term_id');
+  }*/
   
   $wp_query = new WP_Query($args);
   if($wp_query->have_posts()): 
@@ -90,6 +85,7 @@ if($args['row']):
       <?php if ( $wp_query->max_num_pages > 1 ) { ?>
         <script> var this_page = 1; </script>
 
+        <div class="lds-dual-ring"></div>
         <div class="row more_posts">
           <a href="#" class="btn btn-primary btn-sm" data-param-posts='<?php echo serialize($wp_query->query_vars); ?>' data-max-pages='<?php echo $wp_query->max_num_pages; ?>'>
             <span class="btn-label-wrap">

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html <?php language_attributes() ?>>
+<html <?php language_attributes() ?> style="scroll-behavior: unset !important">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <?php wp_head(); ?>
 </head>
+
+<?php /*require dirname(__FILE__) . '/inc/api.php'*/ ?>
 
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
@@ -42,13 +44,6 @@
         <button class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
       </div>
     </div>
-
-    <?php if (is_front_page()): ?>
-      <div class="block-home-preloader">
-        <lottie-player id="preloader1" class="preloader" src="<?= get_stylesheet_directory_uri() ?>/json/preloader1.json" style="width: 100%; height: 100%"></lottie-player>
-        <lottie-player id="preloader2" class="preloader" loop src="<?= get_stylesheet_directory_uri() ?>/json/preloader2.json" style="width: 100%; height: auto"></lottie-player>
-      </div>
-    <?php endif ?>
     
     <main class="content">
 

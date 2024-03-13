@@ -19,6 +19,17 @@ gsap.ticker.add((time) => {
 });
 
 jQuery(document).ready(function ($) {
+  lenis.on("scroll", function () {
+    if (lenis.actualScroll > $(window).height()) {
+      $(".scroll-to-top").addClass("active");
+    } else {
+      $(".scroll-to-top").removeClass("active");
+    }
+  });
+  $(".scroll-to-top").on("click", function () {
+    lenis.scrollTo(0, { duration: 1 });
+  });
+
   if (document.querySelector(".block-case-video")) {
     ScrollTrigger.create({
       trigger: ".block-case-video",
@@ -168,29 +179,6 @@ jQuery(document).ready(function ($) {
         },
         onLeaveBack: function () {
           document.querySelector(".header").classList.remove(className);
-        },
-      });
-    });
-  }
-
-  if (document.querySelector(".global-wrapper-home")) {
-    document.querySelector(".header").classList.add("theme-light-home");
-    document.querySelectorAll(".bg-white").forEach((bg) => {
-      ScrollTrigger.create({
-        trigger: bg,
-        start: "top 5px",
-        end: "bottom 20px",
-        onEnter: function () {
-          document.querySelector(".header").classList.remove("theme-light-home");
-        },
-        onLeave: function () {
-          document.querySelector(".header").classList.add("theme-light-home");
-        },
-        onEnterBack: function () {
-          document.querySelector(".header").classList.remove("theme-light-home");
-        },
-        onLeaveBack: function () {
-          document.querySelector(".header").classList.add("theme-light-home");
         },
       });
     });
@@ -391,6 +379,8 @@ jQuery(document).ready(function ($) {
       ease: "none",
     });
 
+    var total = $(".block-cases-slider .swiper-outer .swiper-slide").length - 1;
+
     const swiperCases1 = new Swiper(".block-cases-slider .swiper-inner", {
       loop: true,
       speed: 1500,
@@ -398,7 +388,7 @@ jQuery(document).ready(function ($) {
       spaceBetween: 0,
       direction: "vertical",
       allowTouchMove: false,
-      initialSlide: 4,
+      initialSlide: total,
       on: {
         init: function () {
           ScrollTrigger.refresh();
@@ -419,6 +409,7 @@ jQuery(document).ready(function ($) {
       },
       pagination: {
         el: ".block-cases-slider .swiper-pagination",
+        clickable: true,
       },
       on: {
         init: function () {
@@ -426,8 +417,8 @@ jQuery(document).ready(function ($) {
           $(".block-cases-slider .swiper-controls li:first-child").addClass("active");
         },
         slideChangeTransitionStart: function (swiper) {
-          var total = $(".block-cases-slider .swiper-outer .swiper-slide").length - 1;
           var currentInner = total - swiper.realIndex;
+          console.log(total, swiper.realIndex, currentInner);
           swiperCases1.slideToLoop(currentInner, 1500);
 
           $(".block-cases-slider .swiper-controls li.active").removeClass("active");
@@ -460,7 +451,8 @@ jQuery(document).ready(function ($) {
     });
     $(".block-cases-slider .swiper-controls li").on("click", function () {
       var slide = parseInt($(this).data("slide"));
-      swiperCases.slideTo(slide);
+      console.log(slide);
+      swiperCases.slideToLoop(slide);
     });
 
     const observer = new IntersectionObserver((entries) => {
@@ -488,7 +480,7 @@ jQuery(document).ready(function ($) {
         slidesPerView: 1,
         allowTouchMove: false,
         autoplay: {
-          delay: 3000,
+          delay: Math.floor(Math.random() * (5000 - 3000 + 1) + 3000),
           disableOnInteraction: false,
         },
       });

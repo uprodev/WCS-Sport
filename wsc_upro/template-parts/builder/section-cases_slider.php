@@ -14,12 +14,12 @@ if($args['row']):
             setup_postdata($post); 
             ?>
 
-            <div class="swiper-slide"<?php if(has_post_thumbnail()) echo ' style="background-image: url(' . get_the_post_thumbnail_url($post->ID, 'full') . ')"' ?>>
+            <div class="swiper-slide"<?php if(has_post_thumbnail($post->ID)) echo ' style="background-image: url(' . get_the_post_thumbnail_url($post->ID, 'full') . ')"' ?>>
               <div class="item">
 
-                <?php if ($field = get_field('title')): ?>
+                <?php if ($field = get_field('title', $post->ID)): ?>
                   <div class="slide-title">
-                    <a href="#"><?= $field ?></a>
+                    <a href="<?php the_permalink($post->ID) ?>"><?= $field ?></a>
                   </div>
                 <?php endif ?>
                 
@@ -42,7 +42,7 @@ if($args['row']):
               setup_postdata($post); 
               ?>
 
-              <li data-slide="<?= $index ?>"><?= mb_strtolower(get_the_title()) ?></li>
+              <li data-slide="<?= $index ?>"><?= mb_strtolower(get_the_title($post->ID)) ?></li>
 
               <?php 
             endforeach;
@@ -62,18 +62,20 @@ if($args['row']):
           <div class="swiper-wrapper">
 
             <?php 
-            foreach($cases as $post): 
+            foreach(array_reverse($cases) as $post): 
               global $post;
               setup_postdata($post); 
               ?>
 
-              <?php if ($field = get_field('image')): ?>
-                <div class="swiper-slide">
+              <div class="swiper-slide">
+
+                <?php if ($field = get_field('image', $post->ID)): ?>
                   <figure>
                     <?= wp_get_attachment_image($field['ID'], 'full') ?>
                   </figure>
-                </div>
-              <?php endif ?>
+                <?php endif ?>
+
+              </div>
 
               <?php 
             endforeach;

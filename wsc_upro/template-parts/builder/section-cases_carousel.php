@@ -5,7 +5,7 @@ if($args['row']):
   <?php if($items_): ?>
 
     <section class="block-cases-carousel">
-      <div class="container-fluid pe-0">
+      <div class="container-fluid p-0">
         <div class="wrapper">
 
           <?php foreach($items_ as $item): ?>
@@ -36,8 +36,8 @@ if($args['row']):
                     <a href="<?php the_permalink($item['case']->ID) ?>" class="card-title"><?= $field ?></a>
                   <?php endif ?>
 
-                  <?php if (get_the_excerpt($item['case']->ID)): ?>
-                    <?= get_the_excerpt($item['case']->ID) ?>
+                  <?php if (has_excerpt($item['case']->ID)): ?>
+                    <p><?= get_the_excerpt($item['case']->ID) ?></p>
                   <?php endif ?>
 
                   <a href="<?php the_permalink($item['case']->ID) ?>" class="btn btn-outline-secondary">
