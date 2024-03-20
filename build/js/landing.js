@@ -1,10 +1,24 @@
-var video1 = document.querySelector(".part1");
-var video2 = document.querySelector(".block-home-2");
+var video1 = document.querySelector(".part1"),
+  video1Desktop = video1.dataset.desktop,
+  video1Mobile = video1.dataset.mobile;
+var video2 = document.querySelector(".block-home-2"),
+  video2Source;
+
+if (window.screen.width < 1024) {
+  video1.setAttribute("src", video1Mobile);
+} else {
+  video1.setAttribute("src", video1Desktop);
+}
+
+if (window.screen.width < 1024) {
+  video2Source = document.querySelector("#scrollyVideo").dataset.videomob;
+} else {
+  video2Source = document.querySelector("#scrollyVideo").dataset.video;
+}
 
 new ScrollyVideo({
   scrollyVideoContainer: "scrollyVideo",
-  // src: "https://scrollyvideo.js.org/goldengate.mp4",
-  src: "media/home-part2.mp4",
+  src: video2Source,
 });
 
 const lenis = new Lenis({
@@ -107,3 +121,16 @@ if (document.querySelector(".global-wrapper-home")) {
     });
   });
 }
+
+jQuery(document).ready(function ($) {
+  // footer
+
+  function footer() {
+    var fHeight = $(".footer").outerHeight();
+    $(".global-wrapper").css("padding-bottom", fHeight);
+  }
+  footer();
+  $(window).on("resize", function () {
+    footer();
+  });
+});

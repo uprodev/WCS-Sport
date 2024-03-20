@@ -18,18 +18,18 @@ gsap.ticker.add((time) => {
   lenis.raf(time * 1000);
 });
 
-lenis.on("scroll", function () {
-  if (lenis.actualScroll > $(window).height()) {
-    $(".scroll-to-top").addClass("active");
-  } else {
-    $(".scroll-to-top").removeClass("active");
-  }
-});
-$(".scroll-to-top").on("click", function () {
-  lenis.scrollTo(0, { duration: 1 });
-});
-
 jQuery(document).ready(function ($) {
+  lenis.on("scroll", function () {
+    if (lenis.actualScroll > $(window).height()) {
+      $(".scroll-to-top").addClass("active");
+    } else {
+      $(".scroll-to-top").removeClass("active");
+    }
+  });
+  $(".scroll-to-top").on("click", function () {
+    lenis.scrollTo(0, { duration: 1 });
+  });
+
   if (document.querySelector(".block-case-video")) {
     ScrollTrigger.create({
       trigger: ".block-case-video",
@@ -265,11 +265,22 @@ jQuery(document).ready(function ($) {
 
   $("[data-id=copyUrl]").on("click", function (e) {
     e.preventDefault();
-    navigator.clipboard.writeText(window.location.href);
-    $(this).addClass("copied");
-    setTimeout(() => {
-      $(this).removeClass("copied");
-    }, 1000);
+
+    if (navigator.share) {
+      navigator
+        .share({
+          title: $("h1").text(),
+          url: window.location.href,
+        })
+        .then(() => console.log("Successful share"))
+        .catch((error) => console.log("Error sharing", error));
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      $(this).addClass("copied");
+      setTimeout(() => {
+        $(this).removeClass("copied");
+      }, 1000);
+    }
   });
 
   // footer
@@ -379,6 +390,8 @@ jQuery(document).ready(function ($) {
       ease: "none",
     });
 
+    var total = $(".block-cases-slider .swiper-outer .swiper-slide").length - 1;
+
     const swiperCases1 = new Swiper(".block-cases-slider .swiper-inner", {
       loop: true,
       speed: 1500,
@@ -386,7 +399,7 @@ jQuery(document).ready(function ($) {
       spaceBetween: 0,
       direction: "vertical",
       allowTouchMove: false,
-      initialSlide: 4,
+      initialSlide: total,
       on: {
         init: function () {
           ScrollTrigger.refresh();
@@ -407,6 +420,7 @@ jQuery(document).ready(function ($) {
       },
       pagination: {
         el: ".block-cases-slider .swiper-pagination",
+        clickable: true,
       },
       on: {
         init: function () {
@@ -414,8 +428,8 @@ jQuery(document).ready(function ($) {
           $(".block-cases-slider .swiper-controls li:first-child").addClass("active");
         },
         slideChangeTransitionStart: function (swiper) {
-          var total = $(".block-cases-slider .swiper-outer .swiper-slide").length - 1;
           var currentInner = total - swiper.realIndex;
+          // console.log(total, swiper.realIndex, currentInner);
           swiperCases1.slideToLoop(currentInner, 1500);
 
           $(".block-cases-slider .swiper-controls li.active").removeClass("active");
@@ -448,7 +462,8 @@ jQuery(document).ready(function ($) {
     });
     $(".block-cases-slider .swiper-controls li").on("click", function () {
       var slide = parseInt($(this).data("slide"));
-      swiperCases.slideTo(slide);
+      // console.log(slide);
+      swiperCases.slideToLoop(slide);
     });
 
     const observer = new IntersectionObserver((entries) => {
@@ -476,7 +491,7 @@ jQuery(document).ready(function ($) {
         slidesPerView: 1,
         allowTouchMove: false,
         autoplay: {
-          delay: 3000,
+          delay: Math.floor(Math.random() * (5000 - 3000 + 1) + 3000),
           disableOnInteraction: false,
         },
       });
@@ -714,9 +729,17 @@ jQuery(document).ready(function ($) {
     $(this).closest(".video-wrapper").find(".video-play").addClass("is-paused");
   });
 
-  if ($(".page-header-case").length) {
+  if ($(".page-header-case.video-wrapper").length) {
+    var video = document.querySelector(".case-video"),
+      videoDesktop = video.dataset.desktop,
+      videoMobile = video.dataset.mobile;
+    if (window.screen.width < 1024) {
+      video.setAttribute("src", videoMobile);
+    } else {
+      video.setAttribute("src", videoDesktop);
+    }
+
     setTimeout(() => {
-      var video = $(".page-header-case").find("video").get(0);
       video.play();
       $(".btn-watch").hide();
       $(".page-header-case").find(".video-controls").css("display", "flex");
@@ -730,5 +753,10 @@ jQuery(document).ready(function ($) {
   });
   $(document).on("click", function () {
     $(".block-filter .dropdown").removeClass("active");
+  });
+
+  $("input[name=sort]").on("click", function () {
+    var v = $(this).next("label").text();
+    $(".sort .dropdown-toggle").text(v);
   });
 });

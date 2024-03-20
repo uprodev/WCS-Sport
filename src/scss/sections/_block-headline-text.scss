@@ -29,6 +29,23 @@
     }
   }
 
+  .animated {
+    a {
+      color: $linkText;
+      text-decoration: underline;
+      text-underline-offset: 0.1em;
+
+      .word,
+      .char {
+        display: inline !important;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
   &:not(.block-headline-text--blog):first-child {
     padding: 160px 0 66px;
   }

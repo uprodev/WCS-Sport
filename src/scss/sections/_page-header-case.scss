@@ -69,6 +69,12 @@
     }
   }
 
+  &.video-wrapper {
+    h1 {
+      display: none;
+    }
+  }
+
   @include media-breakpoint-up(lg) {
     .text {
       padding: 0 0 64px;

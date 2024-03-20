@@ -32,3 +32,10 @@
   font-weight: 350;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "graphik";
+  src: url("../fonts/graphikmedium-webfont.woff2") format("woff2"), url("../fonts/graphikmedium-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}

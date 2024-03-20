@@ -65,10 +65,20 @@
       max-width: 100%;
       height: auto;
     }
+
+    & > * {
+      margin: 0 auto !important;
+    }
+
+    iframe {
+      width: 100% !important;
+      max-width: none !important;
+    }
   }
 
   .article-main {
     font-weight: 300;
+
     h4 {
       @include font-size(2.25rem, $h4-font-size);
       line-height: 0.98;
@@ -85,6 +95,23 @@
 
     p {
       margin: 0 0 25px;
+    }
+
+    .animated {
+      a {
+        color: $linkText;
+        text-decoration: underline;
+        text-underline-offset: 0.1em;
+
+        .word,
+        .char {
+          display: inline !important;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
 

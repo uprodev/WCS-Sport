@@ -1,6 +1,7 @@
 .card-case {
   border-radius: 4px;
   overflow: hidden;
+  background-color: $gray-100;
 
   .card-image {
     overflow: hidden;
@@ -21,7 +22,6 @@
     flex-direction: column;
     justify-content: flex-end;
     padding: 32px 24px;
-    background-color: $gray-100;
     border-radius: 0 0 4px 4px;
 
     .card-logo {
@@ -66,6 +66,7 @@
   @include media-breakpoint-up(md) {
     border-radius: 8px 8px 0 0;
     height: 662px;
+    background-color: transparent;
 
     .card-image {
       border-radius: 8px 8px 0 0;
@@ -82,6 +83,7 @@
     }
 
     .card-main {
+      background-color: $gray-100;
       transition: background-color 0.5s;
 
       .card-logo {

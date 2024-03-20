@@ -50,6 +50,23 @@
     }
   }
 
+  .animated {
+    a {
+      color: $linkText;
+      text-decoration: underline;
+      text-underline-offset: 0.1em;
+
+      .word,
+      .char {
+        display: inline !important;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
   @include media-breakpoint-up(md) {
     .block-header {
       margin: 0 0 50px;

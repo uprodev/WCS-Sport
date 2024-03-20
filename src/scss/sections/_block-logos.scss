@@ -4,6 +4,15 @@
   position: relative;
   z-index: 9;
 
+  @include media-breakpoint-down(lg) {
+    &:after {
+      content: "";
+      @include abs;
+      z-index: 9;
+      top: 150px;
+    }
+  }
+
   .container-fluid {
     @include media-breakpoint-up(xl) {
       padding: 0 1.5rem !important;

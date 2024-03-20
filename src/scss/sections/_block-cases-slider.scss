@@ -1,6 +1,15 @@
 .block-cases-slider {
   position: relative;
 
+  @include media-breakpoint-down(lg) {
+    &:after {
+      content: "";
+      @include abs;
+      z-index: 9;
+      top: 150px;
+    }
+  }
+
   .swiper-controls {
     display: none;
     position: relative;
@@ -23,6 +32,7 @@
         color: $gray-100;
         opacity: 0.5;
         transition: all 0.3s;
+        cursor: pointer;
 
         &.active {
           color: $primary;
@@ -47,7 +57,7 @@
     left: 0;
     right: 0;
     bottom: 4vh;
-    z-index: 9;
+    z-index: 10;
 
     @media (min-height: 700px) {
       bottom: 64px;

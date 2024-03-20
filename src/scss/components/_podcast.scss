@@ -1,6 +1,6 @@
 .podcast {
   background-color: $primary;
-  padding: 20px;
+  padding: 0;
   border-radius: 4px;
   display: flex;
   position: relative;
@@ -165,7 +165,6 @@
   }
 
   @include media-breakpoint-up(lg) {
-    padding: 10px;
     border-radius: 0;
 
     .podcast-main {
@@ -269,8 +268,6 @@
   }
 
   @include media-breakpoint-up(xl) {
-    padding: 20px;
-
     .podcast-main {
       padding-left: 20px;
       justify-content: initial;

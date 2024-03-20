@@ -24,7 +24,7 @@
       text-transform: uppercase;
     }
 
-    h3 {
+    .h3 {
       margin: 24px 0 60px;
       @include font-size(2.875rem, $h3-font-size);
       line-height: 0.97;
@@ -59,7 +59,7 @@
     .text {
       padding: 0 0 60px;
 
-      h3 {
+      .h3 {
         margin-bottom: 0;
       }
 
@@ -96,7 +96,7 @@
       padding: 0 0 102px;
       font-size: 12px;
 
-      h3 {
+      .h3 {
         font-size: 48px;
         line-height: 0.9;
         margin-top: 28px;
@@ -112,7 +112,7 @@
         font-size: 0.875rem;
       }
 
-      h3 {
+      .h3 {
         line-height: 0.9;
         margin-top: 58px;
       }
