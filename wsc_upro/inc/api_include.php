@@ -9,6 +9,11 @@ foreach ($fields as $index => $field) {
   update_field($field, $job->details[$index]->value ?? '', $post_id);
 }
 
+$fields = ['name', 'country', 'city', 'state', 'postal_code', 'street_name', 'street_number'];
+$values = [];
+foreach ($fields as $field) $values[$field] = $job->location->$field ?? '';
+update_field('location', $values, $post_id);
+
 $taxonomies = ['department', 'employment_type', 'experience_level'];
 foreach ($taxonomies as $taxonomy) {
   wp_set_object_terms($post_id, $job->$taxonomy ?? __('Other', 'WSC'), $taxonomy);

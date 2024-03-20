@@ -28,7 +28,7 @@ if($args['row']):
                 <?php endforeach ?>
               <?php endif ?>
               
-              <h3><?php the_title() ?></h3>
+              <h1 class="h3"><?php the_title() ?></h1>
               <p><?= get_the_date() ?></p>
             </div>
             <div class="btn-wrap">

@@ -2,8 +2,6 @@
 if($args['row']):
 	foreach($args['row'] as $key=>$arg) $$key = $arg; ?>
 
-  <?php require dirname(__FILE__) . '/../../inc/api.php' ?>
-
   <section class="block-careers-list">
     <div class="container-fluid">
 

@@ -2,12 +2,12 @@
 if($args['row']):
 	foreach($args['row'] as $key=>$arg) $$key = $arg; ?>
 
-  <?php $is_video = $video && $type == 'Video' ?>
+  <?php $is_video = ($video || $video_mobile) && $type == 'Video' ?>
 
   <section class="page-header-case<?php if($is_video) echo ' video-wrapper' ?>">
     <div class="block-inner bg-secondary">
 
-      <?php if ($image || $video): ?>
+      <?php if ($image || $video || $video_mobile): ?>
         <div class="media">
           <div class="img-fade">
 
@@ -16,9 +16,21 @@ if($args['row']):
             <?php endif ?>
             
             <?php if ($is_video): ?>
-              <video src="<?= $video['url'] ?>" muted playsinline></video>
+
+              <?php if ($video_mobile): ?>
+                <div class="d-lg-none">
+                  <video src="<?= $video_mobile['url'] ?>" muted playsinline></video>
+                </div>
+              <?php endif ?>
+              
+              <?php if ($video): ?>
+                <div class="d-none d-lg-block">
+                  <video src="<?= $video['url'] ?>" muted playsinline></video>
+                </div>
+              <?php endif ?>
+              
             <?php endif ?>
-            
+
           </div>
         </div>
       <?php endif ?>
@@ -31,7 +43,6 @@ if($args['row']):
               <div class="lines-wrapper">
                 <h1<?php if($is_video) echo ' class="not-animated"' ?>><?= $text ?></h1>
               </div>
-              <a href="#" class="btn-watch"><?= mb_strtoupper(__('Watch now', 'WSC')) ?></a>
             <?php endif ?>
 
             <?php if ($is_video): ?>
