@@ -1,5 +1,6 @@
 .block-blog-article {
   padding: 0 0 30px;
+
   .article-intro {
     font-size: 2rem;
     line-height: 1.04;
@@ -87,6 +88,7 @@
 
       &:first-child {
         margin-top: 32px;
+
         @include media-breakpoint-up(md) {
           margin-top: 0;
         }
@@ -117,7 +119,11 @@
 
   @include media-breakpoint-up(md) {
     .article-intro {
-      padding: 60px 0;
+      padding: 60px 0 0;
+    }
+
+    .row {
+      margin-top: 60px;
     }
 
     .quote-wrapper {
@@ -138,9 +144,13 @@
     }
 
     .article-intro {
-      padding: 120px 0 120px;
+      padding: 128px 0 0;
       font-size: 28px;
       line-height: 1.3;
+    }
+
+    .row {
+      margin-top: 128px;
     }
 
     .article-details {
@@ -163,15 +173,19 @@
     }
 
     .quote-wrapper {
-      padding: 157px 0 55px;
+      padding: 0 0 64px;
 
       .inner {
         transform: translateX(-45%) !important;
       }
+
+      figure .blockquote {
+        margin: 0;
+      }
     }
 
     .article-main {
-      padding: 25px 0 0 53px;
+      padding: 0 0 0 53px;
 
       p {
         margin: 0 0 30px;
@@ -179,17 +193,17 @@
       }
 
       h4 {
-        margin: 120px 0 58px;
+        margin: 64px 0 30px;
       }
 
       .card-social {
         padding: 74px 48px;
         border-radius: 16px;
-        margin: 90px 0 127px;
+        margin: 64px 0;
       }
 
       .podcast {
-        margin: 88px 0 102px;
+        margin: 64px 0;
         width: 768px;
         transform: scale(0.86);
         transform-origin: 0 0;
@@ -198,11 +212,7 @@
 
     &--podcast {
       .article-main {
-        padding-top: 0;
-
         h4 {
-          margin: 120px 0 55px;
-
           &:first-child {
             margin-top: -4px;
           }
@@ -210,10 +220,6 @@
 
         p {
           margin: 0 0 28px;
-        }
-
-        .quote-wrapper {
-          padding: 117px 0 104px;
         }
       }
     }
@@ -223,38 +229,41 @@
     padding: 0 0 156px;
 
     .article-intro {
-      padding: 120px 0;
+      padding: 128px 0 0;
       font-size: 2.125rem;
       line-height: 1.3;
     }
 
-    .article-details {
-      padding: 138px 0 0;
+    .row {
+      margin-top: 128px;
     }
 
     .quote-wrapper {
-      padding: 161px 0 113px;
+      padding: 0 0 64px;
+
       .inner {
         transform: translateX(-50%) !important;
+      }
+
+      figure .blockquote {
+        margin: 0;
       }
     }
 
     .podcast {
-      margin: 0 0 130px;
+      margin: 64px 0;
     }
 
     .card-social {
       padding: 69px 62px;
       border-radius: 8px;
-      margin: 127px 0 126px;
+      margin: 64px 0;
     }
 
     .article-main {
-      padding: 126px 0 0;
-
       h4 {
         line-height: 0.9;
-        margin: 127px 0 121px;
+        margin: 64px 0 30px;
       }
 
       p {
@@ -264,23 +273,9 @@
     }
 
     &--podcast {
-      .article-details {
-        padding: 55px 0 0;
-      }
-
       .article-main {
-        padding-top: 57px;
-
-        h4 {
-          margin: 120px 0 59px;
-        }
-
         p {
           margin: 0 0 34px;
-        }
-
-        .quote-wrapper {
-          padding: 153px 0 170px;
         }
       }
     }

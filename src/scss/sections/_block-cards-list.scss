@@ -16,6 +16,14 @@
     margin: 15px 0 0;
   }
 
+  .btn-wrapper {
+    padding: 20px 0 0;
+
+    .btn {
+      width: auto !important;
+    }
+  }
+
   @include media-breakpoint-up(lg) {
     .pagination {
       display: none;
@@ -47,6 +55,10 @@
 
     .row {
       --bs-gutter-y: 0rem;
+    }
+
+    .btn-wrapper {
+      padding: 40px 0 0;
     }
   }
 

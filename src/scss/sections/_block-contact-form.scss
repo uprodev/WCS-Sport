@@ -67,6 +67,109 @@
       background-position: right center;
     }
 
+    &.hs-custom-style {
+      label:not(.hs-form-booleancheckbox-display) {
+        @extend .form-label;
+        @include media-breakpoint-down(md) {
+          font-weight: 300;
+        }
+      }
+
+      .input {
+        input:not([type="image"]):not([type="submit"]):not([type="button"]):not([type="radio"]):not([type="checkbox"]):not([type="file"]) {
+          @extend .form-control;
+          border-width: 0 0 1px;
+          border-radius: 0;
+          padding-left: 0;
+          @include media-breakpoint-down(md) {
+            font-weight: 300;
+          }
+        }
+      }
+
+      select {
+        @extend .form-select;
+        border-width: 0 0 1px;
+        border-radius: 0;
+        padding-left: 0;
+        background-position: right center;
+        @include media-breakpoint-down(md) {
+          font-weight: 300;
+        }
+      }
+
+      .hs-fieldtype-textarea textarea {
+        @extend .form-control;
+        height: 234px;
+      }
+
+      .inputs-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        .hs-form-booleancheckbox {
+          .hs-form-booleancheckbox-display {
+            @extend .form-check;
+
+            input {
+              @extend .form-check-input;
+            }
+
+            & > span {
+              @extend .form-check-label;
+              font-size: 0.875rem;
+              padding: 0 15px 0 0;
+              font-weight: 500;
+              line-height: 1.48;
+              display: block;
+              margin: 0;
+            }
+          }
+        }
+      }
+
+      .hs-submit {
+        margin: 26px 0 0;
+
+        .hs-button.primary {
+          background-color: #e5ff00 !important;
+          border-radius: 4px !important;
+          width: auto !important;
+          color: #0b0b0b !important;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          height: 58px;
+          text-transform: uppercase;
+          text-decoration: none;
+          font-size: 14px;
+          padding-left: 2.25em;
+          padding-right: 2.25em;
+          border: none;
+          font-weight: 300 !important;
+          white-space: nowrap;
+
+          &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            transform-origin: center;
+            transition: all 0.3s;
+          }
+
+          &:hover:before {
+            transform: scale(1.08);
+          }
+        }
+      }
+    }
+
     .field {
       margin: 0 0 26px;
 
@@ -115,6 +218,10 @@
         }
       }
     }
+  }
+
+  .form-box {
+    min-height: 830px;
   }
 
   &--type1 {
@@ -166,6 +273,39 @@
         font-size: 0.75rem;
         text-transform: uppercase;
       }
+
+      &.hs-custom-style {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+
+        .field {
+          padding: 0 15px;
+          width: 50%;
+
+          &.hs-country_new,
+          &.hs-description,
+          &.hs-fieldtype-booleancheckbox {
+            width: 100%;
+          }
+        }
+        .legal-consent-container {
+          width: 100%;
+        }
+
+        label:not(.hs-form-booleancheckbox-display) {
+          font-size: 12px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .form-box {
+      min-height: 810px;
+    }
+
+    .form-box {
+      min-height: 810px;
     }
   }
 
@@ -308,6 +448,32 @@
 
       .form-buttons {
         margin: 64px 0 0;
+      }
+
+      &.hs-custom-style {
+        label:not(.hs-form-booleancheckbox-display) {
+          margin: 0 0 1rem;
+        }
+
+        .hs-fieldtype-textarea textarea {
+          height: 140px;
+        }
+
+        .inputs-list {
+          .hs-form-booleancheckbox {
+            .hs-form-booleancheckbox-display {
+              margin-top: -3px;
+
+              & > span {
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+
+        .hs-submit {
+          margin: 64px 0 0;
+        }
       }
     }
 

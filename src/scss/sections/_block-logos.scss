@@ -3,13 +3,13 @@
   background-color: $white;
   position: relative;
   z-index: 9;
+  overflow: hidden;
 
   @include media-breakpoint-down(lg) {
     &:after {
       content: "";
       @include abs;
       z-index: 9;
-      top: 150px;
     }
   }
 
@@ -60,7 +60,52 @@
 
         img {
           display: block;
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
         }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .logos-list {
+      ul {
+        margin: 0 auto;
+        width: 360px;
+        justify-content: center;
+
+        li {
+          height: 70px;
+          width: 30%;
+
+          &:nth-child(1),
+          &:nth-child(2),
+          &:nth-child(3),
+          &:nth-child(4),
+          &:nth-child(5) {
+            width: 20%;
+          }
+
+          span {
+            img {
+              max-width: 100%;
+              max-height: 100%;
+              width: auto;
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .logos-list {
+      ul {
+        margin: 0 -16px;
+        width: auto;
       }
     }
   }

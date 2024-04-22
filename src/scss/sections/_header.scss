@@ -23,6 +23,18 @@
 
       path {
         transition: all 0.5s;
+        fill: $black;
+      }
+    }
+  }
+
+  .btn-primary {
+    @include media-breakpoint-down(lg) {
+      background-color: $secondary;
+      color: $primary;
+
+      &:before {
+        display: none;
       }
     }
   }
@@ -42,6 +54,10 @@
           &:not(.logo-vector) {
             fill: $white;
           }
+
+          &.logo-vector {
+            fill: $primary;
+          }
         }
       }
     }
@@ -54,6 +70,10 @@
           &:not(.logo-vector) {
             fill: $white;
           }
+
+          &.logo-vector {
+            fill: $primary;
+          }
         }
       }
     }
@@ -61,6 +81,7 @@
 
   @include media-breakpoint-down(lg) {
     background-color: rgba(48, 48, 48, 0.08);
+    backdrop-filter: blur(20px);
 
     &.theme-light,
     &.theme-light-home {
@@ -115,9 +136,20 @@
       .navigation-main {
         background: rgba(39, 39, 39, 0.35);
 
-        ul li a {
-          color: $primary;
-          opacity: 1;
+        ul {
+          li {
+            a {
+              color: $primary;
+              opacity: 1;
+            }
+
+            &.active,
+            &:hover {
+              a {
+                color: $white;
+              }
+            }
+          }
         }
       }
     }
@@ -130,9 +162,20 @@
       .navigation-main {
         background: rgba(39, 39, 39, 0.35);
 
-        ul li a {
-          color: $primary;
-          opacity: 1;
+        ul {
+          li {
+            a {
+              color: $primary;
+              opacity: 1;
+            }
+
+            &.active,
+            &:hover {
+              a {
+                color: $white;
+              }
+            }
+          }
         }
       }
     }

@@ -58,6 +58,7 @@
   @include media-breakpoint-up(md) {
     .image {
       height: 100%;
+
       .img-inner {
         height: 100%;
         padding: 0;
@@ -156,6 +157,7 @@
       }
 
       .h3 {
+        font-size: 66px;
         line-height: 0.87;
         margin: 37px 0 121px;
       }

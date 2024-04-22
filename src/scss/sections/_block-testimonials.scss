@@ -36,7 +36,11 @@
 
       .video {
         @include img-abs-container(100%);
-        transform: translateY(-30%);
+        transform: translateY(-20px);
+
+        @include media-breakpoint-down(lg) {
+          transform: none !important;
+        }
 
         video {
           border-radius: 8px;
@@ -169,6 +173,7 @@
 
     .text-center {
       margin: 0 0 64px;
+
       p {
         font-weight: 400;
         margin: 0;

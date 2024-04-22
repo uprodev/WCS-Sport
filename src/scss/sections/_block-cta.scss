@@ -51,6 +51,11 @@
         margin: 0;
       }
     }
+    &--narrow {
+      p {
+        margin-right: 300px !important;
+      }
+    }
   }
 
   @include media-breakpoint-up(xl) {

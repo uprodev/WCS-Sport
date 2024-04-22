@@ -7,7 +7,7 @@
     margin: 0 0 20px;
 
     @include media-breakpoint-down(md) {
-      line-height: 0.9;
+      line-height: 1;
     }
   }
 
@@ -31,8 +31,10 @@
   &--contact {
     @include media-breakpoint-down(sm) {
       padding: 129px 0 56px;
+
       h1 {
         margin: 0 0 22px;
+
         br {
           display: none;
         }

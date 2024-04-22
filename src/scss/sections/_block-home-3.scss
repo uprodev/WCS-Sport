@@ -1,6 +1,8 @@
 .block-home-3 {
   overflow: hidden;
   height: auto;
+  position: relative;
+  z-index: 1200;
 
   .block-inner {
     height: auto;

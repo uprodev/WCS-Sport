@@ -2,11 +2,15 @@
   position: static;
   overflow: visible;
 
-  .content {
-    position: static;
-  }
-  .footer {
-    z-index: -1;
+  .lottie {
+    position: fixed;
+    left: 50%;
+    bottom: 5vh;
+    width: 150px;
+    height: 30px;
+    transform: translateX(-50%);
+    z-index: 1103;
+    opacity: 1;
   }
 }
 
@@ -30,7 +34,7 @@
   height: 100vh;
   display: flex;
   align-items: flex-start;
-  z-index: 1;
+  z-index: 1001;
 
   &:after {
     content: "";
