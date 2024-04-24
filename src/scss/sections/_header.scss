@@ -6,6 +6,13 @@
   padding: 32px 0 14px 6px;
   z-index: 999;
 
+  @include media-breakpoint-down(md) {
+    transition: transform 0.2s;
+    &.hidden {
+      transform: translateY(-100%);
+    }
+  }
+
   .container-fluid {
     max-width: none;
     align-items: center;

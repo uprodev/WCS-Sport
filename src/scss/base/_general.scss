@@ -57,106 +57,19 @@ a {
   background: $gray-100;
 }
 
-// #hs-banner-parent div#hs-eu-cookie-confirmation {
-//   box-shadow: none !important;
-//   background: none;
-//   border: none;
-//   width: 100%;
-//   max-width: 700px !important;
-//   left: 50%;
-//   transform: translateX(-50%);
-
-//   div#hs-eu-cookie-confirmation-inner {
-//     background: #f8f8f8;
-//     padding: 16px 24px;
-//     border-radius: 4px;
-//     max-width: 700px;
-//     display: flex;
-//     align-items: center;
-//     flex-wrap: nowrap;
-//     flex-direction: row;
-
-//     div#hs-eu-policy-wording {
-//       margin: 0 28px 0 0;
-
-//       p {
-//         margin: 0;
-
-//         span {
-//           font-family: $font-family-base;
-//           font-size: 18px !important;
-//           font-weight: 500;
-//           line-height: 22px !important;
-//           letter-spacing: 0.01em;
-//           text-transform: uppercase;
-//         }
-//       }
-//     }
-
-//     div#hs-eu-cookie-confirmation-buttons-area {
-//       margin: 0;
-//       display: block;
-//       flex: 0 0 auto;
-
-//       #hs-eu-decline-button,
-//       #hs-eu-cookie-settings-button {
-//         display: none !important;
-//       }
-
-//       #hs-eu-confirmation-button {
-//         font-family: $font-family-graphik;
-//         font-size: 14px;
-//         font-weight: 500 !important;
-//         line-height: 18px;
-//         letter-spacing: -0.02em;
-//         margin: 0 !important;
-//         border-radius: 4px;
-//         display: inline-flex !important;
-//         align-items: center;
-//         justify-content: center;
-//         padding: 0 !important;
-//         width: 132px;
-//         height: 42px;
-//         background-color: transparent !important;
-//         border: none !important;
-//         color: #0b0b0b;
-//         position: relative;
-//         text-transform: uppercase;
-
-//         &:before {
-//           content: "";
-//           position: absolute;
-//           left: 0;
-//           top: 0;
-//           width: 100%;
-//           height: 100%;
-//           border-radius: $btn-border-radius;
-//           transform-origin: center;
-//           transition: all 0.3s;
-//           border: 1px solid $secondary;
-//         }
-
-//         &:after {
-//           content: "";
-//           display: block;
-//           width: 6px;
-//           height: 6px;
-//           margin-left: 6px;
-//           background: url(../images/arrow-btn.svg) no-repeat;
-//         }
-
-//         &:hover {
-//           &:before {
-//             transform: scale(1.1);
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
 .lds-dual-ring {
   margin: auto;
+
+  & > * {
+    display: none;
+  }
+
+  #loader {
+    display: block !important;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+  }
 }
 
 svg {

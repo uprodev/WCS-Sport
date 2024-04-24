@@ -31,6 +31,11 @@ jQuery(document).ready(function ($) {
     } else {
       $(".scroll-to-top").removeClass("active");
     }
+    // if (lenis.progress > 0.97) {
+    //   $(".header").addClass("hidden");
+    // } else {
+    //   $(".header").removeClass("hidden");
+    // }
   });
   $(".scroll-to-top").on("click", function () {
     lenis.scrollTo(0, { duration: 1 });
@@ -697,4 +702,9 @@ jQuery(document).ready(function ($) {
     var v = $(this).next("label").text();
     $(".sort .dropdown-toggle").text(v);
   });
+
+  let loader = document.getElementById("loader");
+  if (loader) {
+    loader.play();
+  }
 });

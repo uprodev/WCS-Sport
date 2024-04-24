@@ -25,6 +25,14 @@ requestAnimationFrame(raf);
 
 lenis.on("scroll", ScrollTrigger.update);
 
+lenis.on("scroll", function () {
+  if (lenis.progress > 0.97) {
+    $(".header").addClass("hidden");
+  } else {
+    $(".header").removeClass("hidden");
+  }
+});
+
 gsap.ticker.add((time) => {
   lenis.raf(time * 1000);
 });
