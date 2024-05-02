@@ -42,6 +42,17 @@
     }
   }
 
+  &--platform {
+    padding: 156px 0 59px;
+    h1 {
+      font-weight: 400;
+      margin: 0 0 18px;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+
   @include media-breakpoint-up(xl) {
     padding: 210px 0 54px;
 
@@ -68,6 +79,17 @@
     &--contact {
       p {
         max-width: 34em;
+      }
+    }
+
+    &--platform {
+      padding: 201px 0 101px;
+      h1 {
+        margin: 0 0 30px;
+      }
+      p {
+        font-size: 21px;
+        max-width: 28em;
       }
     }
   }
@@ -117,6 +139,19 @@
     &--contact {
       p {
         max-width: 37em;
+      }
+    }
+
+    &--platform {
+      padding: 285px 0 144px;
+
+      h1 {
+        margin: 0 0 28px;
+      }
+
+      p {
+        max-width: 28em;
+        font-size: 26px;
       }
     }
   }

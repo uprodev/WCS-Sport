@@ -1,0 +1,87 @@
+.block-slogan {
+  padding: 60px 0 46px;
+
+  .block-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 116%;
+    margin: 0 0 5px;
+    text-transform: uppercase;
+  }
+
+  .block-title {
+    font-size: 32px;
+    line-height: 115%;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0 0 40px;
+  }
+
+  .btn {
+    width: auto;
+  }
+
+  .arrow {
+    margin: 260px -15px 0 0;
+    text-align: right;
+  }
+
+  @include media-breakpoint-up(md) {
+    .block-subtitle {
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 0.98;
+      margin: 0 0 20px;
+    }
+
+    .block-title {
+      font-size: 60px;
+      line-height: 0.89;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .btn {
+      transform: translateY(15px);
+    }
+
+    .arrow {
+      margin: 94px 0 0;
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 75px 0 135px;
+
+    .block-subtitle {
+      font-size: 32px;
+      margin: 0 0 23px;
+    }
+
+    .block-title {
+      font-size: 80px;
+    }
+
+    .arrow {
+      margin-right: -98px;
+    }
+  }
+
+  @include media-breakpoint-up(xxl) {
+    padding: 108px 0 135px;
+
+    .block-subtitle {
+      font-size: 42px;
+      margin: 0 0 20px;
+    }
+
+    .block-title {
+      font-size: 110px;
+    }
+
+    .arrow {
+      margin: 140px -5px 0 0;
+    }
+  }
+}

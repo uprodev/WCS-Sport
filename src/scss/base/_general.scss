@@ -60,8 +60,9 @@ a {
 .lds-dual-ring {
   margin: auto;
 
-  & > * {
-    display: none;
+  &:before,
+  &:after {
+    display: none !important;
   }
 
   #loader {
