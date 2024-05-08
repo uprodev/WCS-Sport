@@ -20,7 +20,7 @@
     font-size: 19vw;
     line-height: 0.75;
     letter-spacing: -0.05em;
-    transform: translateY(-10px);
+    transform: translateY(-0.11em);
   }
 
   .footer-icon {
@@ -66,7 +66,6 @@
 
     .footer-headline {
       font-size: 15.55vw;
-      transform: translateY(-9.3%);
     }
 
     .footer-nav,
@@ -119,7 +118,6 @@
   @include media-breakpoint-up(xxl) {
     .footer-headline {
       font-size: 16.65vw;
-      transform: translateY(-9%);
     }
 
     .footer-icon {

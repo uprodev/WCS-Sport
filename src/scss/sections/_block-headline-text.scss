@@ -17,7 +17,7 @@
 
   h4 {
     @include font-size($h3-font-size-sm, $h4-font-size);
-    line-height: 0.98;
+    line-height: 1;
     font-weight: 500;
     margin: 0 0 52px 0;
   }
@@ -54,6 +54,11 @@
   &--blog {
     padding: 129px 0 0;
 
+    h1,
+    p {
+      font-weight: 300;
+    }
+
     p {
       color: $gray-300;
     }
@@ -82,7 +87,7 @@
     h3 {
       font-weight: 400;
       margin: 0;
-      line-height: 0.9;
+      line-height: 1;
     }
 
     &--blog {
@@ -103,7 +108,7 @@
   @include media-breakpoint-between(xl, xxl) {
     h1 {
       font-size: 7.125rem;
-      line-height: 0.85;
+      line-height: 1;
     }
 
     &--blog {
@@ -135,7 +140,7 @@
     &.gradient {
       h3 {
         font-size: 48px;
-        line-height: 0.9;
+        line-height: 1;
         max-width: 9em;
       }
 

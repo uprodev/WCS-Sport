@@ -118,6 +118,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 9;
 
     .swiper-pagination-bullet {
       width: 6px;
@@ -139,8 +141,6 @@
     padding: 90px 0 0;
 
     .swiper-pagination {
-      justify-content: flex-end;
-
       .swiper-pagination-bullet {
         margin: 0 0 0 12px;
       }

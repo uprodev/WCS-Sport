@@ -3,7 +3,7 @@
 
   h4 {
     @include font-size($h3-font-size-sm, $h4-font-size);
-    line-height: 0.98;
+    line-height: 1;
     font-weight: 500;
     margin: 0 0 52px 0;
 

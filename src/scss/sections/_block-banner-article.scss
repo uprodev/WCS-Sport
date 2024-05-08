@@ -27,11 +27,24 @@
     .h3 {
       margin: 24px 0 60px;
       @include font-size(2.875rem, $h3-font-size);
-      line-height: 0.97;
+      line-height: 1;
       font-weight: 300;
+      hyphens: auto;
+      display: flex;
+      flex-wrap: wrap;
 
       a {
         text-decoration: none;
+      }
+
+      .word {
+        overflow: hidden;
+        display: block !important;
+
+        .char {
+          opacity: 0;
+          transform: translateY(100%);
+        }
       }
     }
 
@@ -98,7 +111,7 @@
 
       .h3 {
         font-size: 48px;
-        line-height: 0.9;
+        line-height: 1;
         margin-top: 28px;
       }
     }
@@ -113,7 +126,7 @@
       }
 
       .h3 {
-        line-height: 0.9;
+        line-height: 1;
         margin-top: 58px;
       }
     }

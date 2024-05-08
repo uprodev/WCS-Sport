@@ -1,16 +1,4 @@
 var video2 = document.querySelector(".block-home-2");
-//   video2Source;
-
-// if (window.screen.width < 1024) {
-//   video2Source = document.querySelector("#scrollyVideo").dataset.videomob;
-// } else {
-//   video2Source = document.querySelector("#scrollyVideo").dataset.video;
-// }
-
-// new ScrollyVideo({
-//   scrollyVideoContainer: "scrollyVideo",
-//   src: video2Source,
-// });
 
 const lenis = new Lenis({
   lerp: 0.05,
@@ -116,6 +104,17 @@ ScrollTrigger.matchMedia({
   },
 });
 
+document.querySelectorAll(".block-home-4 .card-home").forEach((card) => {
+  card.addEventListener("mouseenter", function () {
+    var lottie = this.querySelector(".lottie");
+    lottie.play();
+  });
+  card.addEventListener("mouseleave", function () {
+    var lottie = this.querySelector(".lottie");
+    lottie.stop();
+  });
+});
+
 gsap.to(".block-home-4 .slide6", {
   scrollTrigger: {
     trigger: ".block-home-4 .slide6",
@@ -169,6 +168,12 @@ jQuery(document).ready(function ($) {
     trigger: "main.content",
     start: "bottom bottom",
     toggleClass: { targets: ".footer", className: "is-active" },
+  });
+
+  ScrollTrigger.create({
+    trigger: "main.content",
+    start: "bottom 82",
+    toggleClass: { targets: ".header", className: "hidden" },
   });
 
   if ($(".header .navbar-toggler").length) {

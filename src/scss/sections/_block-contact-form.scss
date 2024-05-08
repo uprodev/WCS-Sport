@@ -172,6 +172,7 @@
 
     .field {
       margin: 0 0 26px;
+      position: relative;
 
       .form-label {
         @include media-breakpoint-down(md) {
@@ -188,6 +189,28 @@
 
         .form-control {
           height: 234px;
+        }
+      }
+
+      .invalid,
+      .error {
+        border-color: $error !important;
+        color: $error !important;
+      }
+
+      .hs-error-msgs {
+        position: absolute;
+        right: 15px;
+        bottom: 0;
+        text-align: right;
+        max-width: 150px;
+
+        label {
+          text-transform: lowercase !important;
+          color: $error !important;
+          font-size: 12px !important;
+          font-weight: 400 !important;
+          line-height: 14.4px !important;
         }
       }
     }
@@ -379,7 +402,7 @@
 
       .form-description {
         h3 {
-          line-height: 0.9;
+          line-height: 1;
           margin: 0 0 29px;
         }
 

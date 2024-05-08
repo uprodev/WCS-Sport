@@ -33,7 +33,7 @@
   h3 {
     @include font-size($h3-font-size-sm, $h4-font-size);
     font-weight: 400;
-    line-height: 0.98;
+    line-height: 1;
     letter-spacing: -0.01em;
     margin: 0 0 48px;
     padding: 0 0 8px;
@@ -58,7 +58,7 @@
         display: block;
         @include font-size(4.125rem, $h1-font-size);
         font-weight: 400;
-        line-height: 0.85;
+        line-height: 1;
         letter-spacing: -0.01em;
         text-transform: uppercase;
 
@@ -84,7 +84,7 @@
   @include media-breakpoint-up(md) {
     &:not(.block-case-result--img-right) {
       .row {
-        &>div {
+        & > div {
           &:first-child {
             padding-right: 0;
           }
@@ -96,7 +96,7 @@
       .row {
         flex-direction: row-reverse;
 
-        &>div {
+        & > div {
           &:first-child {
             padding-left: 0;
           }
@@ -128,7 +128,7 @@
   @include media-breakpoint-up(xl) {
     &:not(.block-case-result--img-right) {
       .row {
-        &>div {
+        & > div {
           &:first-child {
             padding-right: 40px;
           }
@@ -140,7 +140,7 @@
       .row {
         flex-direction: row-reverse;
 
-        &>div {
+        & > div {
           &:first-child {
             padding-left: 40px;
           }
@@ -189,7 +189,7 @@
       }
     }
 
-    &+.block-headline-text {
+    & + .block-headline-text {
       padding: 130px 0;
     }
   }
@@ -197,7 +197,7 @@
   @include media-breakpoint-up(xxl) {
     &:not(.block-case-result--img-right) {
       .row {
-        &>div {
+        & > div {
           &:first-child {
             padding-right: 0;
 
@@ -217,7 +217,7 @@
 
     &--img-right {
       .row {
-        &>div {
+        & > div {
           &:first-child {
             padding-left: 0;
 

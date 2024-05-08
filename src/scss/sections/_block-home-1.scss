@@ -2,7 +2,7 @@
   position: static;
   overflow: visible;
 
-  .lottie {
+  & > .lottie {
     position: fixed;
     left: 50%;
     bottom: 5vh;

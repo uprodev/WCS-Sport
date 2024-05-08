@@ -5,7 +5,7 @@
     h3 {
       @include font-size($h3-font-size-sm, 2.625rem);
       font-weight: 500;
-      line-height: 0.98;
+      line-height: 1;
       margin: 0 0 48px;
 
       & + h3 {

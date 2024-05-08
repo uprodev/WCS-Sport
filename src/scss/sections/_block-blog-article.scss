@@ -40,6 +40,7 @@
     .btn {
       width: 100%;
       margin: 16px 0 0;
+      padding: 0;
     }
   }
 
@@ -60,6 +61,7 @@
     padding: 23px 21px;
     border-radius: 4px;
     margin: 0 0 25px;
+    background-color: #e3e3e7 !important;
 
     img {
       display: block;
@@ -262,7 +264,7 @@
 
     .article-main {
       h4 {
-        line-height: 0.9;
+        line-height: 1;
         margin: 64px 0 30px;
       }
 

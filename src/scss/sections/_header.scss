@@ -38,10 +38,16 @@
   .btn-primary {
     @include media-breakpoint-down(lg) {
       background-color: $secondary;
-      color: $primary;
 
       &:before {
         display: none;
+      }
+
+      .btn-label {
+        &:before,
+        &:after {
+          color: $primary;
+        }
       }
     }
   }

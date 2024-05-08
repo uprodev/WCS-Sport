@@ -85,7 +85,7 @@
     }
   }
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     ul {
       li {
         margin: 0 0 68px;
@@ -108,6 +108,7 @@
         .image {
           margin: 0;
           @include img-abs-container(92.5%);
+          height: 100%;
         }
 
         .text {
@@ -149,7 +150,7 @@
         }
 
         p {
-          margin: 0 -50px 26px 0;
+          margin: 0 0 26px 0;
           letter-spacing: 0;
           max-width: none !important;
         }
