@@ -8,9 +8,9 @@ if($args['row']):
         <div class="col-md-6 col-lg-4">
 
           <?php if ($title): ?>
-              <div class="lines-wrapper">
-            <h2><?= $title ?></h2>
-              </div>
+            <div class="lines-wrapper">
+              <h2><?= $title ?></h2>
+            </div>
           <?php endif ?>
 
           <?php if ($emails): ?>
@@ -36,7 +36,9 @@ if($args['row']):
         <?php if ($form || $hubspot_form): ?>
           <div class="col-md-6 col-lg-8 col-xl-7">
             <?php if ($is_hubspot && $hubspot_form): ?>
-              <?= $hubspot_form ?>
+              <div class="form-box">
+                <?= $hubspot_form ?>
+              </div>
             <?php elseif(!$is_hubspot && $form): ?>
               <?= do_shortcode('[contact-form-7 id="' . $form . '"]') ?>
             <?php endif ?>

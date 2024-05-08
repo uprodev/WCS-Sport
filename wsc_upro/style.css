@@ -26,6 +26,9 @@ Theme Name: WSC Sports
     transform: rotate(360deg);
   }
 }
+#INDmenu-btn{
+  display: none;
+}
 
 @media (min-width: 1024px){
 	.navigation-main ul li.current-menu-item a {

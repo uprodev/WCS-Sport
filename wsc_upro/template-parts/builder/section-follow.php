@@ -6,9 +6,9 @@ if($args['row']):
     <div class="container-fluid">
       <div class="wrapper">
 
-        <?php if ($image): ?>
+        <?php if ($shortcode): ?>
           <div class="careers-share-image fade-up">
-            <?= wp_get_attachment_image($image['ID'], 'full') ?>
+            <?= do_shortcode($shortcode) ?>
           </div>
         <?php endif ?>
 

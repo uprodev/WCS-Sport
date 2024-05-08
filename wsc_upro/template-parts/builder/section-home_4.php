@@ -5,7 +5,7 @@ if($args['row']):
   <section class="block-home block-home-4 bg-secondary">
     <div class="block-inner bg-secondary">
       <div class="section-horizontal">
-        <div class="slide1 fade-up-wrapper">
+        <div class="slide1">
 
           <?php if ($text): ?>
             <?= $text ?>
@@ -44,61 +44,55 @@ if($args['row']):
 
         <?php if ($items): ?>
 
-          <?php foreach ($items as $index => $item): ?>
-            <div class="slide<?= $index + 2 ?>">
-              <div class="card-home fade-up">
+          <div class="d-md-flex">
 
-                <?php if ($item['image']): ?>
-                  <figure class="card-image">
-                    <?= wp_get_attachment_image($item['image']['ID'], 'full') ?>
-                  </figure>
-                <?php endif ?>
-                
-                <div class="card-body">
+            <?php foreach ($items as $index => $item): ?>
+              <div class="slide<?= $index + 2 ?>">
+                <div class="card-home">
+                  <div class="card-body">
 
-                  <?php if ($item['title']): ?>
-                    <div class="card-title"><?= $item['title'] ?></div>
-                  <?php endif ?>
-
-                  <?php if ($item['icon']): ?>
-                    <div class="card-icon">
-                      <?= wp_get_attachment_image($item['icon']['ID'], 'full') ?>
-                    </div>
-                  <?php endif ?>
-
-                  <div class="card-footer">
-
-                    <?php if ($item['text']): ?>
-                      <?= $item['text'] ?>
+                    <?php if ($item['title']): ?>
+                      <div class="card-title"><?= $item['title'] ?></div>
                     <?php endif ?>
 
-                    <?php if ($item['name']): ?>
-                      <strong><?= $item['name'] ?></strong>
-                    <?php endif ?>
-
-                    <?php if ($item['logo']): ?>
-                      <div class="card-logo">
-                        <?= wp_get_attachment_image($item['logo']['ID'], 'full') ?>
+                    <?php if ($item['icon']): ?>
+                      <div class="card-icon">
+                        <?= wp_get_attachment_image($item['icon']['ID'], 'full') ?>
                       </div>
                     <?php endif ?>
 
+                    <div class="card-footer">
+
+                      <?php if ($item['text']): ?>
+                        <?= $item['text'] ?>
+                      <?php endif ?>
+
+                      <?php if ($item['name']): ?>
+                        <strong><?= $item['name'] ?></strong>
+                      <?php endif ?>
+
+                      <?php if ($item['logo']): ?>
+                        <div class="card-logo">
+                          <?= wp_get_attachment_image($item['logo']['ID'], 'full') ?>
+                        </div>
+                      <?php endif ?>
+
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          <?php endforeach ?>
+            <?php endforeach ?>
 
-        <?php endif ?>
-        
-        <?php if ($final_text): ?>
-          <div class="slide<?= $items ? count($items) + 2 : 2 ?>">
-            <div class="circle"></div>
-            <div class="wrapper">
-              <div class="slide-text"><?= $final_text ?></div>
-            </div>
           </div>
+          
         <?php endif ?>
         
+        <div class="slide<?= $items ? count($items) + 2 : 2 ?>">
+          <div class="circle"></div>
+          <div class="wrapper">
+            <div class="slide-text"><?= $final_text ?></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

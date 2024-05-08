@@ -3,7 +3,7 @@ if($args['row']):
 	foreach($args['row'] as $key=>$arg) $$key = $arg; ?>
 
   <?php if ($title || $text): ?>
-    <section class="page-header-text <?= $is_contact ? 'page-header-text--contact' : 'page-header-text--clients' ?>">
+    <section class="page-header-text <?= $is_page != 'Other' ? 'page-header-text--' . mb_strtolower($is_page) : 'page-header-text--clients' ?>">
       <div class="container-fluid">
         <div class="lines-wrapper">
 

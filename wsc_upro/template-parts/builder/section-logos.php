@@ -21,36 +21,71 @@ if($args['row']):
         </div>
       <?php endif ?>
 
-      <?php if($gallery): ?>
+      <?php if ($items): ?>
+        <div class="d-none d-md-block">
+          <div class="logos-list">
+            <ul>
 
-        <div class="logos-list">
-          <ul>
+              <?php foreach ($items as $item): ?>
 
-            <?php foreach($gallery as $index => $image): ?>
+                <?php if($item['gallery']): ?>
 
-              <?php if ($index == 0 || $index % 3 == 0): ?>
-                <li>
-                  <div class="logo-inner">
-                  <?php endif ?>
+                  <li>
+                    <div class="logo-inner">
 
-                  <span<?php if($index < 9) echo ' class="logo-item"' ?>>
-                    <?= wp_get_attachment_image($image['ID'], 'full') ?>
-                  </span>
+                      <?php foreach($item['gallery'] as $image): ?>
 
-                  <?php if (($index + 1) % 3 == 0 || $index == count($gallery) - 1): ?>
-                </div>
-              </li>
-            <?php endif ?>
+                        <span>
+                          <?= wp_get_attachment_image($image['ID'], 'full') ?>
+                        </span>
 
+                      <?php endforeach; ?>
 
-          <?php endforeach; ?>
+                    </div>
+                  </li>
 
-        </ul>
-      </div>
+                <?php endif; ?>
 
-    <?php endif; ?>
+              <?php endforeach ?>
 
-  </div>
-</section>
+            </ul>
+          </div>
+        </div>
+      <?php endif ?>
 
-<?php endif; ?>
+      <?php if ($items_mobile): ?>
+        <div class="d-md-none">
+          <div class="logos-list">
+            <ul>
+
+              <?php foreach ($items_mobile as $item): ?>
+
+                <?php if($item['gallery']): ?>
+
+                  <li>
+                    <div class="logo-inner">
+
+                      <?php foreach($item['gallery'] as $image): ?>
+
+                        <span>
+                          <?= wp_get_attachment_image($image['ID'], 'full') ?>
+                        </span>
+
+                      <?php endforeach; ?>
+
+                    </div>
+                  </li>
+
+                <?php endif; ?>
+
+              <?php endforeach ?>
+
+            </ul>
+          </div>
+        </div>
+      <?php endif ?>
+
+    </div>
+  </section>
+
+  <?php endif; ?>
