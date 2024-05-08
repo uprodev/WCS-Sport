@@ -3,7 +3,7 @@ if($args['row']):
 	foreach($args['row'] as $key=>$arg) $$key = $arg; ?>
 
   <section class="block-home block-home-5 bg-secondary">
-    <div class="block-inner bg-secondary fade-up-wrapper">
+    <div class="block-inner bg-secondary">
       <div class="container-fluid">
 
         <?php if ($slogan): ?>

@@ -11,7 +11,7 @@ if($args['row']):
             <li>
               <div class="item">
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-lg-6">
                     <div class="text lines-wrapper">
 
                       <?php if ($item['title']): ?>
@@ -30,7 +30,7 @@ if($args['row']):
                       
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-lg-6">
 
                     <?php if ($item['image'] || $item['image_mobile']): ?>
                       <div class="image">

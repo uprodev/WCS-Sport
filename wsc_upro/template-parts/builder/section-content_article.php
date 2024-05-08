@@ -15,9 +15,9 @@ if($args['row']):
         <div class="col-md-5 col-xxl-6 d-none d-md-block">
           <div class="article-details">
 
-            <?php if ($image): ?>
+            <?php if ($image_id = $image ? $image['ID'] : 25647): ?>
               <div class="image">
-                <?= wp_get_attachment_image($image['ID'], 'full') ?>
+                <?= wp_get_attachment_image($image_id, 'full') ?>
               </div>
             <?php endif ?>
 

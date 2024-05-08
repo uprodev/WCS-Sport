@@ -2,14 +2,22 @@
 if($args['row']):
 	foreach($args['row'] as $key=>$arg) $$key = $arg; ?>
 
-  <?php $is_video = ($video || $video_mobile) && $type == 'Video' ?>
+  <?php $is_video = ($video || $video_mobile || $video_url || $video_url_mobile) && $type == 'Video' ?>
 
   <section class="page-header-case<?php if($is_video) echo ' video-wrapper' ?>">
+
+    <?php if ($is_video): ?>
+      <lottie-player id="scrollToExplore" class="lottie" loop src="<?= get_stylesheet_directory_uri() ?>/json/preloader2.json"></lottie-player>
+    <?php endif ?>
+    
     <div class="block-inner bg-secondary">
 
-      <?php if ($image || $video || $video_mobile): ?>
+      <?php if ($image || $video || $video_mobile || $video_url || $video_url_mobile): ?>
         <div class="media">
-          <div class="img-fade">
+
+          <?php if ($video || $video_mobile || $video_url || $video_url_mobile): ?>
+            <div class="img-fade">
+            <?php endif ?>
 
             <?php if ($image && $type == 'Image'): ?>
               <?= wp_get_attachment_image($image['ID'], 'full') ?>
@@ -17,25 +25,23 @@ if($args['row']):
             
             <?php if ($is_video): ?>
 
-              <?php if ($video_mobile): ?>
-                <div class="d-lg-none">
-                  <video src="<?= $video_mobile['url'] ?>" muted playsinline></video>
-                </div>
-              <?php endif ?>
+              <?php 
+              $is_video_desktop = $video_url ?: ($video ? $video['url'] : '');
+              $is_video_mobile = $video_url_mobile ?: ($video_url ?: ($video_mobile ? $video_mobile['url'] : $video['url']));
+              ?>
               
-              <?php if ($video): ?>
-                <div class="d-none d-lg-block">
-                  <video src="<?= $video['url'] ?>" muted playsinline></video>
-                </div>
-              <?php endif ?>
+              <video class="case-video"<?php if($poster) echo ' poster="' . $poster['url'] . '"' ?> data-desktop="<?= $is_video_desktop ?>" data-mobile="<?= $is_video_mobile ?>" muted playsinline></video>
               
             <?php endif ?>
 
-          </div>
+            <?php if ($video || $video_mobile || $video_url || $video_url_mobile): ?>
+            </div>
+          <?php endif ?>
+
         </div>
       <?php endif ?>
 
-      <?php if ($text || $is_video): ?>
+      <?php if ($text || $video || $video_mobile): ?>
         <div class="text">
           <div class="container-fluid">
 
@@ -45,7 +51,7 @@ if($args['row']):
               </div>
             <?php endif ?>
 
-            <?php if ($is_video): ?>
+            <?php if ($video || $video_mobile): ?>
               <div class="video-controls">
                 <button class="video-replay"></button>
                 <button class="video-play"></button>

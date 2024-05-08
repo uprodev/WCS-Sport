@@ -5,37 +5,42 @@ if($args['row']):
   <?php 
   $posts_per_page = 3;
   $post_id = get_the_ID();
+  $posts_ids = [$post_id];
   ?>
 
   <section class="block-cards-list">
-
-    <?php if ($title): ?>
-      <div class="container-fluid container-fluid--wide">
-        <div class="row">
-          <div class="col-lg-6 col-xl-4 col-xxl-6 lines-wrapper">
-            <h3><?= $title ?></h3>
-          </div>
+    <div class="container-fluid container-fluid--wide">
+      <div class="row">
+        <div class="col-lg-6 col-xl-4 col-xxl-6 lines-wrapper">
+          <h3><?= $title ?: mb_strtoupper(__('Articles worth reading', 'WSC')) ?></h3>
         </div>
       </div>
-    <?php endif ?>
-
+    </div>
     <div class="container-fluid">
       <div class="row">
 
         <?php 
+        $posts = get_field('related_posts') ?: $posts_;
         $posts_count = $posts ? count($posts) : 0;
         if($posts): 
           ?>
 
-          <?php foreach($posts as $post): 
+          <?php 
+          foreach($posts as $post): 
             global $post;
-            setup_postdata($post); ?>
+            setup_postdata($post);
+            ?>
 
-            <div class="col-md-6 col-lg-4">
+            <?php if ($post->ID != $post_id): ?>
+              <div class="col-md-6 col-lg-4">
 
-              <?php get_template_part('parts/content', 'post') ?>
-              
-            </div>
+                <?php 
+                get_template_part('parts/content', 'post');
+                $posts_ids[] = $post->ID;
+                ?>
+                
+              </div>
+            <?php endif ?>
 
           <?php endforeach; ?>
           <?php wp_reset_postdata(); ?>
@@ -49,7 +54,7 @@ if($args['row']):
           $args = array(
             'post_type' => 'post', 
             'posts_per_page' => $posts_per_page - $posts_count,
-            'post__not_in' => array($post_id),
+            'post__not_in' => $posts_ids,
             'tag__in' => wp_list_pluck(wp_get_object_terms($post_id, 'post_tag'), 'term_id') ?: [0],
             'paged' => get_query_var('paged')
           );
@@ -62,7 +67,10 @@ if($args['row']):
 
               <div class="col-md-6 col-lg-4 fade-up">
 
-                <?php get_template_part('parts/content', 'post') ?>
+                <?php 
+                get_template_part('parts/content', 'post');
+                $posts_ids[] = $post->ID;
+                ?>
 
               </div>
 
@@ -81,7 +89,7 @@ if($args['row']):
           $args = array(
             'post_type' => 'post', 
             'posts_per_page' => $posts_per_page - $posts_count - $tag_posts_count,
-            'post__not_in' => array($post_id),
+            'post__not_in' => $posts_ids,
             'cat' => wp_list_pluck(wp_get_object_terms($post_id, 'category'), 'term_id') ?: [0],
             'paged' => get_query_var('paged')
           );
@@ -90,7 +98,7 @@ if($args['row']):
             ?>
 
             <?php while ($wp_query->have_posts()): $wp_query->the_post(); ?>
-              
+
               <div class="col-md-6 col-lg-4 fade-up">
 
                 <?php get_template_part('parts/content', 'post') ?>

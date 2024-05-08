@@ -3,14 +3,12 @@
 <?php if (get_the_content()): ?>
 	<section class="block-text-page">
 		<div class="container-fluid">
-			<div class="text-center lines-wrapper">
+			<div class="text-center">
 				<h1><?php the_title() ?></h1>
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-xxl-10">
-					<div class="lines-wrapper">
-						<?php the_content() ?>
-					</div>
+					<?php the_content() ?>
 				</div>
 			</div>
 		</div>

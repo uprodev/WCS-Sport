@@ -16,7 +16,7 @@ if($args['row']):
 
         <?php if($gallery_mobile): ?>
 
-          <div class="d-md-none fade-up-wrapper">
+          <div class="d-md-none">
             <div class="logos-list">
               <ul>
 
@@ -44,9 +44,9 @@ if($args['row']):
 
         <?php if($gallery): ?>
 
-          <div class="d-none d-md-block fade-up-wrapper">
+          <div class="d-none d-md-block">
             <div class="logos-list">
-              <ul>>
+              <ul>
 
                 <?php foreach($gallery as $image): ?>
 
