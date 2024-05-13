@@ -29,3 +29,66 @@ textarea.form-control {
     }
   }
 }
+
+.jstyling-select {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+
+  .jstyling-select-s {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:after {
+      content: url(../images/select-primary.svg);
+      width: 12px;
+      height: 8px;
+      font-size: 0;
+      line-height: 0;
+      flex: 0 0 auto;
+    }
+
+    .jstyling-select-t {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  .jstyling-select-l {
+    margin: 0;
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top: 100%;
+
+    div {
+      list-style: none;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+
+  &.active {
+    z-index: 700;
+
+    .jstyling-select-l {
+      display: block;
+    }
+  }
+}

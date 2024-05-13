@@ -5,20 +5,20 @@
   span,
   a {
     display: block;
-    border: 1px solid $secondary;
-    border-radius: 2px;
+    border: 1px solid #818181;
+    border-radius: 23px;
     margin: 0 16px 8px 0;
     padding: 6px 7px 4px;
     font-size: 0.875rem;
     font-weight: 300;
     line-height: 1;
     text-transform: uppercase;
+    color: #818181;
   }
 
   @include media-breakpoint-up(lg) {
     span,
     a {
-      border-radius: 4px;
       margin: 8px 8px 0 0;
       padding: 10px 11px 8px;
       font-size: 0.875rem;

@@ -53,6 +53,22 @@
     }
   }
 
+  &--careers {
+    padding-bottom: 58px;
+    h1 {
+      line-height: 0.93;
+      font-weight: 300;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    &--careers {
+      h1 {
+        line-height: 0.85;
+      }
+    }
+  }
+
   @include media-breakpoint-up(xl) {
     padding: 210px 0 54px;
 
@@ -92,6 +108,15 @@
         max-width: 28em;
       }
     }
+
+    &--careers {
+      h1 {
+        line-height: 0.85;
+      }
+      p {
+        font-weight: 400;
+      }
+    }
   }
 
   @include media-breakpoint-between(xl, xxl) {
@@ -105,6 +130,13 @@
     &--contact {
       h1 {
         font-weight: 300;
+        margin: 0 0 31px;
+      }
+    }
+    &--careers {
+      padding-bottom: 66px;
+      h1 {
+        line-height: 0.85;
         margin: 0 0 31px;
       }
     }
@@ -152,6 +184,14 @@
       p {
         max-width: 28em;
         font-size: 26px;
+      }
+    }
+
+    &--careers {
+      padding-bottom: 110px;
+
+      h1 {
+        margin: 0 0 45px;
       }
     }
   }

@@ -28,18 +28,41 @@
   }
 
   .form-description {
-    margin: 0 0 29px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin: 0 0 52px;
+    }
 
     h3 {
       margin: 0 0 52px;
+      font-weight: 500;
       @include font-size($h3-font-size-sm, $h4-font-size);
     }
 
     @include media-breakpoint-down(md) {
       font-weight: 300;
+      flex-direction: column-reverse;
+
+      figure {
+        text-align: right;
+        transform: scaleX(-1);
+        margin: 0 0 58px;
+
+        img {
+          display: block;
+        }
+      }
 
       h3 {
-        font-weight: 300;
+        font-weight: 400;
+        margin: 0;
+      }
+
+      h2 {
+        margin: 0;
       }
     }
   }
@@ -216,24 +239,34 @@
     }
 
     .form-check {
-      margin-top: 10px;
+      margin-top: 14px;
 
       .form-check-label {
-        font-size: 0.875rem;
+        font-size: 1rem;
+        line-height: 1.35;
         padding: 0 15px 0 0;
       }
     }
 
     .form-buttons {
-      margin: 26px 0 0;
+      margin: 42px 0 0;
 
       .btn {
         width: 100%;
         padding-top: 3px;
 
+        @include media-breakpoint-down(md) {
+          width: auto;
+          padding: 0 22px;
+        }
+
         &[type="reset"] {
           flex-shrink: 0;
           width: auto;
+
+          @include media-breakpoint-down(md) {
+            display: none;
+          }
         }
 
         @include media-breakpoint-down(md) {
@@ -248,13 +281,22 @@
   }
 
   &--type1 {
-    padding-top: 41px;
+    padding-top: 0;
     padding-bottom: 0;
+
+    form {
+      padding: 50px 0 0;
+    }
   }
 
   @include media-breakpoint-up(md) {
     .form-description {
-      padding: 10px 0 0;
+      padding: 8px 0 0;
+      h3 {
+        max-width: 8em;
+        line-height: 0.92;
+        margin: 0 0 45px;
+      }
       p {
         font-size: 1rem;
         line-height: 1.35;
@@ -263,7 +305,7 @@
     }
 
     form {
-      padding: 0;
+      padding: 12px 0 0;
 
       .form-buttons {
         .btn {
@@ -388,24 +430,15 @@
         }
       }
       .form-buttons {
-        margin: 65px 0 0;
-        .btn {
-          height: 42px;
-          padding: 3px 14px 0;
-        }
+        margin: 54px 0 0;
       }
     }
 
     &--type1 {
       padding-top: 89px;
-      padding-bottom: 130px;
+      padding-bottom: 113px;
 
       .form-description {
-        h3 {
-          line-height: 1;
-          margin: 0 0 29px;
-        }
-
         p {
           margin: 0 23% 0 0;
         }
@@ -501,7 +534,7 @@
     }
 
     &--type1 {
-      padding-top: 89px;
+      padding-top: 0;
       padding-bottom: 130px;
 
       .form-description {

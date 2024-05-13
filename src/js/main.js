@@ -170,7 +170,7 @@ jQuery(document).ready(function ($) {
       }
       ScrollTrigger.create({
         trigger: bg,
-        start: "top 5px",
+        start: "top 30px",
         end: "bottom 20px",
         onEnter: function () {
           document.querySelector(".header").classList.add(className);
@@ -272,20 +272,27 @@ jQuery(document).ready(function ($) {
   });
 
   // swiper
-  if (document.querySelector(".block-slider-variable-width")) {
-    const swiperVar = new Swiper(".block-slider-variable-width .swiper", {
-      loop: "true",
-      slidesPerView: "auto",
-      centeredSlides: true,
-      freeMode: true,
-      initialSlide: 2,
-      spaceBetween: 16,
-      breakpoints: {
-        768: {
-          spaceBetween: 24,
-          freeMode: false,
-          initialSlide: 3,
+  if (document.querySelector(".block-careers-filter")) {
+    const swiperVar = new Swiper(".block-careers-filter .swiper", {
+      loop: true,
+      speed: 1000,
+      slidesPerView: 1,
+      spaceBetween: 0,
+      direction: "vertical",
+      allowTouchMove: false,
+      effect: "creative",
+      creativeEffect: {
+        prev: {
+          shadow: true,
+          translate: [0, "-100%", 0],
         },
+        next: {
+          translate: [0, "100%", 0],
+        },
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
       },
       on: {
         init: function () {
@@ -293,6 +300,8 @@ jQuery(document).ready(function ($) {
         },
       },
     });
+
+    $.jStyling.createSelect($(".block-careers-filter .careers-filter select"));
   }
 
   if (document.querySelector(".block-slider-content")) {
@@ -308,6 +317,23 @@ jQuery(document).ready(function ($) {
         el: ".block-slider-content .swiper-pagination",
         clickable: true,
       },
+      on: {
+        init: function () {
+          ScrollTrigger.refresh();
+        },
+      },
+    });
+  }
+
+  if (document.querySelector(".block-awards")) {
+    const swiperContent = new Swiper(".block-awards .swiper", {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 50,
+      autoplay: {
+        delay: 5000,
+      },
+      duration: 600,
       on: {
         init: function () {
           ScrollTrigger.refresh();
@@ -712,7 +738,7 @@ jQuery(document).ready(function ($) {
   }
 
   // fade up, in
-  var animatedEls = document.querySelectorAll(".fade-up, .fade-in , .fade-up-wrapper > *, .block-text p, .block-text  li, .fade-up-overflow > *");
+  var animatedEls = document.querySelectorAll(".fade-up, .fade-in , .fade-up-wrapper > *, .fade-up-overflow > *");
   animatedEls.forEach((el) => {
     gsap.to(el, {
       scrollTrigger: {

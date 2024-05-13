@@ -1,32 +1,20 @@
 .block-text {
-  padding: 60px 0 32px;
+  padding: 60px 0 25px;
   @include font-size(1.125rem, 2rem);
   line-height: 1.32;
-
-  @include media-breakpoint-down(md) {
-    font-weight: 300;
-  }
-
-  p,
-  li {
-    @extend .fade-up;
-  }
+  font-weight: 300;
 
   p {
     margin: 0 10px 30px 0;
   }
 
   h3 {
-    font-weight: 500;
+    font-weight: 400;
     margin: 0 0 52px;
     @include font-size($h3-font-size-sm, 3rem);
 
     &:not(:first-child) {
       margin-top: 55px;
-    }
-
-    @include media-breakpoint-down(md) {
-      font-weight: 300;
     }
   }
 
@@ -87,7 +75,7 @@
   }
 
   @include media-breakpoint-up(xxl) {
-    padding: 149px 0 77px;
+    padding: 61px 0 63px;
     font-size: 2rem;
     line-height: 1.35;
     letter-spacing: 0.01em;
@@ -109,7 +97,7 @@
 
       li {
         padding: 0 0 0 36px;
-        margin: 0 0 24px;
+        margin: 0 0 26.5px;
 
         &:before {
           left: 0;
