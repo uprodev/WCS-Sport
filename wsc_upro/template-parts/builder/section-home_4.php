@@ -55,9 +55,23 @@ if($args['row']):
                       <div class="card-title"><?= $item['title'] ?></div>
                     <?php endif ?>
 
-                    <?php if ($item['icon']): ?>
+                    <?php 
+                    $is_icon = $item['icon_type'] == 'Icon' && $item['icon'];
+                    $is_lottie = $item['icon_type'] == 'Lottie' && $item['lottie'];
+                    ?>
+
+                    <?php if ($is_icon || $is_lottie): ?>
                       <div class="card-icon">
-                        <?= wp_get_attachment_image($item['icon']['ID'], 'full') ?>
+
+                        <?php if ($is_icon): ?>
+                          <?= wp_get_attachment_image($item['icon']['ID'], 'full') ?>
+                        <?php endif ?>
+                        
+                        <?php if ($is_lottie): ?>
+                          <lottie-player class="lottie" loop src="<?= get_stylesheet_directory_uri() ?>/json/<?= $item['lottie'] ?>"></lottie-player>
+                        <?php endif ?>
+                        
+
                       </div>
                     <?php endif ?>
 

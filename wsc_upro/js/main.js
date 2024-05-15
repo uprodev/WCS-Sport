@@ -26,19 +26,31 @@ gsap.ticker.add((time) => {
 
 jQuery(document).ready(function ($) {
   lenis.on("scroll", function () {
-    if (lenis.actualScroll > $(window).height()) {
-      $(".scroll-to-top").addClass("active");
-    } else {
-      $(".scroll-to-top").removeClass("active");
+    if ($(".block-blog-article").length) {
+      if (lenis.actualScroll > $(window).height()) {
+        $(".scroll-to-top").addClass("active");
+      } else {
+        $(".scroll-to-top").removeClass("active");
+      }
     }
-    // if (lenis.progress > 0.97) {
-    //   $(".header").addClass("hidden");
-    // } else {
-    //   $(".header").removeClass("hidden");
-    // }
+    if ($(".block-featured-article").length && $(window).width() < 768) {
+      if (lenis.actualScroll > $(".block-cards-list .col-md-6:nth-child(3)").offset().top - $(window).height() / 2) {
+        $(".scroll-to-top").addClass("active");
+      } else {
+        $(".scroll-to-top").removeClass("active");
+      }
+    }
   });
   $(".scroll-to-top").on("click", function () {
     lenis.scrollTo(0, { duration: 1 });
+  });
+  $(window).on("resize", function () {
+    if ($(".block-featured-article").length && $(window).width() >= 768) {
+      $(".scroll-to-top").removeClass("active");
+    }
+  });
+  $(".block-cards-list .btn-wrapper .btn").on("click", function () {
+    $(".scroll-to-top").addClass("active");
   });
 
   if (document.querySelector(".block-case-video video")) {
@@ -68,7 +80,7 @@ jQuery(document).ready(function ($) {
           gsap.to(line.querySelectorAll(".word"), {
             scrollTrigger: {
               trigger: txt,
-              start: "top 80%",
+              start: "top 90%",
             },
             y: 0,
             opacity: 1,
@@ -158,7 +170,7 @@ jQuery(document).ready(function ($) {
       }
       ScrollTrigger.create({
         trigger: bg,
-        start: "top 5px",
+        start: "top 30px",
         end: "bottom 20px",
         onEnter: function () {
           document.querySelector(".header").classList.add(className);
@@ -260,20 +272,27 @@ jQuery(document).ready(function ($) {
   });
 
   // swiper
-  if (document.querySelector(".block-slider-variable-width")) {
-    const swiperVar = new Swiper(".block-slider-variable-width .swiper", {
-      loop: "true",
-      slidesPerView: "auto",
-      centeredSlides: true,
-      freeMode: true,
-      initialSlide: 2,
-      spaceBetween: 16,
-      breakpoints: {
-        768: {
-          spaceBetween: 24,
-          freeMode: false,
-          initialSlide: 3,
+  if (document.querySelector(".block-careers-filter")) {
+    const swiperVar = new Swiper(".block-careers-filter .swiper", {
+      loop: true,
+      speed: 1000,
+      slidesPerView: 1,
+      spaceBetween: 0,
+      direction: "vertical",
+      allowTouchMove: false,
+      effect: "creative",
+      creativeEffect: {
+        prev: {
+          shadow: true,
+          translate: [0, "-100%", 0],
         },
+        next: {
+          translate: [0, "100%", 0],
+        },
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
       },
       on: {
         init: function () {
@@ -281,6 +300,8 @@ jQuery(document).ready(function ($) {
         },
       },
     });
+
+    $.jStyling.createSelect($(".block-careers-filter .careers-filter select"));
   }
 
   if (document.querySelector(".block-slider-content")) {
@@ -296,6 +317,23 @@ jQuery(document).ready(function ($) {
         el: ".block-slider-content .swiper-pagination",
         clickable: true,
       },
+      on: {
+        init: function () {
+          ScrollTrigger.refresh();
+        },
+      },
+    });
+  }
+
+  if (document.querySelector(".block-awards")) {
+    const swiperContent = new Swiper(".block-awards .swiper", {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 50,
+      autoplay: {
+        delay: 5000,
+      },
+      duration: 600,
       on: {
         init: function () {
           ScrollTrigger.refresh();
@@ -364,12 +402,22 @@ jQuery(document).ready(function ($) {
 
     const swiperCases1 = new Swiper(".block-cases-slider .swiper-inner", {
       loop: true,
-      speed: 1500,
+      speed: 1000,
       slidesPerView: 1,
       spaceBetween: 0,
       direction: "vertical",
       allowTouchMove: false,
       initialSlide: total,
+      effect: "creative",
+      creativeEffect: {
+        prev: {
+          shadow: true,
+          translate: [0, "-100%", 0],
+        },
+        next: {
+          translate: [0, "100%", 0],
+        },
+      },
       on: {
         init: function () {
           ScrollTrigger.refresh();
@@ -379,11 +427,21 @@ jQuery(document).ready(function ($) {
 
     const swiperCases = new Swiper(".block-cases-slider .swiper-outer", {
       loop: true,
-      speed: 1500,
+      speed: 1000,
       slidesPerView: 1,
       spaceBetween: 0,
       direction: "vertical",
       allowTouchMove: false,
+      effect: "creative",
+      creativeEffect: {
+        prev: {
+          shadow: true,
+          translate: [0, "100%", 0],
+        },
+        next: {
+          translate: [0, "-100%", 0],
+        },
+      },
       autoplay: {
         delay: 5000,
         disableOnInteraction: false,
@@ -400,7 +458,7 @@ jQuery(document).ready(function ($) {
         slideChangeTransitionStart: function (swiper) {
           var currentInner = total - swiper.realIndex;
           // console.log(total, swiper.realIndex, currentInner);
-          swiperCases1.slideToLoop(currentInner, 1500);
+          swiperCases1.slideToLoop(currentInner);
 
           $(".block-cases-slider .swiper-controls li.active").removeClass("active");
           $(".block-cases-slider .swiper-controls li").each(function () {
@@ -430,9 +488,10 @@ jQuery(document).ready(function ($) {
         },
       },
     });
+
     $(".block-cases-slider .swiper-controls li").on("click", function () {
       var slide = parseInt($(this).data("slide"));
-      // console.log(slide);
+      console.log(swiperCases.realIndex, total);
       swiperCases.slideToLoop(slide);
     });
 
@@ -465,64 +524,6 @@ jQuery(document).ready(function ($) {
           disableOnInteraction: false,
         },
       });
-    });
-  }
-
-  if (document.querySelector(".block-cases-carousel")) {
-    ScrollTrigger.matchMedia({
-      "(max-width:767px)": function () {
-        document.querySelectorAll(".block-cases-carousel .slide").forEach((slide) => {
-          gsap.to(slide.querySelector(".card-case"), {
-            scrollTrigger: {
-              trigger: slide,
-              start: "top center",
-              end: "bottom center",
-              toggleActions: "play reverse play reverse",
-            },
-            duration: 0.5,
-            ease: "none",
-            backgroundColor: "#e5ff00",
-          });
-
-          gsap.to(slide.querySelector(".img-fade"), {
-            scrollTrigger: {
-              trigger: slide,
-              start: "top center",
-              end: "bottom center",
-              toggleActions: "play reverse play reverse",
-            },
-            duration: 0.5,
-            ease: "none",
-            paddingTop: "53%",
-          });
-        });
-      },
-      "(min-width:768px)": function () {
-        var casesContainer = document.querySelector(".block-cases-carousel"),
-          animatedCases = document.querySelector(".block-cases-carousel .wrapper");
-        gsap.to(animatedCases, {
-          x: (animatedCases.scrollWidth - casesContainer.offsetWidth) * -1,
-          scrollTrigger: {
-            trigger: casesContainer,
-            start: "top top",
-            end: () => "+=" + animatedCases.scrollWidth,
-            scrub: true,
-            pin: true,
-          },
-          onComplete: function () {
-            gsap.to(".block-testimonials .testimonial .video-wrapper .video", {
-              scrollTrigger: {
-                trigger: ".block-testimonials .testimonial",
-                start: "top bottom",
-                end: () => "+=" + $(window).height() * 2,
-                scrub: true,
-              },
-              y: 20,
-              ease: "none",
-            });
-          },
-        });
-      },
     });
   }
 
@@ -685,6 +686,42 @@ jQuery(document).ready(function ($) {
     });
   }
 
+  if (document.querySelector(".block-cards-slider-cases")) {
+    const swiperCards = new Swiper(".block-cards-slider-cases .swiper", {
+      loop: true,
+      slidesPerView: 1.1,
+      spaceBetween: 10,
+      speed: 700,
+      pagination: {
+        el: ".block-cards-slider-cases .swiper-pagination",
+        type: "progressbar",
+      },
+      navigation: {
+        prevEl: ".block-cards-slider-cases .swiper-button-prev",
+        nextEl: ".block-cards-slider-cases .swiper-button-next",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 1.6,
+          spaceBetween: 16,
+        },
+        1024: {
+          slidesPerView: 1.9,
+          spaceBetween: 24,
+        },
+        1600: {
+          slidesPerView: 2.35,
+          spaceBetween: 24,
+        },
+      },
+      on: {
+        init: function () {
+          ScrollTrigger.refresh();
+        },
+      },
+    });
+  }
+
   if ($(".header .navbar-toggler").length) {
     // menu toggle
     $(".header .navbar-toggler").on("click", function () {
@@ -701,7 +738,7 @@ jQuery(document).ready(function ($) {
   }
 
   // fade up, in
-  var animatedEls = document.querySelectorAll(".fade-up, .fade-in , .fade-up-wrapper > *, .block-text p, .block-text  li, .fade-up-overflow > *");
+  var animatedEls = document.querySelectorAll(".fade-up, .fade-in , .fade-up-wrapper > *, .fade-up-overflow > *");
   animatedEls.forEach((el) => {
     gsap.to(el, {
       scrollTrigger: {
