@@ -140,9 +140,9 @@ function filter_jobs(){
 		</ul>
 
 		<?php 
-	else :
-		_e('Sorry, nothing found', 'WSC');
-	endif;
+	else : ?>
+		<div class="text text-center"><?php the_field('text_nothing_3', 'option') ?></div>
+	<?php endif;
 
 	die();
 }

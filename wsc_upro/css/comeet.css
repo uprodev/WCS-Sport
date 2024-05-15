@@ -81,6 +81,11 @@
   padding-left: 0;
 }
 
+#jobFormDiv .form-control.ng-invalid {
+  border-color: #ff6b00 !important;
+  color: #ff6b00 !important;
+}
+
 #jobFormDiv .form-control::placeholder {
   color: #6f706a;
   opacity: 1;
@@ -139,6 +144,18 @@
   transform: scale(1.08);
 }
 
+#jobFormDiv .control-tip.error {
+  color: #ff6b00 !important;
+  position: absolute;
+  right: 15px;
+  bottom: 0;
+  text-align: right;
+  max-width: 150px;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 14.4px !important;
+}
+
 @media (min-width: 640px) {
   #jobFormDiv #applyForm {
     display: flex;
@@ -180,6 +197,7 @@
 
   #jobFormDiv label + div {
     width: 100% !important;
+    position: relative;
   }
 
   #jobFormDiv .form-control {

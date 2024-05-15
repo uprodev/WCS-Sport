@@ -8,8 +8,19 @@ if($args['row']):
         <div class="col-md-6 col-lg-4">
 
           <?php if ($title): ?>
-            <div class="lines-wrapper">
+            <div class="form-description">
               <h2><?= $title ?></h2>
+
+              <?php if ($icon): ?>
+                <figure>
+                  <?php if (pathinfo($icon['url'])['extension'] == 'svg'): ?>
+                    <img src="<?= $icon['url'] ?>" alt="<?= $icon['alt'] ?>">
+                  <?php else: ?>
+                    <?= wp_get_attachment_image($icon['ID'], 'full') ?>
+                  <?php endif ?>
+                </figure>
+              <?php endif ?>
+
             </div>
           <?php endif ?>
 
