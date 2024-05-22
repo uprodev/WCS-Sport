@@ -15,7 +15,12 @@ if($args['row']):
         <div class="col-md-5 col-xxl-6 d-none d-md-block">
           <div class="article-details">
 
-            <?php if ($image_id = $image ? $image['ID'] : 25647): ?>
+            <?php 
+            $terms = wp_get_object_terms(get_the_ID(), 'category');
+            if ($terms) $image_id = in_array(77, wp_list_pluck($terms, 'term_id')) ? 400 : 25647;
+            ?>
+
+            <?php if ($image_id = $image ? $image['ID'] : $image_id): ?>
               <div class="image">
                 <?= wp_get_attachment_image($image_id, 'full') ?>
               </div>

@@ -26,7 +26,7 @@ if($args['row']):
               <?php if ($main['video']): ?>
                 <div class="video-wrapper">
                   <div class="video img-fade">
-                    <video src="<?= $main['video']['url'] ?>" muted autoplay playsinline>></video>
+                    <video src="<?= $main['video']['url'] ?>" muted autoplay playsinline></video>
                   </div>
                   <div class="video-controls">
                     <button class="video-replay"></button>

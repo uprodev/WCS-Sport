@@ -75,11 +75,11 @@ if($args['row']):
                       </div>
                     <?php endif ?>
 
-                    <div class="card-footer">
+                    <?php if ($item['text']): ?>
+                      <?= $item['text'] ?>
+                    <?php endif ?>
 
-                      <?php if ($item['text']): ?>
-                        <?= $item['text'] ?>
-                      <?php endif ?>
+                    <div class="card-footer">
 
                       <?php if ($item['name']): ?>
                         <strong><?= $item['name'] ?></strong>

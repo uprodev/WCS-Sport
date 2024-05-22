@@ -32,39 +32,45 @@ if($args['row']):
           <div class="swiper">
             <div class="swiper-wrapper">
 
-              <?php foreach ($items as $item): ?>
-                <div class="swiper-slide">
-                  <div class="card">
+              <?php $counter = count($items) < 4 ? 2 : 1 ?>
 
-                    <?php if ($item['title']): ?>
-                      <div class="card-header">
-                        <h3><?= $item['title'] ?></h3>
-                      </div>
-                    <?php endif ?>
-                    
-                    <?php if ($item['image'] || $item['video']): ?>
-                      <div class="card-visual">
-                        <div class="inner">
+              <?php for ($i = 0; $i < $counter; $i++) { ?>
 
-                          <?php if ($item['image']): ?>
-                            <?= wp_get_attachment_image($item['image']['ID'], 'full') ?>
-                          <?php endif ?>
+                <?php foreach ($items as $item): ?>
+                  <div class="swiper-slide">
+                    <div class="card">
 
-                          <?php if ($item['video']): ?>
-                            <video src="<?= $item['video']['url'] ?>" loop autoplay playsinline muted></video>
-                          <?php endif ?>
-
+                      <?php if ($item['title']): ?>
+                        <div class="card-header">
+                          <h3><?= $item['title'] ?></h3>
                         </div>
-                      </div>
-                    <?php endif ?>
-                    
-                    <?php if ($item['text']): ?>
-                      <div class="card-text"><?= $item['text'] ?></div>
-                    <?php endif ?>
-                    
+                      <?php endif ?>
+
+                      <?php if ($item['image'] || $item['video']): ?>
+                        <div class="card-visual">
+                          <div class="inner">
+
+                            <?php if ($item['image']): ?>
+                              <?= wp_get_attachment_image($item['image']['ID'], 'full') ?>
+                            <?php endif ?>
+
+                            <?php if ($item['video']): ?>
+                              <video src="<?= $item['video']['url'] ?>" loop autoplay playsinline muted></video>
+                            <?php endif ?>
+
+                          </div>
+                        </div>
+                      <?php endif ?>
+
+                      <?php if ($item['text']): ?>
+                        <div class="card-text"><?= $item['text'] ?></div>
+                      <?php endif ?>
+
+                    </div>
                   </div>
-                </div>
-              <?php endforeach ?>
+                <?php endforeach ?>
+
+              <?php } ?>
 
             </div>
           </div>

@@ -61,9 +61,9 @@ jQuery(document).ready(function ($) {
       lenis.start();
       video2.style.zIndex = 1100;
       document.querySelector(".header").style.zIndex = 999;
+      document.querySelector(".block-home-3").style.zIndex = 1200;
 
       lenis.on("scroll", function () {
-        console.log(lenis.actualScroll, $(".block-home-3").offset().top);
         if (lenis.actualScroll > 10) {
           ste.stop();
         }
@@ -77,6 +77,8 @@ jQuery(document).ready(function ($) {
     });
   } else {
     document.getElementById("scrollToExplore").style.display = "none";
+    document.querySelector(".header").style.zIndex = 999;
+    document.querySelector(".block-home-3").style.zIndex = 1200;
   }
 
   // split numbers
@@ -173,7 +175,12 @@ jQuery(document).ready(function ($) {
   ScrollTrigger.create({
     trigger: "main.content",
     start: "bottom bottom",
-    toggleClass: { targets: ".footer", className: "is-active" },
+    onEnter: function () {
+      $(".footer").addClass("is-active");
+    },
+    onLeaveBack: function () {
+      $(".footer").removeClass("is-active");
+    },
   });
 
   ScrollTrigger.create({
@@ -195,5 +202,9 @@ jQuery(document).ready(function ($) {
         $(".header").addClass("nav-opened");
       }
     });
+  }
+
+  if (navigator.userAgent.indexOf("Mac") > 0) {
+    $("body").addClass("mac-os");
   }
 });

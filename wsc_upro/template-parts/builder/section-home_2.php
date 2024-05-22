@@ -19,7 +19,8 @@
     <?php
     
  if (wp_is_mobile())
-      echo do_shortcode('[rev_slider alias="slider-6"][/rev_slider]');
+    //  echo do_shortcode('[rev_slider alias="slider-6"][/rev_slider]');
+      echo do_shortcode('[rev_slider alias="slider-4"][/rev_slider]');
   else
    echo do_shortcode('[rev_slider alias="slider-1"][/rev_slider]');
     

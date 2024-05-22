@@ -26,11 +26,15 @@ if($args['row']):
                       
                     </div>
                     <div class="col-text">
+                      <div class="text">
 
-                      <?php if ($item['text']): ?>
-                        <div class="text"><?= $item['text'] ?></div>
-                      <?php endif ?>
-                      
+                        <?php if ($item['title_2']): ?>
+                          <h3><?= $item['title_2'] ?></h3>
+                        <?php endif ?>
+
+                        <?= $item['text'] ?>
+
+                      </div>
                     </div>
                   </div>
                 </div>
