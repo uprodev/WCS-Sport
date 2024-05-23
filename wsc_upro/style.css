@@ -7,6 +7,7 @@ Theme Name: WSC Sports
   width: 80px;
   height: 80px;
 }
+
 .lds-dual-ring:after {
   content: " ";
   display: block;
@@ -18,20 +19,67 @@ Theme Name: WSC Sports
   border-color: #e5ff00 transparent #e5ff00 transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
-#INDmenu-btn{
+
+#INDmenu-btn {
   display: none;
 }
 
-@media (min-width: 1024px){
-	.navigation-main ul li.current-menu-item a {
-		opacity: 1;
-	}
+@media (min-width: 1024px) {
+  .navigation-main ul li.current-menu-item a {
+    opacity: 1;
+  }
+}
+
+
+html .block-home-1 .video {
+  z-index: 1;
+}
+
+@media (max-width: 450px) {
+  html body .block-home-1 {
+    /* background-color: #e3fd00 !important; */
+    background-color: rgb(11, 11, 11) !important;
+  }
+
+  html body .block-home-1::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: #e3fd00 !important;
+    transition: all .5s linear;
+  }
+
+  html body .block-home-1.change_bg::before {
+    height: 0;
+  }
+
+  html .block-home-1 .video video {
+    object-fit: contain;
+  }
+
+  #videoContainer .rs-stl-back .rs-parallax-wrap {
+    top: 130px !important;
+  }
+
+  #videoContainer .rs-stl-back .rs-parallax-wrap .rs-layer-static.rs-layer canvas {
+    width: 119% !important;
+    height: 119% !important;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }

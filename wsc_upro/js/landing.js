@@ -97,21 +97,21 @@ jQuery(document).ready(function ($) {
   });
 
   // home horizontal section
-  ScrollTrigger.matchMedia({
-    "(min-width:768px)": function () {
-      var animationContainer = document.querySelector(".block-home-4"),
-        animated = document.querySelector(".section-horizontal");
-      gsap.to(animated, {
-        x: (animated.scrollWidth - animationContainer.offsetWidth) * -1,
-        scrollTrigger: {
-          trigger: animationContainer,
-          start: "top top",
-          end: () => "+=" + animated.scrollWidth,
-          scrub: true,
-          pin: true,
-        },
-      });
-    },
+
+  let mm = gsap.matchMedia();
+  mm.add("(min-width: 768px)", () => {
+    var animationContainer = document.querySelector(".block-home-4"),
+      animated = document.querySelector(".section-horizontal");
+    gsap.to(animated, {
+      x: (animated.scrollWidth - animationContainer.offsetWidth) * -1,
+      scrollTrigger: {
+        trigger: animationContainer,
+        start: "top top",
+        end: () => "+=" + animated.scrollWidth * 0.7,
+        scrub: true,
+        pin: true,
+      },
+    });
   });
 
   document.querySelectorAll(".block-home-4 .card-home").forEach((card) => {

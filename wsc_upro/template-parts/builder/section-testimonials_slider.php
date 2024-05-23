@@ -4,7 +4,24 @@ if($args['row']):
 
   <?php if ($items): ?>
     <section class="block-testimonials block-testimonials--padding-top">
-      <div class="testimonials-slider bg-gray">
+
+      <?php if ($title || $text): ?>
+        <div class="container-fluid">
+          <div class="text-center">
+
+            <?php if ($title): ?>
+              <h3><?= $title ?></h3>
+            <?php endif ?>
+            
+            <?php if ($text): ?>
+              <div class="fade-up-overflow fs-21"><?= $text ?></div>
+            <?php endif ?>
+            
+          </div>
+        </div>
+      <?php endif ?>
+      
+      <div class="testimonials-slider <?= $is_grey ? 'bg-gray' : 'bg-primary' ?>">
         <div class="container-fluid">
           <div class="swiper">
             <div class="swiper-wrapper">

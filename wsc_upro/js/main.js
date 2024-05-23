@@ -676,9 +676,22 @@ jQuery(document).ready(function ($) {
       });
     }
 
+    let mm = gsap.matchMedia();
+    mm.add("(min-width: 1024px)", () => {
+      ScrollTrigger.create({
+        trigger: ".block-video-slider",
+        start: "top 20%",
+        onEnter: function () {
+          if (!platformVideoInitiated) {
+            platformVideoInit();
+          }
+        },
+      });
+    });
+    mm.add("(max-width: 1023px)", () => {});
     ScrollTrigger.create({
       trigger: ".block-video-slider",
-      start: "top 20%",
+      start: "top 80%",
       onEnter: function () {
         if (!platformVideoInitiated) {
           platformVideoInit();

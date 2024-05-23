@@ -38,3 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+const block_home_1 = document.querySelector('html body .block-home-1');
+if (block_home_1) {
+  setTimeout(function() {
+    block_home_1.classList.add('change_bg');
+  }, 6800);
+}

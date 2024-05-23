@@ -63,8 +63,8 @@
 				<script>
 					window.comeetInit = function() {
 						COMEET.init({
-							"token":       "867326A326A3AD119354B9F326A3AD13AD1867",
-							"company-uid": "68.007",
+							"token":       "39711F3AC5AC539701CB81CB8204FE5C",
+							"company-uid": "93.007",
 							"company-name": "WSC Sandbox",
 							"candidate-source-storage": false,
 							"color":       "278fe6",
@@ -129,7 +129,7 @@
 			},
 			"datePosted" : "<?php the_field('time_updated') ?>",
 			"validThrough" : "",
-			"employmentType" : "[<?php echo implode(', ', wp_list_pluck(wp_get_object_terms(get_the_ID(), employment_type), 'name')) ?>]",
+			"employmentType" : "[<?php echo implode(', ', wp_list_pluck(wp_get_object_terms(get_the_ID(), 'employment_type'), 'name')) ?>]",
 			"hiringOrganization" : {
 				"@type" : "Organization",
 				"name" : "<?php the_field('company_name') ?>",

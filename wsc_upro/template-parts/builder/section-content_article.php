@@ -17,7 +17,7 @@ if($args['row']):
 
             <?php 
             $terms = wp_get_object_terms(get_the_ID(), 'category');
-            if ($terms) $image_id = in_array(77, wp_list_pluck($terms, 'term_id')) ? 400 : 25647;
+            if ($terms) $image_id = in_array(77, wp_list_pluck($terms, 'term_id')) ? 27259 : 25647;
             ?>
 
             <?php if ($image_id = $image ? $image['ID'] : $image_id): ?>

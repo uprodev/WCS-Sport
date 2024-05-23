@@ -1,5 +1,5 @@
-<?php 
-
+<?php
+require_once 'vendor/autoload.php';
 // show_admin_bar( false );
 
 add_action('wp_enqueue_scripts', 'load_style_script');
@@ -12,7 +12,7 @@ function load_style_script(){
 
     if(is_front_page()) wp_enqueue_script('my-landing', get_stylesheet_directory_uri() . '/js/landing.js', array(), time(), true);
     else wp_enqueue_script('my-main', get_stylesheet_directory_uri() . '/js/main.js', array(), time(), true);
-    
+
     wp_enqueue_script('my-events', get_stylesheet_directory_uri() . '/js/events.js', array(), time(), true);
     wp_enqueue_script('my-add', get_stylesheet_directory_uri() . '/js/add.js', array(), time(), true);
 
@@ -42,11 +42,11 @@ add_action('after_setup_theme', function(){
 
 add_theme_support( 'title-tag' );
 add_theme_support('html5');
-add_theme_support( 'post-thumbnails' ); 
+add_theme_support( 'post-thumbnails' );
 
 
 if( function_exists('acf_add_options_page') ) {
-	
+
 	acf_add_options_page(array(
 		'page_title' 	=> 'Main settings',
 		'menu_title'	=> 'Theme options',

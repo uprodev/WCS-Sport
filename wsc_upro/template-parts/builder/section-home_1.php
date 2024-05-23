@@ -4,7 +4,7 @@ if($args['row']):
 
   <lottie-player id="scrollToExplore" class="lottie" loop src="<?= get_stylesheet_directory_uri() ?>/json/preloader2.json"></lottie-player>
   
-  <?php //if (!isset($_COOKIE['is_first_time'])): ?>
+  <?php if (!isset($_COOKIE['is_first_time'])): ?>
 
     <?php 
     $is_video_desktop = ($video || $url_video) ? ($video ? $video['url'] : $url_video) : ($video_mobile ? $video_mobile['url'] : $url_video_mobile);
@@ -19,6 +19,6 @@ if($args['row']):
         </div>
       </div>
     </section>
-  <?php // endif ?>
+  <?php endif ?>
 
   <?php endif; ?>
